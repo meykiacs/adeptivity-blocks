@@ -32,7 +32,10 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
-			{ __( 'Second – hello from the editor!', 'second' ) }
+			{ __(
+				'Adeptivity Blocks – hello from the editor!',
+				'adeptivity-blocks'
+			) }
 		</p>
 	);
 }
