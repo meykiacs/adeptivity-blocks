@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "adeptivity-blocks/myblock",
+	"name": "adeptivity-blocks/side-menu",
 	"version": "0.1.0",
-	"title": "MyBlock",
-	"category": "widgets",
-	"icon": "smiley",
+	"title": "Side Menu",
+	"category": "theme",
+	"icon": "menu",
 	"description": "Example block scaffolded with Create Block tool.",
 	"supports": {
 		"html": false

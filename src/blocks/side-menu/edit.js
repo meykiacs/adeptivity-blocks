@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+// import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -21,21 +21,16 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 import './editor.scss';
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {WPElement} Element to render.
- */
-export default function Edit() {
+export default function Edit( { attributes } ) {
+	const { siteLogo } = attributes;
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Adeptivity Blocks – hello from the editor!',
-				'adeptivity-blocks'
-			) }
-		</p>
+		<header { ...useBlockProps() }>
+			<div>
+				<img src={ siteLogo } alt="" />
+			</div>
+			<ul>
+				<li>hi</li>
+			</ul>
+		</header>
 	);
 }

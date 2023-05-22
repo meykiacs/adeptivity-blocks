@@ -21,6 +21,6 @@
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function adeptivity_blocks_block_init() {
-	register_block_type( __DIR__ . '/build' );
+	register_block_type( __DIR__ . '/build/blocks/side-menu' );
 }
 add_action( 'init', 'adeptivity_blocks_block_init' );

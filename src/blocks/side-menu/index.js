@@ -20,6 +20,8 @@ import './style.scss';
 import Edit from './edit';
 import metadata from './block.json';
 
+import siteLogo from '../../svgs/Adeptivity-logo-1.svg';
+
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -30,4 +32,10 @@ registerBlockType( metadata.name, {
 	 * @see ./edit.js
 	 */
 	edit: Edit,
+	attributes: {
+		siteLogo: {
+			type: 'object',
+			default: siteLogo,
+		},
+	},
 } );
