@@ -20,17 +20,17 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import styled from 'styled-components';
 
-export default function Edit( { attributes } ) {
-	const { siteLogo } = attributes;
+export default function Edit() {
 	return (
 		<header { ...useBlockProps() }>
-			<div>
-				<img src={ siteLogo } alt="" />
-			</div>
-			<ul>
-				<li>hi</li>
-			</ul>
+			<Wrapper>hi</Wrapper>
 		</header>
 	);
 }
+
+const Wrapper = styled.div`
+	color: white;
+	width: 230px;
+`;
