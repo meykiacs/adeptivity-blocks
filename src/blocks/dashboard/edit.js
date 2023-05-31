@@ -11,7 +11,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor'
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -19,18 +19,18 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
-import styled from 'styled-components';
+import './editor.scss'
+import styled from 'styled-components'
 
 export default function Edit() {
 	return (
 		<header { ...useBlockProps() }>
 			<Wrapper>hi</Wrapper>
 		</header>
-	);
+	)
 }
 
 const Wrapper = styled.div`
 	color: white;
 	width: 230px;
-`;
+`

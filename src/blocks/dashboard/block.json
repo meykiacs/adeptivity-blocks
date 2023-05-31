@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "adeptivity-blocks/side-menu",
-	"version": "0.1.0",
-	"title": "Side Menu",
+	"name": "adeptivity-blocks/dashboard",
+	"version": "1.0.0",
+	"title": "dashboard",
 	"category": "theme",
 	"icon": "menu",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Whole dashboard",
 	"supports": {
 		"html": false
 	},
@@ -14,5 +14,6 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"render": "file:./render.php"
+	"render": "file:./render.php",
+	"viewScript": "file:./App.js"
 }
