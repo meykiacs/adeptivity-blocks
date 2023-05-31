@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   --font-weight-light: 350;
   --font-weight-lighter: 200;
 
-	--font-family: "Open Sans", sans-serif;
+	--font-family: "Open Sans", serif;
 	--font-family-mono: "Open Sans", sans-serif;
 	--font-family-spicy: "Open Sans", sans-serif;
 	--font-family-calligraphic: "Open Sans", sans-serif;
