@@ -4,7 +4,7 @@ import Button from './Buttons'
 import Section from './Section'
 import SectionHeader from './SectionHeader'
 
-export default function MyCourses({imageDir}) {
+export default function MyCourses() {
 	return (
 		<Section>
 			<SectionHeader hasRow title="My Courses">
@@ -13,7 +13,7 @@ export default function MyCourses({imageDir}) {
 				<Button href="" content="See All..." color="primary" />
 			</SectionHeader>
 			<CourseCardWrapper>
-				<CourseCardList imageDir={imageDir} />
+				<CourseCardList />
 			</CourseCardWrapper>
 		</Section>
 	)

@@ -1,11 +1,11 @@
 import CourseCard from './CourseCard'
 import { courses } from '../data'
 
-export default function CourseCardList({imageDir}) {
+export default function CourseCardList() {
 	return (
 		<>
 			{ courses.map( ( course ) => (
-				<CourseCard imageDir={imageDir} { ...course } key={ course.id } />
+				<CourseCard { ...course } key={ course.id } />
 			) ) }
 		</>
 	)

@@ -1,8 +1,10 @@
 import SVG from 'react-inlinesvg'
 import styled from 'styled-components'
+import usePhp from '../../usePhp'
 
-export default function CourseCard( { img, title, icon, color, imageDir } ) {
-	const image = img === '' ? imageDir + 'course-placeholder.png' : img
+export default function CourseCard( { img, title, icon, color } ) {
+	const assetDir = usePhp()
+	const image = img === '' ? assetDir + 'img/course-placeholder.png' : img
 	return (
 		<Wrapper>
 			<ImageWrapper color={ color }>

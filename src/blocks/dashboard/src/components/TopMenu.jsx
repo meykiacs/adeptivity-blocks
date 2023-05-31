@@ -10,19 +10,19 @@ export default function TopMenu() {
 		<Wrapper>
 			<ul>
 				<li>
-					<btn>
+					<a>
 						<Icon src={ search } />
-					</btn>
+					</a>
 				</li>
 				<li>
-					<btn>
+					<a>
 						<Icon src={ pocket } />
-					</btn>
+					</a>
 				</li>
 				<li>
-					<btn>
+					<a>
 						<Icon src={ profile } />
-					</btn>
+					</a>
 				</li>
 			</ul>
 		</Wrapper>

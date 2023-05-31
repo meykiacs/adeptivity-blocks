@@ -5,13 +5,15 @@ import ProgressList from './ProgressList'
 import { useState } from 'react'
 import Section from './Section'
 import SectionHeader from './SectionHeader'
+import usePhp from '../../usePhp'
 
-export default function Progress({imageDir}) {
+export default function Progress() {
+	const assetDir = usePhp()
 	const [ totalScore, setTotalScore ] = useState( 0 )
 	const [ maxScore, setMaxScore ] = useState( 1 )
 	const score28 = Math.floor( ( totalScore * 28 ) / ( maxScore + 1 ) ) + 1
 	const postfix = score28 > 9 ? +score28 : '0' + score28
-	const growthPath = imageDir + '/growth' + postfix + '.png'
+	const growthPath = assetDir + 'img/growth' + postfix + '.png'
 	return (
 		<Section>
 			{ /* <Title>My Crativity Growth</Title> */ }

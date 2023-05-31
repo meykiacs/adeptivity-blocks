@@ -21,7 +21,8 @@
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 
-define('IMAGEDIR', plugin_dir_url( plugin_dir_path(__FILE__) . 'img/growth01.png' ));
+define('ASSETDIR', plugin_dir_url( __FILE__));
+
 
 function adeptivity_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/dashboard' );

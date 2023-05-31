@@ -1,9 +1,11 @@
 import SVG from 'react-inlinesvg'
 import styled from 'styled-components'
 import Button from './Buttons'
+import usePhp from '../../usePhp'
 
-export default function ToolCard( { title, img, category, scores, imageDir } ) {
-	const image = img ? img : imageDir + 'course-placeholder.png'
+export default function ToolCard( { title, img, category, scores } ) {
+	const assetDir = usePhp()
+	const image = img ? img : assetDir + 'img/course-placeholder.png'
 	return (
 		<Wrapper>
 			<Header>

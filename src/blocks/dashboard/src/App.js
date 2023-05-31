@@ -1,8 +1,3 @@
-import '@fontsource/open-sans/700.css'
-import '@fontsource/open-sans/600.css'
-import '@fontsource/open-sans/400.css'
-import '@fontsource/open-sans/300.css'
-
 import Progress from './components/Progress'
 import styled from 'styled-components'
 import MyCourses from './components/MyCourses'
@@ -13,9 +8,8 @@ import AnalyzedClasses from './components/AnalyzedClasses'
 import PageMenu from './components/PageMenu'
 import TopMenu from './components/TopMenu'
 import MyCurrentClasses from './components/MyCurrentClasses'
-import GlobalStyles from './Global'
 
-function App({imageDir}) {
+function App() {
 	return (
 		<Wrapper>
 			<SideWrapper>
@@ -26,16 +20,15 @@ function App({imageDir}) {
 					<TopMenu />
 				</TopWrapper>
 				<MainWrapper>
-					<Progress imageDir={imageDir} />
-					<MyCourses imageDir={imageDir} />
+					<Progress />
+					<MyCourses />
 					<MyLatestClasses />
-					<ToolsInMyArsenal imageDir={imageDir} />
+					<ToolsInMyArsenal />
 					<MyCurrentClasses />
 					<AnalyzedClasses />
 				</MainWrapper>
 			</MidWrapper>
 			<Side />
-			<GlobalStyles />
 		</Wrapper>
 	)
 }
