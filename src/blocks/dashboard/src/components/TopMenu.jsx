@@ -10,17 +10,17 @@ export default function TopMenu() {
 		<Wrapper>
 			<ul>
 				<li>
-					<a>
+					<a href="https://google.com">
 						<Icon src={ search } />
 					</a>
 				</li>
 				<li>
-					<a>
+					<a href="https://google.com">
 						<Icon src={ pocket } />
 					</a>
 				</li>
 				<li>
-					<a>
+					<a href="https://google.com">
 						<Icon src={ profile } />
 					</a>
 				</li>
