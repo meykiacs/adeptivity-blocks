@@ -4,5 +4,5 @@
  */
 // var_dump(ASSETDIR);exit;
 ?>
-<div id="root" <?php echo get_block_wrapper_attributes(); ?> data-assetdir="<?php echo(ASSETDIR)?>">
+<div id="root" <?php echo get_block_wrapper_attributes(); ?> data-assetdir="<?php echo esc_attr(ASSETDIR)?>">
 </div>

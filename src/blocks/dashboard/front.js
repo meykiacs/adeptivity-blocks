@@ -1,10 +1,10 @@
 import { PhpProvider } from './PhpContext'
 import App from './src/App'
-import ReactDOM from 'react-dom'
+import {render} from '@wordpress/element'
 
 window.addEventListener('DOMContentLoaded', () => {
 	const root = document.getElementById('root')
-	ReactDOM.render(
+	render(
 		<PhpProvider>
 			<App />
 		</PhpProvider>, root)

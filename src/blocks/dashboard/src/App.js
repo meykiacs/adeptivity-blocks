@@ -37,6 +37,7 @@ export default App
 const Wrapper = styled.div`
 	display: flex;
 	align-items: flex-start;
+	isolation: isolate;
 `
 const MidWrapper = styled.div``
 
