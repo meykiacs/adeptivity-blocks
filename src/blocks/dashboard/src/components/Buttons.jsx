@@ -12,9 +12,9 @@ export default function Button( { content, color, variant } ) {
 	)
 }
 
-const Btn = styled.a`
+const Btn = styled.button`
 	border: none;
-	display: inline-block;
+	display: block;
 	border-radius: 7px;
 	background-color: var( ${ ( props ) => props.color } );
 	box-shadow: 0px 1px 5px rgba( 0, 0, 0, 0.25 );
@@ -26,7 +26,13 @@ const Btn = styled.a`
 	line-height: 1;
 `
 
-export const Label = styled( Btn )`
+export const Label = styled.span`
+	border: none;
+	border-radius: 7px;
+	text-decoration: none;
+	font-weight: var( --font-weight-bold-600 );
+	line-height: 1;
+
 	background-color: var( --color-tertiary );
 	padding: 3px 7px;
 	box-shadow: none;

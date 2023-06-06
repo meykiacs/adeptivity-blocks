@@ -129,7 +129,7 @@ export const PhpProvider = ({ children }) => {
 
       --color-text: #202224;
       --color-background: #FFF;
-      --color-blurred-background: #FFF;
+      --color-blurred-background: rgba(0,0,0,0.8);
       --color-primary: #03BA6D;
       --color-secondary: #0A4029;
       --color-tertiary: rgba(122, 199, 152,0.9);

@@ -10,7 +10,7 @@ export default function ToolCard( { title, img, category, scores } ) {
 		<Wrapper>
 			<Header>
 				<Image src={ image } alt={ title + ' image' } />
-				<Button content={ category } variant="label" />
+				<StyledButton content={ category } variant="label" />
 			</Header>
 			<Footer>
 				<Title>{ title }</Title>
@@ -87,4 +87,7 @@ const ScoreWrapper = styled.div`
 	gap: 8.5px;
 	align-items: center;
 	padding-top: 7.5px;
+`
+const StyledButton = styled(Button)`
+	
 `
