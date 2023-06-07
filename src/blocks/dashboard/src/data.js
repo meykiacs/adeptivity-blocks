@@ -136,10 +136,10 @@ const tools = [
 ]
 
 const menuBottons = [
-	{ id: 1, text: 'Home', icon: home, variant: 'selected' },
-	{ id: 2, text: 'Classes', icon: classes, variant: 'listed' },
-	{ id: 3, text: 'Journey', icon: journey, variant: 'listed' },
-	{ id: 4, text: 'Toolshed', icon: toolshed, variant: 'listed' },
+	{ id: 1, text: 'Home', icon: home, variant: 'selected', to: '/' },
+	{ id: 2, text: 'Classes', icon: classes, variant: 'listed', to: '/classes' },
+	{ id: 3, text: 'Journey', icon: journey, variant: 'listed', to: '/journey' },
+	{ id: 4, text: 'Toolshed', icon: toolshed, variant: 'listed', to: '/toolshed' },
 ]
 
 const myClasses = [

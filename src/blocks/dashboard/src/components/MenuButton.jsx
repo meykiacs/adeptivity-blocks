@@ -1,10 +1,16 @@
 import styled from 'styled-components'
 import SVG from 'react-inlinesvg'
+import { Link, useLocation } from 'react-router-dom'
+export default function MenuButton( { text, icon, to } ) {
+	const location = useLocation()
+	let temp = text === 'Home' ? '' : text
+	if (temp.length > 0) {
+		temp = temp[0].toLowerCase() + temp.slice(1)
+	}
+	const Button = location.pathname !== "/" + temp ? ListedButton : ActiveButton
 
-export default function MenuButton( { text, icon, variant } ) {
-	const Button = variant === 'listed' ? ListedButton : ActiveButton
 	return (
-		<Button href={ variant === 'listed' ? '#' : null }>
+		<Button to={to}>
 			<Icon src={ icon } />
 			<p>{ text }</p>
 		</Button>
@@ -20,7 +26,9 @@ const Icon = styled( SVG )`
 	margin-right: 23px;
 `
 
-const ActiveButton = styled.a`
+const ActiveButton = styled(Link)`
+	pointer-events: none;
+	cursor: default;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -40,6 +48,7 @@ const ActiveButton = styled.a`
 `
 
 const ListedButton = styled( ActiveButton )`
+	pointer-events: initial;
 	background-color: rgba( 0, 0, 0, 0 );
 	& p {
 		color: var( --color-gray-900 );

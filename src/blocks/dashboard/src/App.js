@@ -1,35 +1,30 @@
-import Progress from './components/Progress'
 import styled from 'styled-components'
-import MyCourses from './components/MyCourses'
-import MyLatestClasses from './components/MyLatestClasses'
-import ToolsInMyArsenal from './components/ToolsInMyArsenal'
-import AnalyzedClasses from './components/AnalyzedClasses'
 
 import PageMenu from './components/PageMenu'
 import TopMenu from './components/TopMenu'
-import MyCurrentClasses from './components/MyCurrentClasses'
+import { Route, Routes } from 'react-router-dom'
+import Home from './components/Home'
+import Classes from './components/Classes'
 
 function App() {
 	return (
 		<Wrapper>
-			<SideWrapper>
-				<PageMenu />
-			</SideWrapper>
-			<MidWrapper>
-				<TopWrapper>
-					<TopMenu />
-				</TopWrapper>
-				<MainWrapper>
-					<Progress />
-					<MyCourses />
-					<MyLatestClasses />
-					<ToolsInMyArsenal />
-					<MyCurrentClasses />
-					<AnalyzedClasses />
-				</MainWrapper>
-			</MidWrapper>
-			<Side />
-		</Wrapper>
+				<SideWrapper>
+					<PageMenu />
+				</SideWrapper>
+				<MidWrapper>
+					<TopWrapper>
+						<TopMenu />
+					</TopWrapper>
+					<MainWrapper>
+						<Routes>
+							<Route path='/' element={<Home />} />
+							<Route path='classes' element={<Classes />} />
+						</Routes>
+					</MainWrapper>
+				</MidWrapper>
+				<Side />
+			</Wrapper>
 	)
 }
 
