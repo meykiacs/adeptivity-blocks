@@ -2,7 +2,14 @@ import SVG from "react-inlinesvg"
 import styled from "styled-components"
 import usePhp from "../../usePhp"
 
-export default function CourseCard({ img, title, icon, color }) {
+export default function CourseCard({
+  img,
+  title,
+  icon,
+  color,
+  duration,
+  withDuration,
+}) {
 	const assetDir = usePhp()
 	const image = img === "" ? assetDir + "img/course-placeholder.png" : img
 	return (
@@ -11,7 +18,14 @@ export default function CourseCard({ img, title, icon, color }) {
 				<Image src={image} alt="course image" />
 			</ImageWrapper>
 			<Footer>
-				<Title>{title}</Title>
+			{withDuration ? (
+          <div style={{display: "flex", flexDirection: 'column', justifyContent: "flex-end"}}>
+            <Title>{title}</Title>
+            <p style={{fontSize: '12px', marginTop: 'auto'}}>Duration: {duration} hours</p>
+          </div>
+        ) : (
+          <Title>{title}</Title>
+        )}
 				<Icon color={color} src={icon} />
 			</Footer>
 		</Wrapper>
@@ -31,6 +45,7 @@ const ImageWrapper = styled.div`
 	border: 1px solid var(${(props) => "--color-" + props.color});
 	border-radius: 7px;
 	overflow: hidden;
+	line-height: 0;
 `
 
 const Image = styled.img`
@@ -42,7 +57,7 @@ const Footer = styled.footer`
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
 `
 
 const Title = styled.h3`

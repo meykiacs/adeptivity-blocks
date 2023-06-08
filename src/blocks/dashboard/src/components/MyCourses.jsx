@@ -4,6 +4,8 @@ import Button from "./Buttons"
 import Section from "./Section"
 import SectionHeader from "./SectionHeader"
 
+import { courses } from "../data"
+
 export default function MyCourses() {
 	return (
 		<Section>
@@ -13,7 +15,7 @@ export default function MyCourses() {
 				<Button href="" content="See All..." color="primary" />
 			</SectionHeader>
 			<CourseCardWrapper>
-				<CourseCardList />
+			<CourseCardList courses={courses} />
 			</CourseCardWrapper>
 		</Section>
 	)

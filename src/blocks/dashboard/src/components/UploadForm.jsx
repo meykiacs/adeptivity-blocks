@@ -4,8 +4,7 @@ import { useDropzone } from "react-dropzone"
 import { useState, useCallback } from "@wordpress/element"
 import VideoThumbnail from "react-video-thumbnail"
 
-// import GradeSelect from "./GradeSelect"
-// import { useState } from "react"
+import { grades } from "../data"
 
 export default function UploadForm({ children }) {
 	const [files, setFiles] = useState([])
@@ -66,7 +65,7 @@ export default function UploadForm({ children }) {
 			)}
 			<Control>
 				<Label htmlFor="grade">Grade:</Label>
-				<GradeSelect />
+				<GradeSelect name="grade" id="grade" s={grades} />
 			</Control>
 			<Control>
 				<Label htmlFor="course">Course:</Label>

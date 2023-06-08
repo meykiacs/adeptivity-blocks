@@ -9,42 +9,153 @@ import classes from "./svgs/classes.svg"
 import toolshed from "./svgs/toolshed.svg"
 
 const bars = [
-	{
-		id: "divergent",
-		icon: oxygen,
-		title: "Divergent Thinking",
-		score: "2",
-		color: "divergent",
-	},
-	{
-		id: "lateral",
-		icon: sun,
-		title: "Lateral Thinking",
-		score: "5",
-		color: "lateral",
-	},
-	{
-		id: "aesthetic",
-		icon: water,
-		title: "Aesthetic Thinking",
-		score: "7",
-		color: "aesthetic",
-	},
-	{
-		id: "system",
-		icon: soil,
-		title: "System Thinking",
-		score: "3",
-		color: "system",
-	},
-	{
-		id: "inspirational",
-		icon: kick,
-		title: "Inspirational Thinking",
-		score: "10",
-		color: "inspirational",
-	},
+  {
+    id: "divergent",
+    icon: oxygen,
+    title: "Divergent Thinking",
+    score: "2",
+    color: "divergent",
+    history: [
+      {
+        date: "2004",
+        score: 1,
+      },
+      {
+        date: "2005",
+        score: 2,
+      },
+      {
+        date: "2004=6",
+        score: 3,
+      },
+      {
+        date: "2007",
+        score: 6,
+      },
+      {
+        date: "2008",
+        score: 5,
+      },
+    ],
+  },
+  {
+    id: "lateral",
+    icon: sun,
+    title: "Lateral Thinking",
+    score: "5",
+    color: "lateral",
+    history: [
+      {
+        date: "2004",
+        score: 1,
+      },
+      {
+        date: "2005",
+        score: 2,
+      },
+      {
+        date: "2004=6",
+        score: 3,
+      },
+      {
+        date: "2007",
+        score: 6,
+      },
+      {
+        date: "2008",
+        score: 5,
+      },
+    ],
+  },
+  {
+    id: "aesthetic",
+    icon: water,
+    title: "Aesthetic Thinking",
+    score: "7",
+    color: "aesthetic",
+    history: [
+      {
+        date: "2004",
+        score: 1,
+      },
+      {
+        date: "2005",
+        score: 2,
+      },
+      {
+        date: "2004=6",
+        score: 3,
+      },
+      {
+        date: "2007",
+        score: 6,
+      },
+      {
+        date: "2008",
+        score: 5,
+      },
+    ],
+  },
+  {
+    id: "system",
+    icon: soil,
+    title: "System Thinking",
+    score: "3",
+    color: "system",
+    history: [
+      {
+        date: "2004",
+        score: 1,
+      },
+      {
+        date: "2005",
+        score: 2,
+      },
+      {
+        date: "2004=6",
+        score: 3,
+      },
+      {
+        date: "2007",
+        score: 6,
+      },
+      {
+        date: "2008",
+        score: 5,
+      },
+    ],
+  },
+  {
+    id: "inspirational",
+    icon: kick,
+    title: "Inspirational Thinking",
+    score: "10",
+    color: "inspirational",
+    history: [
+      {
+        date: "2004",
+        score: 1,
+      },
+      {
+        date: "2005",
+        score: 2,
+      },
+      {
+        date: "2004=6",
+        score: 3,
+      },
+      {
+        date: "2007",
+        score: 6,
+      },
+      {
+        date: "2008",
+        score: 5,
+      },
+    ],
+  },
 ]
+
 
 const courses = [
 	{
@@ -53,6 +164,7 @@ const courses = [
 		icon: oxygen,
 		img: "",
 		color: "divergent",
+    duration: '4'
 	},
 	{
 		id: 2,
@@ -60,6 +172,7 @@ const courses = [
 		icon: water,
 		img: "",
 		color: "aesthetic",
+    duration: '4'
 	},
 	{
 		id: 3,
@@ -67,6 +180,7 @@ const courses = [
 		icon: sun,
 		img: "",
 		color: "lateral",
+    duration: '4'
 	},
 	{
 		id: 4,
@@ -74,6 +188,7 @@ const courses = [
 		icon: sun,
 		img: "",
 		color: "lateral",
+    duration: '4'
 	},
 ]
 
@@ -191,4 +306,61 @@ const myClasses = [
 	},
 ]
 
-export { bars, courses, uploadedClasses, tools, menuBottons, myClasses }
+const courseOfGroups = [
+  {
+    id: '1',
+    name: "Brainstorming Techniques",
+    duration: "4",
+    thumbnail: "",
+    group: bars[0],
+  },
+  {
+    id: '2',
+    name: "Wisdom of not Following the Crowd",
+    duration: "4",
+    thumbnail: '',
+    group: bars[1],
+  },
+  {
+    id: '3',
+    name: "Seeing through the Looking Glass",
+    duration: "4",
+    thumbnail: '',
+    group: bars[2],
+  },
+  {
+    id: '4',
+    name: "",
+    duration: "",
+    thumbnail: '',
+    group: bars[3],
+  },
+  {
+    id: '5',
+    name: "Failures or Stepping Stones",
+    duration: "4",
+    thumbnail: '',
+    group: bars[4],
+  },
+]
+
+const grades = [
+  {value: 'pre-kindergarten', display: 'Pre-Kindergarten'},
+  {value: 'kindergarten', display: 'Kindergarten'},
+  {value: '1st-grade', display: '1st Grade'},
+  {value: '2nd-grade', display: '2nd Grade'},
+  {value: '3rd-grade', display: '3rd Grade'},
+  {value: '4th-grade', display: '4th Grade'},
+  {value: '5th-grade', display: '5th Grade'},
+  {value: '6th-grade', display: '6th Grade'},
+  {value: '7th-grade', display: '7th Grade'},
+  {value: '8th-grade', display: '8th Grade'},
+  {value: '9th-grade', display: '9th Grade'},
+  {value: '10th-grade', display: '10th Grade'},
+  {value: '11th-grade', display: '11thGrade'},
+  {value: '12th-grade', display: '12th Grade'}
+]
+
+const courses2 = [...courses, ...courses, ...courses]
+
+export { bars, courses, uploadedClasses, tools, menuBottons, myClasses, courseOfGroups, grades, courses2 }

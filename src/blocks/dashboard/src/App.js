@@ -5,6 +5,7 @@ import TopMenu from "./components/TopMenu"
 import { Route, Routes } from "react-router-dom"
 import Home from "./components/Home"
 import Classes from "./components/Classes"
+import Journey from "./components/Journey"
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="classes" element={<Classes />} />
+						<Route path='journey' element={<Journey />} />
 					</Routes>
 				</MainWrapper>
 			</MidWrapper>
