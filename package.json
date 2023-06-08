@@ -7,10 +7,11 @@
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build --webpack-copy-php",
-		"format:js": "eslint \"src/**/*.{js,jsx}\" --fix",
+		"format:js": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
 		"format:css": "npx stylelint \"**/*.scss\" --fix",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "eslint \"src/**/*.{js,jsx}\" --quiet",
+		"fix": "eslint \"src/**/*.{js,jsx}\" --fix",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start --webpack-copy-php",
@@ -25,9 +26,16 @@
 		"@radix-ui/react-dialog": "^1.0.4",
 		"@radix-ui/react-icons": "^1.3.0",
 		"@radix-ui/react-select": "^1.2.2",
+		"@wordpress/block-editor": "^12.3.0",
+		"@wordpress/blocks": "^12.12.0",
 		"classnames": "^2.3.2",
+		"react-dropzone": "^14.2.3",
 		"react-inlinesvg": "^3.0.2",
 		"react-router-dom": "^6.12.0",
+		"react-video-thumbnail": "^0.1.3",
 		"styled-components": "^5.3.10"
+	},
+	"engines": {
+		"node": "18.15.0"
 	}
 }

@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components"
 
-export default function SectionHeader( { title, hasRow, children } ) {
+export default function SectionHeader({ title, hasRow, children }) {
 	return (
-		<Header hasRow={ hasRow }>
-			<Title hasRow={ hasRow }>{ title }</Title>
-			{ hasRow && children }
+		<Header hasRow={hasRow}>
+			<Title hasRow={hasRow}>{title}</Title>
+			{hasRow && children}
 		</Header>
 	)
 }
@@ -22,10 +22,10 @@ const flexVariantTitle = css`
 const Header = styled.header`
 	padding: 10px 0;
 	margin-bottom: 20px;
-	${ ( props ) => props.hasRow && flexVariantHeader }
+	${(props) => props.hasRow && flexVariantHeader}
 `
 const Title = styled.h2`
 	font-size: 3.1rem;
-	font-weight: var( --font-weight-bold-600 );
-	${ ( props ) => props.hasRow && flexVariantTitle }
+	font-weight: var(--font-weight-bold-600);
+	${(props) => props.hasRow && flexVariantTitle}
 `

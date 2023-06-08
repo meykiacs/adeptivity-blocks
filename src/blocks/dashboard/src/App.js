@@ -1,30 +1,30 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import PageMenu from './components/PageMenu'
-import TopMenu from './components/TopMenu'
-import { Route, Routes } from 'react-router-dom'
-import Home from './components/Home'
-import Classes from './components/Classes'
+import PageMenu from "./components/PageMenu"
+import TopMenu from "./components/TopMenu"
+import { Route, Routes } from "react-router-dom"
+import Home from "./components/Home"
+import Classes from "./components/Classes"
 
 function App() {
 	return (
 		<Wrapper>
-				<SideWrapper>
-					<PageMenu />
-				</SideWrapper>
-				<MidWrapper>
-					<TopWrapper>
-						<TopMenu />
-					</TopWrapper>
-					<MainWrapper>
-						<Routes>
-							<Route path='/' element={<Home />} />
-							<Route path='classes' element={<Classes />} />
-						</Routes>
-					</MainWrapper>
-				</MidWrapper>
-				<Side />
-			</Wrapper>
+			<SideWrapper>
+				<PageMenu />
+			</SideWrapper>
+			<MidWrapper>
+				<TopWrapper>
+					<TopMenu />
+				</TopWrapper>
+				<MainWrapper>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="classes" element={<Classes />} />
+					</Routes>
+				</MainWrapper>
+			</MidWrapper>
+			<Side />
+		</Wrapper>
 	)
 }
 

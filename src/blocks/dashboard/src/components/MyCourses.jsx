@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import CourseCardList from './CourseCardList'
-import Button from './Buttons'
-import Section from './Section'
-import SectionHeader from './SectionHeader'
+import styled from "styled-components"
+import CourseCardList from "./CourseCardList"
+import Button from "./Buttons"
+import Section from "./Section"
+import SectionHeader from "./SectionHeader"
 
 export default function MyCourses() {
 	return (
@@ -22,13 +22,13 @@ export default function MyCourses() {
 const SortCritera = styled.p`
 	margin-right: 10px;
 	font-size: 1.4rem;
-	font-weight: var( --font-weight-lighter );
+	font-weight: var(--font-weight-lighter);
 	margin-top: 3px;
 `
 
 const Change = styled.a`
-	font-weight: var( --font-weight-lighter );
-	color: var( --color-secondary );
+	font-weight: var(--font-weight-lighter);
+	color: var(--color-secondary);
 	font-size: 1.2rem;
 	text-transform: capitalize;
 	display: inline-block;

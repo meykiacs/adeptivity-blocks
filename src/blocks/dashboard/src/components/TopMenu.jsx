@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import SVG from 'react-inlinesvg'
+import styled from "styled-components"
+import SVG from "react-inlinesvg"
 
-import profile from '../svgs/profile.svg'
-import search from '../svgs/search.svg'
-import pocket from '../svgs/pocket.svg'
+import profile from "../svgs/profile.svg"
+import search from "../svgs/search.svg"
+import pocket from "../svgs/pocket.svg"
 
 export default function TopMenu() {
 	return (
@@ -11,17 +11,17 @@ export default function TopMenu() {
 			<ul>
 				<li>
 					<a href="https://google.com">
-						<Icon src={ search } />
+						<Icon src={search} />
 					</a>
 				</li>
 				<li>
 					<a href="https://google.com">
-						<Icon src={ pocket } />
+						<Icon src={pocket} />
 					</a>
 				</li>
 				<li>
 					<a href="https://google.com">
-						<Icon src={ profile } />
+						<Icon src={profile} />
 					</a>
 				</li>
 			</ul>
@@ -39,11 +39,11 @@ const Wrapper = styled.nav`
 	}
 
 	padding-right: 56px;
-	background-color: var( --color-gray-900 );
+	background-color: var(--color-gray-900);
 	height: 90px;
 `
 
-const Icon = styled( SVG )`
+const Icon = styled(SVG)`
 	height: 40px;
 	width: 40px;
 `

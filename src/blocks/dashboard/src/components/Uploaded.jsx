@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import playGray from '../svgs/play-gray.svg'
-import rectVideo from '../svgs/rect-video.svg'
-import play from '../svgs/play.svg'
+import styled from "styled-components"
+import playGray from "../svgs/play-gray.svg"
+import rectVideo from "../svgs/rect-video.svg"
+import play from "../svgs/play.svg"
 
-export default function Uploaded( { title } ) {
+export default function Uploaded({ title }) {
 	return (
 		<Wrapper>
 			<Header>
@@ -11,7 +11,7 @@ export default function Uploaded( { title } ) {
 				<Image src={rectVideo} alt="video" />
 			</Header>
 			<Footer>
-				<Text>{ title }</Text>
+				<Text>{title}</Text>
 				<Icon src={play} alt="play" />
 			</Footer>
 		</Wrapper>
@@ -23,11 +23,11 @@ const Wrapper = styled.div`
 	/* min-width: 235px; */
 	/* flex: 1; */
 	border-radius: 7px;
-	box-shadow: 0px 0px 7px rgba( 32, 34, 36, 0.25 );
+	box-shadow: 0px 0px 7px rgba(32, 34, 36, 0.25);
 `
 
 const Header = styled.header`
-	background-color: var( --color-gray-200 );
+	background-color: var(--color-gray-200);
 	height: 180px;
 	width: 100%;
 	display: flex;
@@ -58,5 +58,5 @@ const Image = styled.img`
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate( -50%, -50% );
+	transform: translate(-50%, -50%);
 `

@@ -1,36 +1,36 @@
-import { bars } from '../data'
+import { bars } from "../data"
 
-import styled from 'styled-components'
-import ProgressList from './ProgressList'
-import { useState } from 'react'
-import Section from './Section'
-import SectionHeader from './SectionHeader'
-import usePhp from '../../usePhp'
+import styled from "styled-components"
+import ProgressList from "./ProgressList"
+import { useState } from "react"
+import Section from "./Section"
+import SectionHeader from "./SectionHeader"
+import usePhp from "../../usePhp"
 
 export default function Progress() {
 	const assetDir = usePhp()
-	const [ totalScore, setTotalScore ] = useState( 0 )
-	const [ maxScore, setMaxScore ] = useState( 1 )
-	const score28 = Math.floor( ( totalScore * 28 ) / ( maxScore + 1 ) ) + 1
-	const postfix = score28 > 9 ? +score28 : '0' + score28
-	const growthPath = assetDir + 'img/growth' + postfix + '.png'
+	const [totalScore, setTotalScore] = useState(0)
+	const [maxScore, setMaxScore] = useState(1)
+	const score28 = Math.floor((totalScore * 28) / (maxScore + 1)) + 1
+	const postfix = score28 > 9 ? +score28 : "0" + score28
+	const growthPath = assetDir + "img/growth" + postfix + ".png"
 	return (
 		<Section>
-			{ /* <Title>My Crativity Growth</Title> */ }
+			{/* <Title>My Crativity Growth</Title> */}
 
 			<SectionHeader title="My Crativity Growth" />
 			<Wrapper>
 				<ChartWrapper>
 					<ProgressList
-						bars={ bars }
-						setTotalScore={ setTotalScore }
-						setMaxScore={ setMaxScore }
+						bars={bars}
+						setTotalScore={setTotalScore}
+						setMaxScore={setMaxScore}
 					/>
 				</ChartWrapper>
 				<ScoreWrapper>
-					<img src={ growthPath } alt="growth" />
+					<img src={growthPath} alt="growth" />
 					<Score>
-						{ totalScore }/{ maxScore }
+						{totalScore}/{maxScore}
 					</Score>
 				</ScoreWrapper>
 			</Wrapper>
@@ -68,8 +68,8 @@ const Score = styled.div`
 	margin-left: auto;
 	margin-right: auto;
 	height: 23px;
-	color: var( --color-gray-500 );
-	background-color: var( --color-gray-100 );
+	color: var(--color-gray-500);
+	background-color: var(--color-gray-100);
 	font-size: 1.5rem;
 	border-radius: 67px;
 `

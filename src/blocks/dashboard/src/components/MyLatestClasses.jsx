@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import Upload from './Upload'
-import UploadedClassList from './UploadedClassList'
-import Section from './Section'
-import SectionHeader from './SectionHeader'
+import styled from "styled-components"
+import Upload from "./Upload"
+import UploadedClassList from "./UploadedClassList"
+import Section from "./Section"
+import SectionHeader from "./SectionHeader"
 
 export default function MyLatestClasses() {
 	return (

@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { menuBottons } from '../data'
-import MenuButton from './MenuButton'
-import SiteLogo from './SiteLogo'
+import styled from "styled-components"
+import { menuBottons } from "../data"
+import MenuButton from "./MenuButton"
+import SiteLogo from "./SiteLogo"
 
 export default function PageMenu() {
 	return (
@@ -10,18 +10,18 @@ export default function PageMenu() {
 				<li>
 					<SiteLogo />
 				</li>
-				{ menuBottons.map( ( menuButton ) => (
-					<li key={ menuButton.id }>
-						<MenuButton { ...menuButton } />
+				{menuBottons.map((menuButton) => (
+					<li key={menuButton.id}>
+						<MenuButton {...menuButton} />
 					</li>
-				) ) }
+				))}
 			</ul>
 		</Wrapper>
 	)
 }
 
 const Wrapper = styled.nav`
-	background-color: var( --color-gray-1000 );
+	background-color: var(--color-gray-1000);
 	/* background-color: var('--color-gray-1000'); */
 	width: 230px;
 	padding-top: 15px;

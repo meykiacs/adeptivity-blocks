@@ -1,12 +1,12 @@
-import { BrowserRouter } from 'react-router-dom'
-import { PhpProvider } from './PhpContext'
-import App from './src/App'
-import {render} from '@wordpress/element'
-import { createGlobalStyle } from 'styled-components'
+import { BrowserRouter } from "react-router-dom"
+import { PhpProvider } from "./PhpContext"
+import App from "./src/App"
+import { render } from "@wordpress/element"
+import { createGlobalStyle } from "styled-components"
 
-window.addEventListener('DOMContentLoaded', () => {
-	const root = document.getElementById('root')
-  const assetDir = root.dataset.assetdir
+window.addEventListener("DOMContentLoaded", () => {
+	const root = document.getElementById("root")
+	const assetDir = root.dataset.assetdir
 
 	const GlobalStyles = createGlobalStyle`
 
@@ -209,6 +209,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 	body {
 		line-height: 1;
+		height: 100%;
 	}
 	ol, ul {
 		list-style: none;
@@ -310,10 +311,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	render(
 		<BrowserRouter>
-		<PhpProvider>
-			<App />
-			<GlobalStyles />
-		</PhpProvider>
-		</BrowserRouter>
-		, root)
+			<PhpProvider>
+				<App />
+				<GlobalStyles />
+			</PhpProvider>
+		</BrowserRouter>,
+		root
+	)
 })

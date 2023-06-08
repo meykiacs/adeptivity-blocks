@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import Button from './Buttons'
-import Section from './Section'
-import SectionHeader from './SectionHeader'
-import ToolList from './ToolList'
+import styled from "styled-components"
+import Button from "./Buttons"
+import Section from "./Section"
+import SectionHeader from "./SectionHeader"
+import ToolList from "./ToolList"
 
 export default function ToolsInMyArsenal() {
 	return (

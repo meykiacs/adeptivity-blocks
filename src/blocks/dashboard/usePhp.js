@@ -1,13 +1,13 @@
-import {useContext} from 'react'
-import PhpContext from './PhpContext'
+import { useContext } from "react"
+import PhpContext from "./PhpContext"
 
 const usePhp = () => {
-  const context = useContext(PhpContext)
-  if (context === undefined) {
-    throw new Error('usePhp must be used inside a PhpProvider')
-  }
+	const context = useContext(PhpContext)
+	if (context === undefined) {
+		throw new Error("usePhp must be used inside a PhpProvider")
+	}
 
-  return context
+	return context
 }
 
 export default usePhp

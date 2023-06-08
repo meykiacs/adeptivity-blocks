@@ -1,12 +1,17 @@
-import AnalyzeTable from './AnalyzeTable'
-import Section from './Section'
-import SectionHeader from './SectionHeader'
+import styled from "styled-components"
+import AnalyzeTable from "./AnalyzeTable"
+import Section from "./Section"
+import SectionHeader from "./SectionHeader"
 
 export default function AnalyzedClasses() {
 	return (
-		<Section>
+		<StyledSection>
 			<SectionHeader title="Analyzed Classes" />
 			<AnalyzeTable />
-		</Section>
+		</StyledSection>
 	)
 }
+
+const StyledSection = styled(Section)`
+	margin-bottom: 75px;
+`

@@ -1,25 +1,25 @@
-import SVG from 'react-inlinesvg'
-import styled from 'styled-components'
-import Button from './Buttons'
-import usePhp from '../../usePhp'
+import SVG from "react-inlinesvg"
+import styled from "styled-components"
+import Button from "./Buttons"
+import usePhp from "../../usePhp"
 
-export default function ToolCard( { title, img, category, scores } ) {
+export default function ToolCard({ title, img, category, scores }) {
 	const assetDir = usePhp()
-	const image = img ? img : assetDir + 'img/course-placeholder.png'
+	const image = img ? img : assetDir + "img/course-placeholder.png"
 	return (
 		<Wrapper>
 			<Header>
-				<Image src={ image } alt={ title + ' image' } />
-				<StyledButton content={ category } variant="label" />
+				<Image src={image} alt={title + " image"} />
+				<StyledButton content={category} variant="label" />
 			</Header>
 			<Footer>
-				<Title>{ title }</Title>
+				<Title>{title}</Title>
 				<ScoreWrapper>
-					<Score>{ scores[ 0 ][ 2 ] }</Score>
-					<Icon color={ scores[ 0 ][ 0 ] } src={ scores[ 0 ][ 1 ] } />
+					<Score>{scores[0][2]}</Score>
+					<Icon color={scores[0][0]} src={scores[0][1]} />
 					<Score>+</Score>
-					<Score>{ scores[ 1 ][ 2 ] }</Score>
-					<Icon color={ scores[ 1 ][ 0 ] } src={ scores[ 1 ][ 1 ] } />
+					<Score>{scores[1][2]}</Score>
+					<Icon color={scores[1][0]} src={scores[1][1]} />
 				</ScoreWrapper>
 			</Footer>
 		</Wrapper>
@@ -33,11 +33,11 @@ const Wrapper = styled.article`
 `
 
 const Header = styled.header`
-	background-color: var( --color-gray-200 );
+	background-color: var(--color-gray-200);
 	padding: 28px;
 	padding-bottom: 10px;
 	border-radius: 7px;
-	box-shadow: 0px 0px 5px 1px rgba( 0, 0, 0, 0.25 );
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
 	text-align: center;
 `
 
@@ -51,7 +51,7 @@ const Image = styled.img`
 `
 
 const Footer = styled.footer`
-	background-color: var( --color-gray-700 );
+	background-color: var(--color-gray-700);
 	display: flex;
 	flex-direction: column;
 	padding-top: 7px;
@@ -62,22 +62,22 @@ const Footer = styled.footer`
 `
 
 const Title = styled.p`
-	color: var( --color-gray-200 );
+	color: var(--color-gray-200);
 	font-size: 1.6rem;
-	font-weight: var( --font-weight-bold-600 );
+	font-weight: var(--font-weight-bold-600);
 `
 
 const Score = styled.p`
 	font-size: 1.2rem;
-	font-weight: var( --font-weight-medium );
-	color: var( --color-gray-200 );
+	font-weight: var(--font-weight-medium);
+	color: var(--color-gray-200);
 `
 
-const Icon = styled( SVG )`
+const Icon = styled(SVG)`
 	height: 16px;
 	width: 16px;
 	& path {
-		fill: var( ${ ( props ) => '--color-' + props.color } );
+		fill: var(${(props) => "--color-" + props.color});
 	}
 `
 
@@ -88,6 +88,4 @@ const ScoreWrapper = styled.div`
 	align-items: center;
 	padding-top: 7.5px;
 `
-const StyledButton = styled(Button)`
-	
-`
+const StyledButton = styled(Button)``
