@@ -12,7 +12,7 @@ export default function StatCard({
   courseName,
   groupTitle,
 }) {
-	const assetDir = usePhp()
+	const {assetDir} = usePhp()
 	const image = courseThumbnail === "" ? assetDir + "img/course-placeholder.png" : courseThumbnail
 
   return (

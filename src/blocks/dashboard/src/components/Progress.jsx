@@ -8,7 +8,7 @@ import SectionHeader from "./SectionHeader"
 import usePhp from "../../usePhp"
 
 export default function Progress() {
-	const assetDir = usePhp()
+	const {assetDir} = usePhp()
 	const [totalScore, setTotalScore] = useState(0)
 	const [maxScore, setMaxScore] = useState(1)
 	const score28 = Math.floor((totalScore * 28) / (maxScore + 1)) + 1

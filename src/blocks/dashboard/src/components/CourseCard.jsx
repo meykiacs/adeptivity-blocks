@@ -10,7 +10,7 @@ export default function CourseCard({
   duration,
   withDuration,
 }) {
-	const assetDir = usePhp()
+	const {assetDir} = usePhp()
 	const image = img === "" ? assetDir + "img/course-placeholder.png" : img
 	return (
 		<Wrapper>
