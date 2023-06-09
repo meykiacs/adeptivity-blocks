@@ -129,7 +129,7 @@ const bars = [
     id: "inspirational",
     icon: kick,
     title: "Inspirational Thinking",
-    score: "10",
+    score: "7",
     color: "inspirational",
     history: [
       {
@@ -363,4 +363,40 @@ const grades = [
 
 const courses2 = [...courses, ...courses, ...courses]
 
-export { bars, courses, uploadedClasses, tools, menuBottons, myClasses, courseOfGroups, grades, courses2 }
+const obtainedTokens = [
+  {
+    id: bars[0].id,
+    color: bars[0].color,
+    icon: bars[0].icon,
+    number: 8
+  },
+  {
+    id: bars[1].id,
+    color: bars[1].color,
+    icon: bars[1].icon,
+    number: 3
+  },
+  {
+    id: bars[2].id,
+    color: bars[2].color,
+    icon: bars[2].icon,
+    number: 14
+  },
+  {
+    id: bars[3].id,
+    color: bars[3].color,
+    icon: bars[3].icon,
+    number: 10
+  },
+  {
+    id: bars[4].id,
+    color: bars[4].color,
+    icon: bars[4].icon,
+    number: 5
+  },
+]
+
+
+const tools2 = [...tools, ...tools, ...tools, ...tools]
+
+export { bars, courses, uploadedClasses, tools, menuBottons, myClasses, courseOfGroups, grades, courses2, obtainedTokens, tools2 }

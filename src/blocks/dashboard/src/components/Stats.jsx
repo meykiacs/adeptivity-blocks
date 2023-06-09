@@ -14,7 +14,7 @@ export default function Stats() {
 	)
 }
 
-const Main = styled.main`
+const Main = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;

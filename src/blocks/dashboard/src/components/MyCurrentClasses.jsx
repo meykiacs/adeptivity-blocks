@@ -23,7 +23,7 @@ export default function MyCurrentClasses() {
 	)
 }
 
-const Main = styled.main`
+const Main = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;

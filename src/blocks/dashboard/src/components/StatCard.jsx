@@ -79,7 +79,7 @@ const Wrapper = styled.div`
   align-items: flex-start;
 `
 
-const Main = styled.main`
+const Main = styled.div`
   width: 285px;
   height: 180px;
   background-color: var(${(props) => "--color-" + props.color});

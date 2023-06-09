@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom"
 import Home from "./components/Home"
 import Classes from "./components/Classes"
 import Journey from "./components/Journey"
+import Toolshed from "./components/Toolshed"
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 						<Route path="/" element={<Home />} />
 						<Route path="classes" element={<Classes />} />
 						<Route path='journey' element={<Journey />} />
+						<Route path='toolshed' element={<Toolshed />} />
 					</Routes>
 				</MainWrapper>
 			</MidWrapper>
