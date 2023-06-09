@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from "@wordpress/element"
 import ProgressBar from "./ProgressBar"
 
 export default function ProgressList(props) {
