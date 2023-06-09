@@ -1,6 +1,13 @@
 import styled from "styled-components"
 import Section from "./Section"
 import SectionHeader from "./SectionHeader"
+import infoIcon from '../svgs/info.svg'
+import SVG from 'react-inlinesvg'
+import { Tooltip } from "react-tooltip"
+
+const cet = 'With participating in our online community you will earn some tokens. For each comment you get a token of your choosing and answering to a survey also gives you 1 complete set of tokens.'
+
+const det = 'There are charities that work with youth and we like them. with every donation you will receive a complete set of tokens. You can find their list in your profile.'
 
 export default function TIMASection() {
   return (
@@ -17,8 +24,12 @@ export default function TIMASection() {
           <p>The remaining 3 Tools are:</p>
           <ul>
             <li>Games & Puzzles</li>
-            <li>Tips To Teach</li>
-            <li>Arts & Crafts projects</li>
+            <li>Be active in the online community <Icon src={infoIcon} data-tooltip-id="cet" data-tooltip-content={cet} />
+            <StyledTooltip id="cet" />
+            </li>
+            <li>Donate Money <Icon data-tooltip-id='det' data-tooltip-content={det} src={infoIcon} />
+            <StyledTooltip id="det" />
+            </li>
           </ul>
           <p>Have Fun!</p>
         </Main>
@@ -81,5 +92,18 @@ const Aside = styled.aside`
     font-weight: var(--font-weight-light);
     line-height: 2;
   }
+`
 
+const Icon = styled(SVG)`
+  margin-bottom: -1px;
+`
+
+const StyledTooltip = styled(Tooltip)`
+  background-color: var(--color-gray-1000);
+  color: var(--color-black);
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-light);
+  max-width: 200px;
+  padding: 10px;
+  border-radius: 5px;
 `

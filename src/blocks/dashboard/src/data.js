@@ -361,7 +361,7 @@ const grades = [
   {value: '12th-grade', display: '12th Grade'}
 ]
 
-const courses2 = [...courses, ...courses, ...courses]
+const courses2 = [...courses]
 
 const obtainedTokens = [
   {
@@ -397,6 +397,6 @@ const obtainedTokens = [
 ]
 
 
-const tools2 = [...tools, ...tools, ...tools, ...tools]
+const tools2 = [...tools]
 
 export { bars, courses, uploadedClasses, tools, menuBottons, myClasses, courseOfGroups, grades, courses2, obtainedTokens, tools2 }

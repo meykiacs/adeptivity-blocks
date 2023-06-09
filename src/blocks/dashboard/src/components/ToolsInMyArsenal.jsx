@@ -4,6 +4,8 @@ import Section from "./Section"
 import SectionHeader from "./SectionHeader"
 import ToolList from "./ToolList"
 
+import { tools } from "../data"
+
 export default function ToolsInMyArsenal() {
 	return (
 		<Section>
@@ -11,7 +13,7 @@ export default function ToolsInMyArsenal() {
 				<Button content="Go to My Toolshed" color="primary" />
 			</SectionHeader>
 			<Wrapper>
-				<ToolList />
+				<ToolList tools={tools} />
 			</Wrapper>
 		</Section>
 	)
