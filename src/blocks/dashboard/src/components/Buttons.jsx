@@ -24,6 +24,9 @@ const Btn = styled.button`
 	font-weight: var(--font-weight-bold-600);
 	font-size: 1.5rem;
 	line-height: 1;
+
+  min-height: var(--min-tap-height, 32px);
+
 `
 
 export const Label = styled.span`

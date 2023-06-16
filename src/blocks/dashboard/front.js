@@ -308,6 +308,13 @@ window.addEventListener("DOMContentLoaded", () => {
 			background-color: 2px solid var(--color-background);
 		}
 	}
+
+	@media (pointer: coarse) {
+	html {
+		--min-tap-height: 44px;
+	}
+}
+
 `
 
 	render(

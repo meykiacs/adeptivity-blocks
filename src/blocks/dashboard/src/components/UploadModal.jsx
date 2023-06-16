@@ -44,6 +44,11 @@ const DialogContent = styled(Content)`
 	padding-bottom: 16px;
 	animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 	overflow: scroll;
+
+  &::-webkit-scrollbar: {
+    display: none;
+  }
+
 	&:focus {
 		outline: none;
 	}
