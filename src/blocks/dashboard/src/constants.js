@@ -1,11 +1,11 @@
 // constants.js
 const BREAKPOINTS = {
-  tabletMin: 550,
-  laptopMin: 1100,
-  desktopMin: 1500,
+  mobileMax: 550,
+  tabletMax: 950,
+  laptopMax: 1300,
 }
 export const QUERIES = {
-  'tabletAndUp': `(min-width: ${BREAKPOINTS.tabletMin / 16}rem)`,
-  'laptopAndUp': `(min-width: ${BREAKPOINTS.laptopMin / 16}rem)`,
-  'desktopAndUp': `(min-width: ${BREAKPOINTS.desktopMin / 16}rem)`,
+  phoneAndSmaller: `(max-width: ${BREAKPOINTS.mobileMax / 16}rem)`,
+  tabletAndSmaller: `(max-width: ${BREAKPOINTS.tabletMax / 16}rem)`,
+  laptopAndSmaller: `(max-width: ${BREAKPOINTS.laptopMax / 16}rem)`,
 }

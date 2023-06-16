@@ -25,8 +25,7 @@ const Btn = styled.button`
 	font-size: 1.5rem;
 	line-height: 1;
 
-  min-height: var(--min-tap-height, 32px);
-
+	min-height: var(--min-tap-height, 32px);
 `
 
 export const Label = styled.span`
@@ -41,4 +40,24 @@ export const Label = styled.span`
 	box-shadow: none;
 	color: var(--color-text);
 	font-size: 1.1rem;
+`
+
+export const UnstyledButton = styled.button`
+	display: ${(props) => props.display || "block"};
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	text-align: left;
+	font: inherit;
+	color: inherit;
+
+	&:focus {
+		outline-offset: 2px;
+	}
+
+	&:focus:not(:focus-visible) {
+		outline: none;
+	}
 `

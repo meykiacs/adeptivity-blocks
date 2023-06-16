@@ -7,6 +7,7 @@ import Home from "./components/Home"
 import Classes from "./components/Classes"
 import Journey from "./components/Journey"
 import Toolshed from "./components/Toolshed"
+import { QUERIES } from "./constants"
 
 function App() {
 	return (
@@ -46,6 +47,10 @@ const SideWrapper = styled.header`
 	top: 0;
 	display: flex;
 	flex-direction: row-reverse;
+
+	@media ${QUERIES.tabletAndSmaller} {
+    display: none;
+  }
 `
 const Side = styled.div`
 	flex: 1;
@@ -53,10 +58,21 @@ const Side = styled.div`
 
 const MainWrapper = styled.main`
 	max-width: 1136px;
-	/* margin-left: auto; */
-	/* margin-right: auto; */
+
 	padding-left: 50px;
 	padding-right: 50px;
+
+	@media ${QUERIES.laptopAndSmaller} {
+    background-color: azure;
+  }
+
+  @media ${QUERIES.tabletAndSmaller} {
+    background-color: yellow;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    background-color: green;
+  }
 `
 
 const TopWrapper = styled.header`
