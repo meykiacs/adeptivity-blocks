@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react"
-import styled from "styled-components/macro"
+import styled from "styled-components"
 
 const VisuallyHidden = ({ children, ...delegated }) => {
   const [forceShow, setForceShow] = useState(false)

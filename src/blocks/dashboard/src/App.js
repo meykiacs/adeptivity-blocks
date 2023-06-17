@@ -72,6 +72,8 @@ const MainWrapper = styled.main`
 
   @media ${QUERIES.phoneAndSmaller} {
     background-color: green;
+		padding-right: 30px;
+    padding-left: 30px;
   }
 `
 

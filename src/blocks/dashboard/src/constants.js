@@ -1,8 +1,8 @@
 // constants.js
 const BREAKPOINTS = {
-  mobileMax: 550,
-  tabletMax: 950,
-  laptopMax: 1300,
+  mobileMax: 600,
+  tabletMax: 900,
+  laptopMax: 1200,
 }
 export const QUERIES = {
   phoneAndSmaller: `(max-width: ${BREAKPOINTS.mobileMax / 16}rem)`,

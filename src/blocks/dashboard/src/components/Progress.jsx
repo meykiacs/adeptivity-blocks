@@ -42,6 +42,7 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 50px;
+  justify-content: center;
 `
 
 const ChartWrapper = styled.div`
@@ -51,7 +52,7 @@ const ChartWrapper = styled.div`
 	align-items: stretch;
 	gap: 20px;
 	flex-grow: 1;
-	/* flex-basis: 735px; */
+  flex-basis: 550px;
 `
 
 const ScoreWrapper = styled.div`

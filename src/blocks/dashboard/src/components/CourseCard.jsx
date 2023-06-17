@@ -1,16 +1,17 @@
 import SVG from "react-inlinesvg"
 import styled from "styled-components"
 import usePhp from "../../usePhp"
+import { QUERIES } from "../constants"
 
 export default function CourseCard({
-  img,
-  title,
-  icon,
-  color,
-  duration,
-  withDuration,
+	img,
+	title,
+	icon,
+	color,
+	duration,
+	withDuration,
 }) {
-	const {assetDir} = usePhp()
+	const { assetDir } = usePhp()
 	const image = img === "" ? assetDir + "img/course-placeholder.png" : img
 	return (
 		<Wrapper>
@@ -18,14 +19,22 @@ export default function CourseCard({
 				<Image src={image} alt="course image" />
 			</ImageWrapper>
 			<Footer>
-			{withDuration ? (
-          <div style={{display: "flex", flexDirection: 'column', justifyContent: "flex-end"}}>
-            <Title>{title}</Title>
-            <p style={{fontSize: '12px', marginTop: 'auto'}}>Duration: {duration} hours</p>
-          </div>
-        ) : (
-          <Title>{title}</Title>
-        )}
+				{withDuration ? (
+					<div
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "flex-end",
+						}}
+					>
+						<Title>{title}</Title>
+						<p style={{ fontSize: "12px", marginTop: "auto" }}>
+							Duration: {duration} hours
+						</p>
+					</div>
+				) : (
+					<Title>{title}</Title>
+				)}
 				<Icon color={color} src={icon} />
 			</Footer>
 		</Wrapper>
@@ -39,6 +48,18 @@ const Wrapper = styled.article`
 	/* flex: 1; */
 	flex-basis: 220px;
 	overflow: hidden;
+
+	@media ${QUERIES.laptopAndSmaller} {
+		flex-basis: 30%;
+	}
+
+	@media ${QUERIES.tabletAndSmaller} {
+		flex-basis: 40%;
+	}
+
+	@media ${QUERIES.phoneAndSmaller} {
+		flex-basis: 75%;
+	}
 `
 
 const ImageWrapper = styled.div`

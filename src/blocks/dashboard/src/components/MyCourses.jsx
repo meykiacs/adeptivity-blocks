@@ -5,6 +5,7 @@ import Section from "./Section"
 import SectionHeader from "./SectionHeader"
 
 import { courses } from "../data"
+import { QUERIES } from "../constants"
 
 export default function MyCourses() {
 	return (
@@ -43,4 +44,17 @@ const CourseCardWrapper = styled.div`
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	gap: 40px;
+
+	@media ${QUERIES.laptopAndSmaller} {
+    flex-wrap: wrap;
+    /* justify-content: center; */
+  }
+  
+  @media ${QUERIES.tabletAndSmaller} {
+    /* justify-content: center; */
+  }
+  
+  @media ${QUERIES.phoneAndSmaller} {
+    justify-content: center;
+  }
 `
