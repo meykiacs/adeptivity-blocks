@@ -16,7 +16,7 @@ export default function MyCourses() {
 				<Button href="" content="See All..." color="primary" />
 			</SectionHeader>
 			<CourseCardWrapper>
-			<CourseCardList courses={courses} />
+				<CourseCardList courses={courses} />
 			</CourseCardWrapper>
 		</Section>
 	)
@@ -40,23 +40,30 @@ const Change = styled.a`
 `
 
 const CourseCardWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  gap: 40px;
+	display: flex;
+	justify-content: flex-start;
+	gap: 40px;
 
-  & > * {
-    flex-basis: 200px;
-    flex-grow: 1;
-    max-width: 220px;
-    @media ${QUERIES.laptopAndSmaller} {
-      max-width: 275px;
-  }
-  }
-  @media ${QUERIES.laptopAndSmaller} {
-    flex-wrap: wrap;
-  }
-  
-  @media ${QUERIES.phoneAndSmaller} {
-    justify-content: center;
-  }
+	@media ${QUERIES.laptopAndSmaller} {
+		flex-wrap: wrap;
+	}
+
+	& > * {
+		flex-basis: 200px;
+		flex-grow: 1;
+		max-width: 220px;
+		@media ${QUERIES.laptopAndSmaller} {
+			max-width: 250px;
+		}
+		@media ${QUERIES.tabletAndSmaller} {
+			max-width: 220px;
+		}
+		@media ${QUERIES.phoneAndSmaller} {
+			max-width: 300px;
+		}
+	}
+
+	@media ${QUERIES.phoneAndSmaller} {
+		justify-content: center;
+	}
 `

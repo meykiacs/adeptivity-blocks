@@ -65,15 +65,13 @@ const MainWrapper = styled.main`
 	@media ${QUERIES.laptopAndSmaller} {
     background-color: azure;
   }
-
   @media ${QUERIES.tabletAndSmaller} {
     background-color: yellow;
+    padding-right: 30px;
+    padding-left: 30px;
   }
-
   @media ${QUERIES.phoneAndSmaller} {
     background-color: green;
-		padding-right: 30px;
-    padding-left: 30px;
   }
 `
 

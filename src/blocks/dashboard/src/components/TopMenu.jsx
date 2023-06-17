@@ -44,6 +44,14 @@ const Wrapper = styled.nav`
 	justify-content: space-between;
 	align-items: center;
 	padding-left: 50px;
+	padding-right: 56px;
+	background-color: var(--color-gray-900);
+	height: 90px;
+	
+  @media ${QUERIES.tabletAndSmaller} {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
 
 	& ul {
 		display: flex;
@@ -53,10 +61,6 @@ const Wrapper = styled.nav`
 		align-items: center;
 		height: 100%;
 	}
-
-	padding-right: 56px;
-	background-color: var(--color-gray-900);
-	height: 90px;
 `
 
 const Icon = styled(SVG)`
