@@ -3,6 +3,7 @@ import Button from "./Buttons"
 import ClassTable from "./ClassTable"
 import playGray from "../svgs/play-gray.svg"
 import rectVideo from "../svgs/rect-video.svg"
+import { QUERIES } from "../constants"
 
 export default function MyClassDetail({ myClass }) {
 	const { analyzed } = myClass
@@ -26,6 +27,11 @@ export default function MyClassDetail({ myClass }) {
 const Wrapper = styled.div`
 	display: flex;
 	gap: 24px;
+	flex-wrap: wrap;
+  
+  @media ${QUERIES.phoneAndSmaller} {
+    justify-content: center;
+  }
 `
 
 const VisualPart = styled.div`

@@ -3,7 +3,7 @@ import SectionHeader from "./SectionHeader"
 import MyCurrentClassList from "./MyCurrentClassList"
 import styled from "styled-components"
 import { Root } from "@radix-ui/react-dialog"
-import Uploadodal from "./UploadModal"
+import UploadModal from "./UploadModal"
 import { StyledTrigger } from "./TriggerButtons"
 
 export default function MyCurrentClasses() {
@@ -12,7 +12,7 @@ export default function MyCurrentClasses() {
 			<SectionHeader title="My Current Classes" hasRow>
 				<Root>
 					<StyledTrigger>Upload New</StyledTrigger>
-					<Uploadodal />
+					<UploadModal />
 				</Root>
 			</SectionHeader>
 			<Main>
@@ -28,4 +28,10 @@ const Main = styled.div`
 	gap: 20px;
 	justify-content: start;
 	margin-bottom: 40px;
+
+	  
+  & > *:not(:last-child) {
+    margin-bottom: 50px;
+  }
+
 `

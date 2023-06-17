@@ -1,19 +1,20 @@
 import styled from "styled-components"
 import { myClasses } from "../data"
 import MyClassRow from "./MyClassRow"
+import { QUERIES } from "../constants"
 
 export default function AnalyzeTable() {
 	return (
 		<Section>
-			<Header>
-				<div>Uploaded At</div>
-				<div>Grade</div>
-				<div>Course</div>
-				<div>Subject</div>
-				<div>Attendees</div>
-				<div>Date</div>
-				<div>Analyzed Score</div>
-			</Header>
+      <Header>
+        <LessImportantDiv>Uploaded At</LessImportantDiv>
+        <LeastImportantDiv>Grade</LeastImportantDiv>
+        <LeastImportantDiv>Course</LeastImportantDiv>
+        <div>Subject</div>
+        <LessImportantDiv>Attendees</LessImportantDiv>
+        <YetLeesImportantDiv>Date</YetLeesImportantDiv>
+        <div>Analyzed Score</div>
+      </Header>
 			{myClasses.map((myClass, index) => (
 				<Row key={myClass.id} row={index}>
 					<MyClassRow myClass={myClass} />
@@ -67,4 +68,21 @@ const Row = styled.div`
 	& div:last-child {
 		border-radius: 0 7px 7px 0px;
 	}
+`
+
+const LessImportantDiv = styled.div`
+  @media ${QUERIES.laptopAndSmaller} {
+    display: none !important;
+  }
+`
+
+const YetLeesImportantDiv = styled.div`
+  @media ${QUERIES.tabletAndSmaller} {
+    display: none !important;
+  }
+`
+const LeastImportantDiv = styled.div`
+  @media ${QUERIES.phoneAndSmaller} {
+    display: none !important;
+  }
 `
