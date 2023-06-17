@@ -4,6 +4,7 @@ import SectionHeader from "./SectionHeader"
 import infoIcon from '../svgs/info.svg'
 import SVG from 'react-inlinesvg'
 import { Tooltip } from "react-tooltip"
+import { QUERIES } from "../constants"
 
 const cet = 'With participating in our online community you will earn some tokens. For each comment you get a token of your choosing and answering to a survey also gives you 1 complete set of tokens.'
 
@@ -49,6 +50,11 @@ export default function TIMASection() {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    display: block;
+  }
+
 `
 
 const Main = styled.div`
@@ -58,6 +64,10 @@ const Main = styled.div`
   font-weight: var(--font-weight-light);
   padding-right: 80px;
 
+  @media ${QUERIES.phoneAndSmaller} {
+    margin-bottom: 20px;
+  }
+  
   & > p {
     margin-bottom: 5px;
   }

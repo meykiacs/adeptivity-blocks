@@ -29,9 +29,7 @@ const Main = styled.div`
 	justify-content: start;
 	margin-bottom: 40px;
 
-	  
-  & > *:not(:last-child) {
+  & > * {
     margin-bottom: 50px;
   }
-
 `

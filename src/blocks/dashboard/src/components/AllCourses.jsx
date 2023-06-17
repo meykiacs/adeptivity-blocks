@@ -3,6 +3,7 @@ import Section from "./Section"
 import SectionHeader from "./SectionHeader"
 import GradeSelect from "./GradeSelect"
 import CourseCardList from "./CourseCardList"
+import { QUERIES } from "../constants"
 
 import { courses2 } from "../data"
 
@@ -62,6 +63,16 @@ const Label = styled.label`
 
 const SortedBy = styled.form`
   margin-left: auto;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    margin-right: auto;
+    margin-left: 20px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    margin-right: auto;
+    margin-left: revert;
+  }
 `
 
 const Fieldset = styled.fieldset`
@@ -77,5 +88,15 @@ const CourseCardWrapper = styled.div`
   gap: 33px;
   & > * {
     flex-basis: 180px;
+    flex-grow: 1;
+    max-width: 200px;
+  
+    @media ${QUERIES.phoneAndSmaller} {
+      max-width: 280px;
+    }
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    justify-content: center;
   }
 `

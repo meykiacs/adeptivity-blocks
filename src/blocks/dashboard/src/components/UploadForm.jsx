@@ -3,6 +3,7 @@ import GradeSelect from "./GradeSelect"
 import { useDropzone } from "react-dropzone"
 import { useState, useCallback } from "@wordpress/element"
 import VideoThumbnail from "react-video-thumbnail"
+import { QUERIES } from "../constants"
 
 import { grades } from "../data"
 
@@ -93,14 +94,13 @@ const Form = styled.form`
 `
 const Control = styled.div`
 	display: flex;
-	justify-content: space-between;
 	align-items: baseline;
 	margin-bottom: 15px;
 `
 
 const TextInput = styled.input`
 	border: none !important;
-	width: 300px;
+	flex-basis: 300px;
 	height: 40px !important;
 	padding-left: 16px;
 	padding-right: 0;
@@ -110,12 +110,17 @@ const TextInput = styled.input`
 	background-color: var(--color-gray-200);
 	color: var(--color-text);
 	overflow: hidden;
+	@media ${QUERIES.phoneAndSmaller} {
+		flex-shrink: 1;
+	}
 `
 
 const Label = styled.label`
 	color: var(--color-black);
 	font-size: 1.4rem;
 	font-weight: var(--font-weight-bold-700);
+	flex-basis: 90px;
+	flex-shrink: 0;
 `
 
 const Video = styled.div`

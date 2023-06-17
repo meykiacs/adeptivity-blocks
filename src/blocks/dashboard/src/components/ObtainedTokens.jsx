@@ -1,5 +1,6 @@
 import SVG from "react-inlinesvg"
 import styled from "styled-components"
+import { QUERIES } from "../constants"
 
 export default function ObtainedTokens({ obtainedTokens }) {
   return (
@@ -19,7 +20,11 @@ export default function ObtainedTokens({ obtainedTokens }) {
 const Wrapper = styled.div`
   display: flex;
   gap: 20px;
-  
+
+  @media ${QUERIES.phoneAndSmaller} {
+    flex-wrap: wrap;
+  }
+    
   & h3 {
     font-weight: var()(--font-weight-bold-600);
     font-size: 1.7rem;

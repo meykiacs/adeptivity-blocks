@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import GradeSelect from "./GradeSelect"
 import ToolList from "./ToolList"
+import { QUERIES } from "../constants"
 
 import { tools2 } from "../data"
 
@@ -57,9 +58,19 @@ const SortedBy = styled.form`
 	}
 `
 const ToolListWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 55px;
-  margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 55px;
+	margin-top: 50px;
+
+	@media ${QUERIES.phoneAndSmaller} {
+		justify-content: center;
+	}
+
+	& > * {
+		@media ${QUERIES.phoneAndSmaller} {
+			flex-basis: 200px !important;
+		}
+	}
 `

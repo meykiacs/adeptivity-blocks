@@ -80,7 +80,7 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.div`
-  width: 285px;
+  flex-grow: 1;
   height: 180px;
   background-color: var(${(props) => "--color-" + props.color});
 `
