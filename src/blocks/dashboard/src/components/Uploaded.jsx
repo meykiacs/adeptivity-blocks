@@ -19,9 +19,6 @@ export default function Uploaded({ title }) {
 }
 
 const Wrapper = styled.div`
-	flex-basis: 235px;
-	/* min-width: 235px; */
-	/* flex: 1; */
 	border-radius: 7px;
 	box-shadow: 0px 0px 7px rgba(32, 34, 36, 0.25);
 `

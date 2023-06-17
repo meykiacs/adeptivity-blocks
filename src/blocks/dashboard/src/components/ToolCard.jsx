@@ -29,7 +29,6 @@ export default function ToolCard({ title, img, category, scores }) {
 const Wrapper = styled.article`
 	display: flex;
 	flex-direction: column;
-	flex-basis: 150px;
 `
 
 const Header = styled.header`

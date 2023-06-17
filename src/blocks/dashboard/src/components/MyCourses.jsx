@@ -40,18 +40,20 @@ const Change = styled.a`
 `
 
 const CourseCardWrapper = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	gap: 40px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
 
-	@media ${QUERIES.laptopAndSmaller} {
-    flex-wrap: wrap;
-    /* justify-content: center; */
+  & > * {
+    flex-basis: 200px;
+    flex-grow: 1;
+    max-width: 220px;
+    @media ${QUERIES.laptopAndSmaller} {
+      max-width: 275px;
   }
-  
-  @media ${QUERIES.tabletAndSmaller} {
-    /* justify-content: center; */
+  }
+  @media ${QUERIES.laptopAndSmaller} {
+    flex-wrap: wrap;
   }
   
   @media ${QUERIES.phoneAndSmaller} {

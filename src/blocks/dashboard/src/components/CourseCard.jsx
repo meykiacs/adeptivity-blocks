@@ -1,7 +1,6 @@
 import SVG from "react-inlinesvg"
 import styled from "styled-components"
 import usePhp from "../../usePhp"
-import { QUERIES } from "../constants"
 
 export default function CourseCard({
 	img,
@@ -45,21 +44,7 @@ const Wrapper = styled.article`
 	background-color: var(--color-gray-200);
 	padding: 12px 10px;
 	border-radius: 7px;
-	/* flex: 1; */
-	flex-basis: 220px;
 	overflow: hidden;
-
-	@media ${QUERIES.laptopAndSmaller} {
-		flex-basis: 30%;
-	}
-
-	@media ${QUERIES.tabletAndSmaller} {
-		flex-basis: 40%;
-	}
-
-	@media ${QUERIES.phoneAndSmaller} {
-		flex-basis: 75%;
-	}
 `
 
 const ImageWrapper = styled.div`

@@ -5,6 +5,7 @@ import SectionHeader from "./SectionHeader"
 import ToolList from "./ToolList"
 
 import { tools } from "../data"
+import { QUERIES } from "../constants"
 
 export default function ToolsInMyArsenal() {
 	return (
@@ -21,7 +22,22 @@ export default function ToolsInMyArsenal() {
 
 const Wrapper = styled.div`
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: flex-start;
 	gap: 55px;
+
+	& > * {
+		flex-basis: 150px;
+		flex-grow: 1;
+		max-width: 170px;
+		@media ${QUERIES.laptopAndSmaller} {
+			/* max-width: 275px; */
+		}
+	}
+	@media ${QUERIES.laptopAndSmaller} {
+		flex-wrap: wrap;
+	}
+
+	@media ${QUERIES.phoneAndSmaller} {
+		justify-content: center;
+	}
 `
