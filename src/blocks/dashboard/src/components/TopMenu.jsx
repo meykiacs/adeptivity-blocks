@@ -8,16 +8,23 @@ import menu from "../svgs/burger-menu.svg"
 import { QUERIES } from "../constants"
 import { UnstyledButton } from "./Buttons"
 import VisuallyHidden from "./VisuallyHidden"
+import { Root, Trigger } from "@radix-ui/react-dialog"
+import MobileMenu from "./MobileMenu"
 
 export default function TopMenu() {
 	return (
 		<Wrapper>
-			<MobileActions>
-				<UnstyledButton>
-					<Icon src={menu} />
-					<VisuallyHidden>Open Menu</VisuallyHidden>
-				</UnstyledButton>
-			</MobileActions>
+      <MobileActions>
+        <Root>
+          <Trigger asChild>
+            <UnstyledButton>
+              <Icon src={menu} />
+              <VisuallyHidden>Open Menu</VisuallyHidden>
+            </UnstyledButton>
+          </Trigger>
+          <MobileMenu />
+        </Root>
+      </MobileActions>
 			<ul>
 				<li>
 					<a href="https://google.com">
@@ -60,6 +67,10 @@ const Wrapper = styled.nav`
 		gap: 55px;
 		align-items: center;
 		height: 100%;
+
+		@media ${QUERIES.phoneAndSmaller} {
+      gap: 35px;
+    }
 	}
 `
 
