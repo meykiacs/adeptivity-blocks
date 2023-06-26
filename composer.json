@@ -1,0 +1,12 @@
+{
+    "name": "kia/adeptivity-blocks",
+    "authors": [
+        {
+            "name": "Meysam Kia",
+            "email": "msmkia@outlook.com"
+        }
+    ],
+    "require-dev": {
+        "php-stubs/wordpress-stubs": "^6.2"
+    }
+}
