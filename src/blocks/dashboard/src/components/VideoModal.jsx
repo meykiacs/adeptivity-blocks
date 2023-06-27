@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { Portal, Overlay, Close, Content } from "@radix-ui/react-dialog"
 // import { Player } from "video-react"
-import "./video-react.css"
 
 export default function VideoModal({ video }) {
 	return (
