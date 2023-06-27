@@ -1,9 +1,10 @@
 import styled from "styled-components"
-import { myClasses } from "../data"
 import MyClassRow from "./MyClassRow"
 import { QUERIES } from "../constants"
+import usePhp from '../../usePhp'
 
 export default function AnalyzeTable() {
+	const {analyzedClasses} = usePhp()
 	return (
 		<Section>
       <Header>
@@ -12,10 +13,10 @@ export default function AnalyzeTable() {
         <LeastImportantDiv>Course</LeastImportantDiv>
         <div>Subject</div>
         <LessImportantDiv>Attendees</LessImportantDiv>
-        <YetLeesImportantDiv>Date</YetLeesImportantDiv>
+        <YetLeastImportantDiv>Date</YetLeastImportantDiv>
         <div>Analyzed Score</div>
       </Header>
-			{myClasses.map((myClass, index) => (
+			{analyzedClasses.map((myClass, index) => (
 				<Row key={myClass.id} row={index}>
 					<MyClassRow myClass={myClass} />
 				</Row>
@@ -76,7 +77,7 @@ const LessImportantDiv = styled.div`
   }
 `
 
-const YetLeesImportantDiv = styled.div`
+const YetLeastImportantDiv = styled.div`
   @media ${QUERIES.tabletAndSmaller} {
     display: none !important;
   }

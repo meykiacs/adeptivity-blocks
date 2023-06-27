@@ -1,38 +1,35 @@
 import styled from "styled-components"
 import SVG from "react-inlinesvg"
-import usePhp from "../../usePhp"
+import CatChart from "./CatChart"
 
 export default function StatCard({
-  scoreHistory,
-  currentScore,
-  groupIcon,
-  groupColor,
-  courseDuration,
-  courseThumbnail,
-  courseName,
-  groupTitle,
+  name,
+  icon,
+  title,
+  score,
+  history
 }) {
-	const {assetDir} = usePhp()
-	const image = courseThumbnail === "" ? assetDir + "img/course-placeholder.png" : courseThumbnail
+
+  // const image = courseThumbnail === "" ? assetDir + "img/course-placeholder.png" : courseThumbnail
 
   return (
     <Article>
       <Header>
-        <Icon src={groupIcon} color={groupColor} />
-        <h3>{groupTitle}</h3>
+        <Icon src={icon} color={name} />
+        <h3>{title}</h3>
       </Header>
       <Wrapper>
-        <Main color={groupColor}>
-          <Chart data={scoreHistory} />
+        <Main color={name}>
+          <CatChart data={history} color={name} />
         </Main>
         <Aside>
-          <p>{currentScore}/10</p>
+          <p>{score}/10</p>
           <ScoreBar>
-            <InnerDiv score={currentScore} color={groupColor} />
+            <InnerDiv score={score} color={name} />
           </ScoreBar>
         </Aside>
       </Wrapper>
-      <Footer>
+      {/* <Footer>
         <p>Based of your Stats We recommend this Course:</p>
         <CourseWrapper>
           <ImageWrapper color={groupColor}>
@@ -43,7 +40,7 @@ export default function StatCard({
             <p>Duration: {courseDuration} hourse</p>
           </CourseDetails>
         </CourseWrapper>
-      </Footer>
+      </Footer> */}
     </Article>
   )
 }
@@ -82,7 +79,7 @@ const Wrapper = styled.div`
 const Main = styled.div`
   flex-grow: 1;
   height: 180px;
-  background-color: var(${(props) => "--color-" + props.color});
+  /* background-color: var(${(props) => "--color-" + props.color}); */
 `
 const Aside = styled.aside`
   transform: translateY(-17px);
@@ -109,55 +106,53 @@ const InnerDiv = styled.div`
   height: ${(props) => parseInt(props.score) * 10 + "%"};
 `
 
-const Footer = styled.footer`
-  & p {
-    font-weight: var(--font-weight-medium);
-    color: var(--color-black);
-    font-size: 1.6rem;
-    margin-bottom: 13px;
-  }
-`
+// const Footer = styled.footer`
+//   & p {
+//     font-weight: var(--font-weight-medium);
+//     color: var(--color-black);
+//     font-size: 1.6rem;
+//     margin-bottom: 13px;
+//   }
+// `
 
-const CourseWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 6.6px;
+// const CourseWrapper = styled.div`
+//   display: flex;
+//   align-items: center;
+//   gap: 6.6px;
 
-  & h3 {
-    font-weight: var(--font-weight-medium);
-    font-size: 1.6rem;
-    color: var(--color-text);
-  }
+//   & h3 {
+//     font-weight: var(--font-weight-medium);
+//     font-size: 1.6rem;
+//     color: var(--color-text);
+//   }
   
-  & p{
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-    font-size: 1.2rem;
-  }
-`
+//   & p{
+//     font-weight: var(--font-weight-medium);
+//     color: var(--color-text);
+//     font-size: 1.2rem;
+//   }
+// `
 
-const ImageWrapper = styled.div`
-  border: 3px solid var(${(props) => "--color-" + props.color});
-  border-radius: 7px;
-  overflow: hidden;
-  line-height: 0;
-  flex-basis: 171px;
-  height: auto;
-  flex-shrink: 0;
-  flex-grow: 0;
+// const ImageWrapper = styled.div`
+//   border: 3px solid var(${(props) => "--color-" + props.color});
+//   border-radius: 7px;
+//   overflow: hidden;
+//   line-height: 0;
+//   flex-basis: 171px;
+//   height: auto;
+//   flex-shrink: 0;
+//   flex-grow: 0;
   
-`
+// `
 
-const Image = styled.img`
-  filter: grayscale(1);
-  width: 100%;
-`
+// const Image = styled.img`
+//   filter: grayscale(1);
+//   width: 100%;
+// `
 
-const CourseDetails = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-`
-
-const Chart = styled.div``
+// const CourseDetails = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   gap: 8px;
+// `

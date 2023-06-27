@@ -1,10 +1,12 @@
-import { myClasses } from "../data"
+// import { myClasses } from "../data"
 import MyClassDetail from "./MyClassDetail"
+import usePhp from '../../usePhp'
 
 export default function MyCurrentClassList() {
+	const {allClasses}  = usePhp()
 	return (
 		<>
-			{myClasses.map((myClass) => (
+			{allClasses.map((myClass) => (
 				<MyClassDetail myClass={myClass} key={myClass.id} />
 			))}
 		</>

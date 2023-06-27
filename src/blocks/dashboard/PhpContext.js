@@ -11,9 +11,18 @@ export const PhpProvider = ({ children }) => {
 	const latestClasses = JSON.parse(
 		document.getElementById("latest-classes").innerHTML
 	)
+	const allClasses = JSON.parse(
+		document.getElementById("all-classes").innerHTML
+	)
+	const analyzedClasses = JSON.parse(
+		document.getElementById("analyzed-classes").innerHTML
+	)
+	const scoreByCat = JSON.parse(
+		document.getElementById("score-by-cat").innerHTML
+	)
 
 	return (
-		<PhpContext.Provider value={{ assetDir, scoreSummary, latestClasses }}>
+		<PhpContext.Provider value={{ assetDir, scoreSummary, latestClasses, allClasses, analyzedClasses, scoreByCat }}>
 			{children}
 		</PhpContext.Provider>
 	)

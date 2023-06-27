@@ -72,7 +72,7 @@ const StyledButton = styled(UnstyledButton)`
   right: 15px;
   width: 27px;
   height: 27px;
-  pointer: cursor;
+  cursor: pointer;
 
   & svg {
     width: 100%;

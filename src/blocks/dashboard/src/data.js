@@ -8,6 +8,34 @@ import journey from "./svgs/journey.svg"
 import classes from "./svgs/classes.svg"
 import toolshed from "./svgs/toolshed.svg"
 
+const categories = [
+  {
+    name : 'divergent',
+    title : 'Divergent Thinking',
+    icon: oxygen,
+  },
+  {
+    name : 'lateral',
+    title : 'Lateral Thinking',
+    icon: sun,
+  },
+  {
+    name : 'aesthetic',
+    title : 'Aesthetic Thinking',
+    icon: water,
+  },
+  {
+    name : 'system',
+    title : 'System Thinking',
+    icon: soil,
+  },
+  {
+    name : 'inspirational',
+    title : 'Inspirational Thinking',
+    icon: kick,
+  },
+]
+
 const bars = [
   {
     id: "divergent",
@@ -399,4 +427,4 @@ const obtainedTokens = [
 
 const tools2 = [...tools]
 
-export { bars, courses, uploadedClasses, tools, menuBottons, myClasses, courseOfGroups, grades, courses2, obtainedTokens, tools2 }
+export { categories, bars, courses, uploadedClasses, tools, menuBottons, myClasses, courseOfGroups, grades, courses2, obtainedTokens, tools2 }

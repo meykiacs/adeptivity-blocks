@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
-export default function Section({ className, children, flexRow }) {
-	return <Wrapper className={className} flexRow={flexRow}>{children}</Wrapper>
+export default function Section({ className, children, flexRow, id }) {
+	return <Wrapper className={className} flexRow={flexRow} id={id}>{children}</Wrapper>
 }
 
 const Wrapper = styled.section`

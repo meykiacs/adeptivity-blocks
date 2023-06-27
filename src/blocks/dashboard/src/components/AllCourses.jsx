@@ -9,7 +9,7 @@ import { courses2 } from "../data"
 
 export default function AllCourses() {
   return (
-    <Section>
+    <Section id='all-courses'>
       <SectionHeader hasRow title="All Courses">
         <form>
           <fieldset>

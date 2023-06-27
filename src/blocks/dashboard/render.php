@@ -22,15 +22,21 @@ function adeptivity_blocks_entries_for_dashboard()
   return array_map(function ($e) {
     return [
       'id' => $e['id'],
+      'attendees' => $e['5'],
       'video' => $e['1'],
-      'created_at' => $e['date_created'],
-      'lecture_name' => $e['3'],
-      'course_name' => $e['4'],
+      'createdAt' => $e['date_created'],
+      'title' => $e['3'],
+      'course' => $e['4'],
       'divergent' => $e['10'],
       'lateral' => $e['14'],
       'aesthetic' => $e['13'],
       'system' => $e['11'],
       'inspirational' => $e['12'],
+      'analyzed' => (!empty($e['10'])) &&
+      (!empty($e['14'])) &&
+      (!empty($e['13'])) &&
+      (!empty($e['11'])) &&
+      (!empty($e['12']))
     ];
   }, adeptivity_blocks_entries_by_user());
 }
@@ -67,36 +73,49 @@ function adeptivity_blocks_max_scores_array()
     max(adeptivity_blocks_score_history_by_cat('inspirational')),
   ];
 }
+$scoreSummaryArray = adeptivity_blocks_max_scores_array();
+$scoreByCat = adeptivity_blocks_max_scores();
+
+$allClasses = adeptivity_blocks_entries_for_dashboard();
+$analyzedClasses = array_values(array_filter($allClasses, function ($entry) {
+  return $entry['analyzed'];
+}));
+$latestClasses = array_slice(
+  $allClasses,
+  0,
+  3
+);
+
 ?>
 
 <!-- <pre>
   <?php
-  var_dump(adeptivity_blocks_entries_by_user());
+  // var_dump(adeptivity_blocks_entries_by_user());
+  var_dump($allClasses);
+var_dump($analyzedClasses);
+
   ?>
 </pre> -->
 
 <?php
-$summary = adeptivity_blocks_max_scores_array();
-$latestClasses = array_map(
-  function ($i) {
-    return [
-      'id'  => $i['id'],
-      'title' => $i['lecture_name'],
-      'thumbnail' => null,
-      'video' => $i['video']
-    ]
-    ;
-  },
-  adeptivity_blocks_entries_for_dashboard()
-);
+
 $basename = parse_url(home_url())['path'] ?? '';
 ?>
 <div id="root" <?php echo get_block_wrapper_attributes(); ?> data-assetdir="<?php echo esc_attr(ASSETDIR) ?>"
   data-basename="<?php echo esc_url($basename) ?>">
 </div>
 <pre style="display: none !important" id="score-summary">
-  <?php echo wp_json_encode($summary); ?>
+  <?php echo wp_json_encode($scoreSummaryArray); ?>
+</pre>
+<pre style="display: none !important" id="score-by-cat">
+  <?php echo wp_json_encode($scoreByCat); ?>
 </pre>
 <pre style="display: none !important" id="latest-classes">
   <?php echo wp_json_encode($latestClasses); ?>
+</pre>
+<pre style="display: none !important" id="all-classes">
+  <?php echo wp_json_encode($allClasses); ?>
+</pre>
+<pre style="display: none !important" id="analyzed-classes">
+  <?php echo wp_json_encode($analyzedClasses); ?>
 </pre>

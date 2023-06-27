@@ -13,7 +13,7 @@ export default function MyCourses() {
 			<SectionHeader hasRow title="My Courses">
 				<SortCritera>Sorted by Date</SortCritera>
 				<Change href="">Change</Change>
-				<Button href="" content="See All..." color="primary" />
+				<Button content="See All..." color="primary" variant='Link' to='journey#all-courses' />
 			</SectionHeader>
 			<CourseCardWrapper>
 				<CourseCardList courses={courses} />

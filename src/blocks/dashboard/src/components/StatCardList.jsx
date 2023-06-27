@@ -1,20 +1,29 @@
-import { courseOfGroups } from "../data"
 import StatCard from "./StatCard"
+import { categories } from "../data"
+import usePhp from "../../usePhp"
 
 export default function StatCardList() {
+  const {scoreByCat, analyzedClasses} = usePhp()
+  const data = categories.map(
+    cat => (
+      {...cat,
+        score: scoreByCat[cat.name],
+        history: analyzedClasses.map(cl => {
+          return {
+            createdAt: new Date(cl.createdAt).toISOString().slice(2, 10),
+            score: cl[cat.name]
+          }
+        })
+      }
+    )
+  )
+          
   return (
     <>
-      {courseOfGroups.map((c) => (
+      {data.map(d => (
         <StatCard
-          key={c.id}
-          scoreHistory={c.group.history}
-          currentScore={c.group.score}
-          groupIcon={c.group.icon}
-          groupColor={c.group.color}
-          courseDuration={c.duration}
-          courseName={c.name}
-          courseThumbnail={c.thumbnail}
-          groupTitle={c.group.title}
+          key={d.name}
+          {...d}
         />
       ))}
     </>

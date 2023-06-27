@@ -1,22 +1,26 @@
-import styled from "styled-components"
+import { Link } from "react-router-dom"
+import styled, { css } from "styled-components"
 
-export default function Button({ content, color, variant }) {
-	color = color ? "--color-" + color : "primary"
+export default function Button({ content, color, variant, className, to }) {
+	color = color ? color : "primary"
 	if (variant === "label") {
-		return <Label>{content}</Label>
+		return <Label className={className}>{content}</Label>
+	}
+	if (variant === "Link") {
+		return <StyledLink color={color} className={className} to={to}>{content}</StyledLink>
 	}
 	return (
-		<Btn href="#" color={color}>
+		<Btn href="#" color={color} className={className}>
 			{content}
 		</Btn>
 	)
 }
 
-const Btn = styled.button`
+const buttonCss = css`
 	border: none;
 	display: block;
 	border-radius: 7px;
-	background-color: var(${(props) => props.color});
+	background-color: var(--color-${(props) => props.color});
 	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
 	padding: 8.5px 10px;
 	text-decoration: none;
@@ -24,8 +28,14 @@ const Btn = styled.button`
 	font-weight: var(--font-weight-bold-600);
 	font-size: 1.5rem;
 	line-height: 1;
+	cursor: pointer;
 
 	min-height: var(--min-tap-height, 32px);
+	
+`
+
+const Btn = styled.button`
+	${buttonCss}
 `
 
 export const Label = styled.span`
@@ -60,4 +70,8 @@ export const UnstyledButton = styled.button`
 	&:focus:not(:focus-visible) {
 		outline: none;
 	}
+`
+
+const StyledLink = styled(Link)`
+	${buttonCss}
 `

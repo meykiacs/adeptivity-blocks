@@ -1,21 +1,22 @@
 import styled from "styled-components"
 
 export default function ClassTable({ myClass }) {
-	const { grade, course, subject, attendees, date, uploadedAt } = myClass
+	// const { grade, course, subject, attendees, date, uploadedAt } = myClass
+	const { course, title, createdAt, attendees } = myClass
 	return (
 		<Dl>
 			<Dt>Grade:</Dt>
-			<Dd>{grade}</Dd>
+			<Dd>Not specified</Dd>
 			<Dt>Course:</Dt>
 			<Dd>{course}</Dd>
 			<Dt>Subject:</Dt>
-			<Dd>{subject}</Dd>
+			<Dd>{title}</Dd>
 			<Dt>Attendees:</Dt>
 			<Dd>{attendees}</Dd>
 			<Dt>Date:</Dt>
-			<Dd>{date}</Dd>
+			<Dd>Not Specified</Dd>
 			<Dt>Uploaded at:</Dt>
-			<Dd>{uploadedAt}</Dd>
+			<Dd>{createdAt}</Dd>
 		</Dl>
 	)
 }

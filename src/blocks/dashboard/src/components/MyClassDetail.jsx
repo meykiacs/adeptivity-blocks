@@ -1,23 +1,36 @@
 import styled from "styled-components"
-import Button from "./Buttons"
-import ClassTable from "./ClassTable"
 import playGray from "../svgs/play-gray.svg"
 import rectVideo from "../svgs/rect-video.svg"
 import { QUERIES } from "../constants"
+import { Root, Trigger } from "@radix-ui/react-dialog"
+
+import ClassTable from "./ClassTable"
+import VideoModal from "./VideoModal"
 
 export default function MyClassDetail({ myClass }) {
 	const { analyzed } = myClass
 	return (
 		<Wrapper>
 			<VisualPart>
-				<ImageWrapper>
-					<Image src={playGray} alt="video" />
-					<Image src={rectVideo} alt="video" />
-				</ImageWrapper>
-				<StyledButton
-					content={analyzed ? "Analyzed" : "Analyze Now"}
-					color={analyzed ? "gray-500" : "primary"}
-				/>
+				{myClass.video ? (
+					<Root>
+						<Trigger asChild>
+							<ImageWrapper pointer>
+								<Image src={playGray} alt="video" />
+								<Image src={rectVideo} alt="video" />
+							</ImageWrapper>
+						</Trigger>
+						<VideoModal video={myClass.video} />
+					</Root>
+				) : (
+					<ImageWrapper>
+						<Image src={playGray} alt="video" />
+						<Image src={rectVideo} alt="video" />
+					</ImageWrapper>
+				)}
+				<StyledSpan color={!analyzed ? "gray-500" : "primary"} variant="label">
+					{analyzed ? "Analyzed" : "Not analyzed"}
+				</StyledSpan>
 			</VisualPart>
 			<ClassTable myClass={myClass} />
 		</Wrapper>
@@ -28,10 +41,10 @@ const Wrapper = styled.div`
 	display: flex;
 	gap: 24px;
 	flex-wrap: wrap;
-  
-  @media ${QUERIES.phoneAndSmaller} {
-    justify-content: center;
-  }
+
+	@media ${QUERIES.phoneAndSmaller} {
+		justify-content: center;
+	}
 `
 
 const VisualPart = styled.div`
@@ -48,6 +61,7 @@ const ImageWrapper = styled.div`
 	width: 180px;
 	position: relative;
 	box-shadow: 0px 0px 7px rgba(32, 34, 36, 0.25);
+	cursor: ${props => props.pointer ? 'pointer' : 'default'}
 `
 
 const Image = styled.img`
@@ -57,7 +71,17 @@ const Image = styled.img`
 	transform: translate(-50%, -50%);
 `
 
-const StyledButton = styled(Button)`
+const StyledSpan = styled.span`
 	display: block;
 	margin: 0 auto;
+	background-color: var(${(props) => "--color-" + props.color});
+	border-radius: 7px;
+	padding: 8px 10px;
+	text-decoration: none;
+	color: var(--color-white);
+	font-weight: var(--font-weight-bold-600);
+	font-size: 1.5rem;
+	line-height: 1;
+
+	min-height: var(--min-tap-height, 32px);
 `
