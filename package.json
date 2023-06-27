@@ -14,12 +14,10 @@
 		"fix": "eslint \"src/**/*.{js,jsx}\" --fix",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start --webpack-copy-php",
-		"prepare": "husky install"
+		"start": "wp-scripts start --webpack-copy-php"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.4.0",
-		"husky": "^8.0.3"
+		"@wordpress/scripts": "^26.4.0"
 	},
 	"dependencies": {
 		"@fontsource/open-sans": "^5.0.2",

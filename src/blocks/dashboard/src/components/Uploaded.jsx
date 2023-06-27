@@ -2,18 +2,28 @@ import styled from "styled-components"
 import playGray from "../svgs/play-gray.svg"
 import rectVideo from "../svgs/rect-video.svg"
 import play from "../svgs/play.svg"
+import { Root, Trigger } from "@radix-ui/react-dialog"
+import VideoModal from "./VideoModal"
 
-export default function Uploaded({ title }) {
+export default function Uploaded({ title, video }) {
 	return (
 		<Wrapper>
-			<Header>
-				<Image src={playGray} alt="video" />
-				<Image src={rectVideo} alt="video" />
-			</Header>
-			<Footer>
-				<Text>{title}</Text>
-				<Icon src={play} alt="play" />
-			</Footer>
+			<Root>
+				<Trigger asChild>
+					<Header>
+						<Image src={playGray} alt="video" />
+						<Image src={rectVideo} alt="video" />
+					</Header>
+				</Trigger>
+				<Footer>
+					<Text>{title}</Text>
+					<Trigger asChild>
+						<Icon src={play} alt="play" />
+					</Trigger>
+				</Footer>
+				<VideoModal video={video} />
+
+			</Root>
 		</Wrapper>
 	)
 }

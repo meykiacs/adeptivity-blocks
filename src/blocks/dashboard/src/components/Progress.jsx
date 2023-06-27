@@ -8,12 +8,16 @@ import SectionHeader from "./SectionHeader"
 import usePhp from "../../usePhp"
 
 export default function Progress() {
-	const {assetDir} = usePhp()
+	const { assetDir, scoreSummary } = usePhp()
 	const [totalScore, setTotalScore] = useState(0)
 	const [maxScore, setMaxScore] = useState(1)
 	const score28 = Math.floor((totalScore * 28) / (maxScore + 1)) + 1
 	const postfix = score28 > 9 ? +score28 : "0" + score28
 	const growthPath = assetDir + "img/growth" + postfix + ".png"
+
+	let newBars = bars.map((item, index) => {
+		return {...item, score: scoreSummary.filter((item, i) => index === i)}
+	})
 	return (
 		<Section>
 			{/* <Title>My Crativity Growth</Title> */}
@@ -22,7 +26,7 @@ export default function Progress() {
 			<Wrapper>
 				<ChartWrapper>
 					<ProgressList
-						bars={bars}
+						bars={newBars}
 						setTotalScore={setTotalScore}
 						setMaxScore={setMaxScore}
 					/>
@@ -42,7 +46,7 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 50px;
-  justify-content: center;
+	justify-content: center;
 `
 
 const ChartWrapper = styled.div`
@@ -52,7 +56,7 @@ const ChartWrapper = styled.div`
 	align-items: stretch;
 	gap: 20px;
 	flex-grow: 1;
-  flex-basis: 550px;
+	flex-basis: 550px;
 `
 
 const ScoreWrapper = styled.div`
