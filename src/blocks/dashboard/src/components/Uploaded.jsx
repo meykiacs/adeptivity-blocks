@@ -8,22 +8,33 @@ import VideoModal from "./VideoModal"
 export default function Uploaded({ title, video }) {
 	return (
 		<Wrapper>
-			<Root>
-				<Trigger asChild>
+			{video ? (
+				<Root>
+					<Trigger asChild>
+						<Header pointer>
+							<Image src={playGray} alt="video" />
+							<Image src={rectVideo} alt="video" />
+						</Header>
+					</Trigger>
+					<Footer>
+						<Text>{title}</Text>
+						<Trigger asChild>
+							<Icon src={play} alt="play" />
+						</Trigger>
+					</Footer>
+					<VideoModal video={video} />
+				</Root>
+			) : (
+				<>
 					<Header>
 						<Image src={playGray} alt="video" />
 						<Image src={rectVideo} alt="video" />
 					</Header>
-				</Trigger>
-				<Footer>
-					<Text>{title}</Text>
-					<Trigger asChild>
-						<Icon src={play} alt="play" />
-					</Trigger>
-				</Footer>
-				<VideoModal video={video} />
-
-			</Root>
+					<Footer>
+						<Text>{title}</Text>
+					</Footer>
+				</>
+			)}
 		</Wrapper>
 	)
 }
@@ -39,6 +50,7 @@ const Header = styled.header`
 	width: 100%;
 	display: flex;
 	position: relative;
+	cursor: ${(props) => (props.pointer ? "pointer" : "default")};
 `
 
 const Footer = styled.footer`
@@ -59,6 +71,7 @@ const Icon = styled.img`
 	display: block;
 	width: 30px;
 	height: auto;
+	cursor: pointer;
 `
 
 const Image = styled.img`
