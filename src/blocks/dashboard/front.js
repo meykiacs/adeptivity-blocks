@@ -1,7 +1,7 @@
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter, useLocation } from "react-router-dom"
 import { PhpProvider } from "./PhpContext"
 import App from "./src/App"
-import { render } from "@wordpress/element"
+import { render, useEffect } from "@wordpress/element"
 import { createGlobalStyle } from "styled-components"
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -264,11 +264,28 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	render(
 		<BrowserRouter basename={basename}>
-			<PhpProvider>
-				<App />
-				<GlobalStyles />
-			</PhpProvider>
+			<ScrollWrapper>
+				<PhpProvider>
+					<App />
+					<GlobalStyles />
+				</PhpProvider>
+			</ScrollWrapper>
 		</BrowserRouter>,
 		root
 	)
 })
+
+const ScrollWrapper = ({ children }) => {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    const canControlScrollRestoration = 'scrollRestoration' in window.history
+    if (canControlScrollRestoration) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return children;
+}
