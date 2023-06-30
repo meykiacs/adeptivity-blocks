@@ -37,7 +37,7 @@ const DialogContent = styled(Content)`
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 90vw;
+	max-width: 90vw;
 	/* max-width: 450px; */
 	max-height: 90%;
 	padding-left: 0px;
@@ -45,7 +45,7 @@ const DialogContent = styled(Content)`
 	padding-top: 0px;
 	padding-bottom: 0px;
 	animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
-	overflow: scroll;
+	/* overflow: scroll; */
 	line-height: 0;
 
 	&::-webkit-scrollbar: {
@@ -61,8 +61,10 @@ const VideoWrapper = styled.div`
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	/* max-width: 100%; */
 	& video {
-		/* display: block; */
-		width: 100%;
+		display: block;
+		max-width: 100%;
+		height: auto;
 	}
 `
