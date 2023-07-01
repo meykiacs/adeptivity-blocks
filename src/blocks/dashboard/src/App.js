@@ -40,7 +40,10 @@ const Wrapper = styled.div`
 	align-items: flex-start;
 	isolation: isolate;
 `
-const MidWrapper = styled.div``
+const MidWrapper = styled.div`
+	max-width: 1136px;
+	flex-grow: 1;
+`
 
 const SideWrapper = styled.header`
 	flex: 1;
@@ -58,7 +61,6 @@ const Side = styled.div`
 `
 
 const MainWrapper = styled.main`
-	max-width: 1136px;
 
 	padding-left: 50px;
 	padding-right: 50px;
@@ -72,5 +74,4 @@ const MainWrapper = styled.main`
 const TopWrapper = styled.header`
 	padding-left: 0;
 	padding-right: 0;
-	max-width: 1136px;
 `

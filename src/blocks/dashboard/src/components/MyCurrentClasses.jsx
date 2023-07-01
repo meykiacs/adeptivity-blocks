@@ -26,7 +26,7 @@ const Main = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
-	justify-content: start;
+	justify-content: flex-start;
 	margin-bottom: 40px;
 
   & > * {

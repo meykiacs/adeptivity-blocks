@@ -33,7 +33,7 @@ if (!defined('ADEPTIVITY_PLUGIN_DIR_PATH')) {
 	define('ADEPTIVITY_PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
 }
 if (!defined('ADEPTIVITY_PLUGIN_URL')) {
-	define('ADEPTIVITY_PLUGIN_URL', __FILE__);
+	define('ADEPTIVITY_PLUGIN_URL', plugin_dir_url(__FILE__));
 }
 if (!defined('ADEPTIVITY_TEXTDOMAIN')) {
 	define('ADEPTIVITY_TEXTDOMAIN', 'adeptivity');
@@ -43,10 +43,23 @@ require __DIR__ . '/includes/app/config.php';
 require __DIR__ . '/includes/app/services.php';
 
 
-$regBlock = $container['register_blocks'];
+$regBlock = $container['register_blocks']->add('dashboard')->add('loginform')->register();
+$loginCustomizer = $container['login_page_customizer']->customize();
 
-$regBlock->add('dashboard')->add('loginform')->register();
 
 
-add_filter('login_headerurl', fn() => home_url());
-add_filter('login_headertext', fn() => 'hi');
+add_action(
+	'admin_init',
+	function () {
+		if (!current_user_can('manage_options')) {
+			wp_safe_redirect('/');
+		}
+	}
+);
+
+
+add_action('wp_loaded', function () {
+	if (!current_user_can('manage_options')) {
+		show_admin_bar(false);
+	}
+});

@@ -20,9 +20,7 @@ export default function Progress() {
 	})
 	return (
 		<Section>
-			{/* <Title>My Crativity Growth</Title> */}
-
-			<SectionHeader title="My Crativity Growth" />
+			<SectionHeader title="My Creativity Growth" />
 			<Wrapper>
 				<ChartWrapper>
 					<ProgressList

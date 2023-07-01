@@ -5,6 +5,7 @@ const PhpContext = createContext()
 export const PhpProvider = ({ children }) => {
 	const root = document.getElementById("root")
 	const assetDir = root.dataset.assetdir
+	const logoutUrl = root.dataset.logouturl
 	const scoreSummary = JSON.parse(
 		document.getElementById("score-summary").innerHTML
 	)
@@ -22,7 +23,7 @@ export const PhpProvider = ({ children }) => {
 	)
 
 	return (
-		<PhpContext.Provider value={{ assetDir, scoreSummary, latestClasses, allClasses, analyzedClasses, scoreByCat }}>
+		<PhpContext.Provider value={{ assetDir, scoreSummary, latestClasses, allClasses, analyzedClasses, scoreByCat, logoutUrl }}>
 			{children}
 		</PhpContext.Provider>
 	)

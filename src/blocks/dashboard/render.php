@@ -65,21 +65,21 @@ function adeptivity_score_history_by_cat($cat)
 function adeptivity_max_scores()
 {
   return [
-    'divergent' => max(adeptivity_score_history_by_cat('divergent')),
-    'lateral' => max(adeptivity_score_history_by_cat('lateral')),
-    'aesthetic' => max(adeptivity_score_history_by_cat('aesthetic')),
-    'system' => max(adeptivity_score_history_by_cat('system')),
-    'inspirational' => max(adeptivity_score_history_by_cat('inspirational')),
+    'divergent' => empty(adeptivity_score_history_by_cat('divergent')) ? 0 : max(adeptivity_score_history_by_cat('divergent')),
+    'lateral' => empty(adeptivity_score_history_by_cat('lateral')) ? 0 : max(adeptivity_score_history_by_cat('lateral')),
+    'aesthetic' => empty(adeptivity_score_history_by_cat('aesthetic')) ? 0 : max(adeptivity_score_history_by_cat('aesthetic')),
+    'system' => empty(adeptivity_score_history_by_cat('system')) ? 0 : max(adeptivity_score_history_by_cat('system')),
+    'inspirational' => empty(adeptivity_score_history_by_cat('inspirational')) ? 0 : max(adeptivity_score_history_by_cat('inspirational')),
   ];
 }
 function adeptivity_max_scores_array()
 {
   return [
-    max(adeptivity_score_history_by_cat('divergent')),
-    max(adeptivity_score_history_by_cat('lateral')),
-    max(adeptivity_score_history_by_cat('aesthetic')),
-    max(adeptivity_score_history_by_cat('system')),
-    max(adeptivity_score_history_by_cat('inspirational')),
+    empty(adeptivity_score_history_by_cat('divergent')) ? 0 : max(adeptivity_score_history_by_cat('divergent')),
+    empty(adeptivity_score_history_by_cat('lateral')) ? 0 : max(adeptivity_score_history_by_cat('lateral')),
+    empty(adeptivity_score_history_by_cat('aesthetic')) ? 0 : max(adeptivity_score_history_by_cat('aesthetic')),
+    empty(adeptivity_score_history_by_cat('system')) ? 0 : max(adeptivity_score_history_by_cat('system')),
+    empty(adeptivity_score_history_by_cat('inspirational')) ? 0 : max(adeptivity_score_history_by_cat('inspirational')),
   ];
 }
 
@@ -98,20 +98,20 @@ $latestClasses = array_slice(
 
 ?>
 
-<!-- <pre>
-  <?php
-  var_dump($allClasses);
-  var_dump($analyzedClasses);
-
-  ?>
-</pre> -->
-
 <?php
 
 $basename = parse_url(home_url())['path'] ?? '';
+$logouturl = wp_logout_url();
+
 ?>
-<div id="root" <?php echo get_block_wrapper_attributes(); ?> data-assetdir="<?php echo esc_attr(ASSETDIR) ?>"
-  data-basename="<?php echo esc_url($basename) ?>">
+<div 
+  id="root" 
+  <?php echo get_block_wrapper_attributes(); ?>
+  data-assetdir="<?php echo esc_attr(ASSETDIR) ?>"
+  data-basename="<?php echo esc_url($basename) ?>"
+  data-logouturl="<?php echo esc_url($logouturl) ?>"
+>
+
 </div>
 <pre style="display: none !important" id="score-summary">
   <?php echo wp_json_encode($scoreSummaryArray); ?>

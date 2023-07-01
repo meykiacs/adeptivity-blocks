@@ -10,8 +10,10 @@ import { UnstyledButton } from "./Buttons"
 import VisuallyHidden from "./VisuallyHidden"
 import { Root, Trigger } from "@radix-ui/react-dialog"
 import MobileMenu from "./MobileMenu"
+import usePhp from "../../usePhp"
 
 export default function TopMenu() {
+	const {logoutUrl} = usePhp();
 	return (
 		<Wrapper>
       <MobileActions>
@@ -27,17 +29,17 @@ export default function TopMenu() {
       </MobileActions>
 			<ul>
 				<li>
-					<a href="https://google.com">
+					<a href="/">
 						<Icon src={search} />
 					</a>
 				</li>
 				<li>
-					<a href="https://google.com">
+					<a href="/">
 						<Icon src={pocket} />
 					</a>
 				</li>
 				<li>
-					<a href="https://google.com">
+					<a href={`${logoutUrl}`}>
 						<Icon src={profile} />
 					</a>
 				</li>

@@ -32,7 +32,7 @@ const Main = styled.div`
 			flex-basis: 70%;
 		}
 		@media ${QUERIES.phoneAndSmaller} {
-			flex-grow: 1;
+			flex-grow: 0;
 			flex-basis: 90%;
 		}
 	}
