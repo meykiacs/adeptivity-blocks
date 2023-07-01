@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "adeptivity/dashboard",
+	"name": "adeptivity/loginform",
 	"version": "1.0.0",
-	"title": "dashboard",
+	"title": "Login Form",
 	"category": "theme",
 	"icon": "menu",
-	"description": "Whole dashboard",
+	"description": "Login Form",
 	"supports": {
 		"html": false
 	},

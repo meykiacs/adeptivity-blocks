@@ -4,7 +4,16 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
-function adeptivity_blocks_entries_by_user()
+add_filter(
+  'auth_redirect_scheme',
+  function () {
+    return 'logged_in';
+  }
+);
+
+auth_redirect();
+
+function adeptivity_entries_by_user()
 {
   $table_id = '1';
   $cu_user_id = wp_get_current_user()->ID;
@@ -17,7 +26,7 @@ function adeptivity_blocks_entries_by_user()
   return $filtered_entries;
 }
 
-function adeptivity_blocks_entries_for_dashboard()
+function adeptivity_entries_for_dashboard()
 {
   return array_map(function ($e) {
     return [
@@ -38,13 +47,13 @@ function adeptivity_blocks_entries_for_dashboard()
       (!empty($e['11'])) &&
       (!empty($e['12']))
     ];
-  }, adeptivity_blocks_entries_by_user());
+  }, adeptivity_entries_by_user());
 }
 
-function adeptivity_blocks_score_history_by_cat($cat)
+function adeptivity_score_history_by_cat($cat)
 {
   return array_reduce(
-    adeptivity_blocks_entries_for_dashboard(),
+    adeptivity_entries_for_dashboard(),
     function ($carry, $item) use ($cat) {
       array_push($carry, $item[$cat]);
       return $carry;
@@ -53,30 +62,31 @@ function adeptivity_blocks_score_history_by_cat($cat)
   );
 }
 
-function adeptivity_blocks_max_scores()
+function adeptivity_max_scores()
 {
   return [
-    'divergent' => max(adeptivity_blocks_score_history_by_cat('divergent')),
-    'lateral' => max(adeptivity_blocks_score_history_by_cat('lateral')),
-    'aesthetic' => max(adeptivity_blocks_score_history_by_cat('aesthetic')),
-    'system' => max(adeptivity_blocks_score_history_by_cat('system')),
-    'inspirational' => max(adeptivity_blocks_score_history_by_cat('inspirational')),
+    'divergent' => max(adeptivity_score_history_by_cat('divergent')),
+    'lateral' => max(adeptivity_score_history_by_cat('lateral')),
+    'aesthetic' => max(adeptivity_score_history_by_cat('aesthetic')),
+    'system' => max(adeptivity_score_history_by_cat('system')),
+    'inspirational' => max(adeptivity_score_history_by_cat('inspirational')),
   ];
 }
-function adeptivity_blocks_max_scores_array()
+function adeptivity_max_scores_array()
 {
   return [
-    max(adeptivity_blocks_score_history_by_cat('divergent')),
-    max(adeptivity_blocks_score_history_by_cat('lateral')),
-    max(adeptivity_blocks_score_history_by_cat('aesthetic')),
-    max(adeptivity_blocks_score_history_by_cat('system')),
-    max(adeptivity_blocks_score_history_by_cat('inspirational')),
+    max(adeptivity_score_history_by_cat('divergent')),
+    max(adeptivity_score_history_by_cat('lateral')),
+    max(adeptivity_score_history_by_cat('aesthetic')),
+    max(adeptivity_score_history_by_cat('system')),
+    max(adeptivity_score_history_by_cat('inspirational')),
   ];
 }
-$scoreSummaryArray = adeptivity_blocks_max_scores_array();
-$scoreByCat = adeptivity_blocks_max_scores();
 
-$allClasses = adeptivity_blocks_entries_for_dashboard();
+$scoreSummaryArray = adeptivity_max_scores_array();
+$scoreByCat = adeptivity_max_scores();
+
+$allClasses = adeptivity_entries_for_dashboard();
 $analyzedClasses = array_values(array_filter($allClasses, function ($entry) {
   return $entry['analyzed'];
 }));
@@ -90,9 +100,8 @@ $latestClasses = array_slice(
 
 <!-- <pre>
   <?php
-  // var_dump(adeptivity_blocks_entries_by_user());
   var_dump($allClasses);
-var_dump($analyzedClasses);
+  var_dump($analyzedClasses);
 
   ?>
 </pre> -->
