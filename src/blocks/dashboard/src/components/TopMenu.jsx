@@ -29,19 +29,19 @@ export default function TopMenu() {
       </MobileActions>
 			<ul>
 				<li>
-					<a href="/">
+					<A href="/">
 						<Icon src={search} />
-					</a>
+					</A>
 				</li>
 				<li>
-					<a href="/">
+					<A href="/">
 						<Icon src={pocket} />
-					</a>
+					</A>
 				</li>
 				<li>
-					<a href={`${logoutUrl}`}>
+					<A href={`${logoutUrl}`} >
 						<Icon src={profile} />
-					</a>
+					</A>
 				</li>
 			</ul>
 		</Wrapper>
@@ -91,4 +91,11 @@ const MobileActions = styled.div`
 	@media ${QUERIES.tabletAndSmaller} {
 		display: block;
 	}
+`
+
+const A = styled.a`
+	display: block;
+	&:focus {
+		outline: revert;
+	} 
 `
