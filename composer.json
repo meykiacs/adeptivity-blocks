@@ -1,5 +1,5 @@
 {
-    "name": "kia/adeptivity-blocks",
+    "name": "kia/adeptivity",
     "authors": [
         {
             "name": "Meysam Kia",
@@ -8,5 +8,18 @@
     ],
     "require-dev": {
         "php-stubs/wordpress-stubs": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Adeptivity\\": "includes/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "require": {
+        "pimple/pimple": "^3.5"
     }
 }
