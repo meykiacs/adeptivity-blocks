@@ -25,6 +25,7 @@ function App() {
 						<Route path="classes" element={<Classes />} />
 						<Route path='journey' element={<Journey />} />
 						<Route path='toolshed' element={<Toolshed />} />
+						<Route path='*' element={<Home />} />
 					</Routes>
 				</MainWrapper>
 			</MidWrapper>
