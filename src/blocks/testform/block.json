@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "adeptivity/testform",
+	"version": "1.0.0",
+	"title": "Test Form",
+	"category": "theme",
+	"icon": "menu",
+	"description": "Test Form",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "adeptivity",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"viewScript": "file:./front.js"
+}

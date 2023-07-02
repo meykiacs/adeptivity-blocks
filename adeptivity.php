@@ -15,6 +15,9 @@
 declare(strict_types=1);
 
 use Pimple\Container;
+use Adeptivity\Model\Field\NonEmptyTextField;
+use Adeptivity\Model\Route\LecturePost;
+use Adeptivity\Model\Route\VideoPost;
 
 defined('ABSPATH') or exit('Not allowed');
 
@@ -43,23 +46,16 @@ require __DIR__ . '/includes/app/config.php';
 require __DIR__ . '/includes/app/services.php';
 
 
-$regBlock = $container['register_blocks']->add('dashboard')->add('loginform')->register();
+$regBlock = $container['register_blocks']
+	->add('dashboard')
+	->add('loginform')
+	->add('testform')
+	->register();
 $loginCustomizer = $container['login_page_customizer']->customize();
+$auth = $container['auth']->redirectNonAdminFromAdminPanel()->removeAdminBarForNonAdmins();
 
+$className = new NonEmptyTextField('class_name', true);
+$lecture = new LecturePost('adeptivity/v1', 'lecture');
+$videoPost = new VideoPost('adeptivity/v1', 'video');
 
-
-add_action(
-	'admin_init',
-	function () {
-		if (!current_user_can('manage_options')) {
-			wp_safe_redirect('/');
-		}
-	}
-);
-
-
-add_action('wp_loaded', function () {
-	if (!current_user_can('manage_options')) {
-		show_admin_bar(false);
-	}
-});
+$rest = $container['rest']->addRoute($lecture)->addRoute($videoPost)->register();

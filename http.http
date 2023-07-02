@@ -1,7 +1,6 @@
-POST http://127.0.0.1:8000/?rest_route=/adeptivity/v1/login
+POST http://127.0.0.1:8000/?rest_route=/adeptivity/v1/lecture
 Content-Type: application/json
 
 {
-  "email" : "test@tex.com",
-  "password": "lmDm1gfkmcFS"
+  "class_name" : "200"
 }
