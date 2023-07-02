@@ -86,10 +86,10 @@ function adeptivity_max_scores_array()
 $scoreSummaryArray = adeptivity_max_scores_array();
 $scoreByCat = adeptivity_max_scores();
 
-$allClasses = adeptivity_entries_for_dashboard();
-$analyzedClasses = array_values(array_filter($allClasses, function ($entry) {
+$allClasses =array_values(adeptivity_entries_for_dashboard());
+$analyzedClasses = array_filter($allClasses, function ($entry) {
   return $entry['analyzed'];
-}));
+});
 $latestClasses = array_slice(
   $allClasses,
   0,
