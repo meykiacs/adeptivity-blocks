@@ -8,95 +8,94 @@ import { QUERIES } from "../constants"
 import { courses2 } from "../data"
 
 export default function AllCourses() {
-  return (
-    <Section id='all-courses'>
-      <SectionHeader hasRow title="All Courses">
-        <form>
-          <fieldset>
-            <input
-              type="radio"
-              name="filter"
-              value="in-progress"
-              id="in-progress"
-            />
-            <Label htmlFor="in-progress">In Progress</Label>
-            <input type="radio" name="filter" value="passed" id="passed" />
-            <Label htmlFor="passed">Already Passed</Label>
-            <input
-              type="radio"
-              name="filter"
-              value="available"
-              id="available"
-            />
-            <Label htmlFor="available">Available</Label>
-          </fieldset>
-        </form>
-        <SortedBy>
-          <Fieldset>
-            <Label htmlFor="order">Sorted by:</Label>
-            <GradeSelect
-              name="order"
-              id="order"
-              s={[
-                { value: "last-viewed", display: "Last Viewed" },
-                { value: "newest", display: "Newest" },
-                { value: "oldest", display: "Oldest" },
-                { value: "subject", display: "Subject" },
-                { value: "duration", display: "Duration" },
-              ]}
-              height="25px"
-              width="110px"
-            />
-          </Fieldset>
-        </SortedBy>
-      </SectionHeader>
-      <CourseCardWrapper>
-        <CourseCardList courses={courses2} withDuration />
-      </CourseCardWrapper>
-    </Section>
-  )
+	return (
+		<Section id="all-courses">
+			<SectionHeader hasRow title="All Courses">
+				<form>
+					<fieldset>
+						<input
+							type="radio"
+							name="filter"
+							value="in-progress"
+							id="in-progress"
+						/>
+						<Label htmlFor="in-progress">In Progress</Label>
+						<input type="radio" name="filter" value="passed" id="passed" />
+						<Label htmlFor="passed">Already Passed</Label>
+						<input
+							type="radio"
+							name="filter"
+							value="available"
+							id="available"
+						/>
+						<Label htmlFor="available">Available</Label>
+					</fieldset>
+				</form>
+				<SortedBy>
+					<Fieldset>
+						<Label htmlFor="order">Sorted by:</Label>
+						<GradeSelect
+							name="order"
+							id="order"
+							s={[
+								{ value: "last-viewed", display: "Last Viewed" },
+								{ value: "newest", display: "Newest" },
+								{ value: "oldest", display: "Oldest" },
+								{ value: "subject", display: "Subject" },
+								{ value: "duration", display: "Duration" },
+							]}
+							height="25px"
+							width="110px"
+						/>
+					</Fieldset>
+				</SortedBy>
+			</SectionHeader>
+			<CourseCardWrapper>
+				<CourseCardList courses={courses2} withDuration />
+			</CourseCardWrapper>
+		</Section>
+	)
 }
 
 const Label = styled.label`
-  font-size: 1.4rem;
+	font-size: 1.4rem;
 `
 
 const SortedBy = styled.form`
-  margin-left: auto;
+	margin-left: auto;
 
-  @media ${QUERIES.tabletAndSmaller} {
-    margin-right: auto;
-    margin-left: 20px;
-  }
+	@media ${QUERIES.tabletAndSmaller} {
+		margin-right: auto;
+		margin-left: 20px;
+	}
 
-  @media ${QUERIES.phoneAndSmaller} {
-    margin-right: auto;
-    margin-left: revert;
-  }
+	@media ${QUERIES.phoneAndSmaller} {
+		margin-right: auto;
+		margin-left: revert;
+	}
 `
 
 const Fieldset = styled.fieldset`
-  display: flex;
-  gap: 6px;
+	display: flex;
+	gap: 6px;
 `
 
-
 const CourseCardWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 33px;
-  & > * {
-    flex-basis: 180px;
-    flex-grow: 1;
-    max-width: 200px;
-  
-    @media ${QUERIES.phoneAndSmaller} {
-      max-width: 280px;
-    }
-  }
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 33px;
+	& > * {
+		flex-basis: 180px;
+		flex-grow: 1;
+		max-width: 200px;
 
-  @media ${QUERIES.phoneAndSmaller} {
-    justify-content: center;
-  }
+		@media ${QUERIES.phoneAndSmaller} {
+			max-width: 280px;
+		}
+	}
+
+	@media ${QUERIES.phoneAndSmaller} {
+		justify-content: center;
+	}
 `

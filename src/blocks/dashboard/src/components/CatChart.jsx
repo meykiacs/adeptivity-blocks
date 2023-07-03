@@ -23,9 +23,14 @@ export default function CatChart({ data, color }) {
 			>
 				{/* <CartesianGrid strokeDasharray="3 3" /> */}
 				<XAxis dataKey="createdAt" tick={<CustomAxixTick />} tickSize={5} />
-				<YAxis tick={false} type="number" domain={[0, 10]}/>
+				<YAxis tick={false} type="number" domain={[0, 10]} />
 				<Tooltip />
-				<Line type="monotone" dataKey="score" stroke={`var(--color-${color})`} strokeWidth={5} />
+				<Line
+					type="monotone"
+					dataKey="score"
+					stroke={`var(--color-${color})`}
+					strokeWidth={5}
+				/>
 			</LineChart>
 		</ResponsiveContainer>
 	)

@@ -36,11 +36,11 @@ function adeptivity_entries_for_dashboard()
       'createdAt' => $e['date_created'],
       'title' => $e['3'],
       'course' => $e['4'],
-      'divergent' => $e['10'],
-      'lateral' => $e['14'],
-      'aesthetic' => $e['13'],
-      'system' => $e['11'],
-      'inspirational' => $e['12'],
+      'divergent' => intval($e['10']),
+      'lateral' => intval($e['14']),
+      'aesthetic' => intval($e['13']),
+      'system' => intval($e['11']),
+      'inspirational' => intval($e['12']),
       'analyzed' => (!empty($e['10'])) &&
       (!empty($e['14'])) &&
       (!empty($e['13'])) &&
@@ -72,6 +72,8 @@ function adeptivity_max_scores()
     'inspirational' => empty(adeptivity_score_history_by_cat('inspirational')) ? 0 : max(adeptivity_score_history_by_cat('inspirational')),
   ];
 }
+
+
 function adeptivity_max_scores_array()
 {
   return [

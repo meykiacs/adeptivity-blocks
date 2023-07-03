@@ -7,13 +7,17 @@ import SectionHeader from "./SectionHeader"
 import { courses } from "../data"
 import { QUERIES } from "../constants"
 
-export default function MyCourses() {
+export default function MyCourses({ setPage }) {
 	return (
 		<Section>
 			<SectionHeader hasRow title="My Courses">
 				<SortCritera>Sorted by Date</SortCritera>
 				<Change href="">Change</Change>
-				<Button content="See All..." color="primary" variant='Link' to='journey#all-courses' />
+				<Button
+					content="See All..."
+					color="primary"
+					onClick={() => setPage("Classes")}
+				/>
 			</SectionHeader>
 			<CourseCardWrapper>
 				<CourseCardList courses={courses} />

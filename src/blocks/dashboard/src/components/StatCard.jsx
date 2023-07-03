@@ -2,34 +2,27 @@ import styled from "styled-components"
 import SVG from "react-inlinesvg"
 import CatChart from "./CatChart"
 
-export default function StatCard({
-  name,
-  icon,
-  title,
-  score,
-  history
-}) {
+export default function StatCard({ name, icon, title, score, history }) {
+	// const image = courseThumbnail === "" ? assetDir + "img/course-placeholder.png" : courseThumbnail
 
-  // const image = courseThumbnail === "" ? assetDir + "img/course-placeholder.png" : courseThumbnail
-
-  return (
-    <Article>
-      <Header>
-        <Icon src={icon} color={name} />
-        <h3>{title}</h3>
-      </Header>
-      <Wrapper>
-        <Main color={name}>
-          <CatChart data={history} color={name} />
-        </Main>
-        <Aside>
-          <p>{score}/10</p>
-          <ScoreBar>
-            <InnerDiv score={score} color={name} />
-          </ScoreBar>
-        </Aside>
-      </Wrapper>
-      {/* <Footer>
+	return (
+		<Article>
+			<Header>
+				<Icon src={icon} color={name} />
+				<h3>{title}</h3>
+			</Header>
+			<Wrapper>
+				<Main color={name}>
+					<CatChart data={history} color={name} />
+				</Main>
+				<Aside>
+					<p>{score}/10</p>
+					<ScoreBar>
+						<InnerDiv score={score} color={name} />
+					</ScoreBar>
+				</Aside>
+			</Wrapper>
+			{/* <Footer>
         <p>Based of your Stats We recommend this Course:</p>
         <CourseWrapper>
           <ImageWrapper color={groupColor}>
@@ -41,69 +34,69 @@ export default function StatCard({
           </CourseDetails>
         </CourseWrapper>
       </Footer> */}
-    </Article>
-  )
+		</Article>
+	)
 }
 
 const Article = styled.article``
 
 const Header = styled.header`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 11.7px;
-  margin-bottom: 20px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 11.7px;
+	margin-bottom: 20px;
 
-  & h3 {
-    font-weight: var(--font-weight-medium);
-    font-size: 2.3rem;
-  }
+	& h3 {
+		font-weight: var(--font-weight-medium);
+		font-size: 2.3rem;
+	}
 `
 
 const Icon = styled(SVG)`
-  height: 32px;
-  width: 32px;
-  & path {
-    fill: var(${(props) => "--color-" + props.color});
-  }
+	height: 32px;
+	width: 32px;
+	& path {
+		fill: var(${(props) => "--color-" + props.color});
+	}
 `
 
 const Wrapper = styled.div`
-  display: flex;
-  margin-bottom: 20px;
-  justify-content: flex-start;
-  gap: 45px;
-  align-items: flex-start;
+	display: flex;
+	margin-bottom: 20px;
+	justify-content: flex-start;
+	gap: 45px;
+	align-items: flex-start;
 `
 
 const Main = styled.div`
-  flex-grow: 1;
-  height: 180px;
-  /* background-color: var(${(props) => "--color-" + props.color}); */
+	flex-grow: 1;
+	height: 180px;
+	/* background-color: var(${(props) => "--color-" + props.color}); */
 `
 const Aside = styled.aside`
-  transform: translateY(-17px);
-  & p {
-    font-size: 1.2rem;
-    font-weight: var(--font-weight-medium);
-    color: var(--color-gray-900);
-    transform: translate(-3px, -23px);
-  }
+	transform: translateY(-17px);
+	& p {
+		font-size: 1.2rem;
+		font-weight: var(--font-weight-medium);
+		color: var(--color-gray-900);
+		transform: translate(-3px, -23px);
+	}
 `
 
 const ScoreBar = styled.div`
-  width: 15px;
-  border-radius: 4px;
-  height: 180px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column-reverse;
-  background-color: var(--color-gray-200);
+	width: 15px;
+	border-radius: 4px;
+	height: 180px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column-reverse;
+	background-color: var(--color-gray-200);
 `
 
 const InnerDiv = styled.div`
-  background-color: var(${(props) => "--color-" + props.color});
-  height: ${(props) => parseInt(props.score) * 10 + "%"};
+	background-color: var(${(props) => "--color-" + props.color});
+	height: ${(props) => parseInt(props.score) * 10 + "%"};
 `
 
 // const Footer = styled.footer`
@@ -125,7 +118,7 @@ const InnerDiv = styled.div`
 //     font-size: 1.6rem;
 //     color: var(--color-text);
 //   }
-  
+
 //   & p{
 //     font-weight: var(--font-weight-medium);
 //     color: var(--color-text);
@@ -142,7 +135,7 @@ const InnerDiv = styled.div`
 //   height: auto;
 //   flex-shrink: 0;
 //   flex-grow: 0;
-  
+
 // `
 
 // const Image = styled.img`

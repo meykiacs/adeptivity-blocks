@@ -1,4 +1,4 @@
-POST http://127.0.0.1:8000/?rest_route=/adeptivity/v1/lecture
+POST http://adep.test/?rest_route=/adeptivity/v1/video
 Content-Type: application/json
 
 {

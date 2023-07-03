@@ -5,14 +5,17 @@ export default function TestForm({ nonce }) {
 		for (let key of data.entries()) {
 			console.log(key[0] + ", " + key[1])
 		}
-		const res = await fetch("http://127.0.0.1:8000/?rest_route=/adeptivity/v1/video", {
-			method: "POST",
-			body: data,
-			credentials: "same-origin",
-			headers: {
-				"X-WP-Nonce": nonce,
-			},
-		})
+		const res = await fetch(
+			"http://adep.test/?rest_route=/adeptivity/v1/video",
+			{
+				method: "POST",
+				body: data,
+				credentials: "same-origin",
+				headers: {
+					"X-WP-Nonce": nonce,
+				},
+			}
+		)
 
 		console.log(res.json())
 	}

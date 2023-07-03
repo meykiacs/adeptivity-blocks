@@ -1,9 +1,9 @@
 import Uploaded from "./Uploaded"
 // import { uploadedClasses } from "../data"
-import usePhp from "../../usePhp";
+import usePhp from "../../usePhp"
 
 export default function UploadedClassList() {
-	const {latestClasses} = usePhp();
+	const { latestClasses } = usePhp()
 	return (
 		<>
 			{latestClasses.map((uploadedClass) => (

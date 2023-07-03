@@ -15,6 +15,5 @@ export const StyledTrigger = styled(Trigger)`
 	font-size: 1.5rem;
 	line-height: 1;
 
-  min-height: var(--min-tap-height, 32px);
-
+	min-height: var(--min-tap-height, 32px);
 `

@@ -1,6 +1,6 @@
 import ToolCard from "./ToolCard"
 
-export default function ToolList({tools}) {
+export default function ToolList({ tools }) {
 	return (
 		<>
 			{tools.map((tool) => (

@@ -23,13 +23,15 @@ class VideoPost extends Route
   }
   public function getPermissionCallback(): callable
   {
-    return fn() => is_user_logged_in();
+    // return fn() => is_user_logged_in();
+    return '__return_true';
   }
 
   public function getCallback(): callable
   {
     return function ($request) {
-
+      var_dump($request);
+      // error_log(print_r($request, true));
       if (!empty($_FILES['file'])) {
         $this->uploadedFile = $_FILES['file'];
         error_log(print_r($this->uploadedFile, true));

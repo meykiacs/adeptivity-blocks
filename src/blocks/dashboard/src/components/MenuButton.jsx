@@ -1,16 +1,21 @@
 import styled from "styled-components"
 import SVG from "react-inlinesvg"
-import { Link, useLocation } from "react-router-dom"
-export default function MenuButton({ text, icon, to }) {
-	const location = useLocation()
+// import { Link, useLocation } from "react-router-dom"
+export default function MenuButton({ text, icon, page, setPage }) {
+	// const location = useLocation()
 	let temp = text === "Home" ? "" : text
 	if (temp.length > 0) {
 		temp = temp[0].toLowerCase() + temp.slice(1)
 	}
-	const Button = location.pathname !== "/" + temp ? ListedButton : ActiveButton
+	// const Button = location.pathname !== "/" + temp ? ListedButton : ActiveButton
+	const Button = page !== text ? ListedButton : ActiveButton
 
 	return (
-		<Button to={to}>
+		<Button
+			onClick={() => {
+				setPage(text)
+			}}
+		>
 			<Icon src={icon} />
 			<p>{text}</p>
 		</Button>
@@ -26,7 +31,7 @@ const Icon = styled(SVG)`
 	margin-right: 23px;
 `
 
-const ActiveButton = styled(Link)`
+const ActiveButton = styled.button`
 	pointer-events: none;
 	cursor: default;
 	display: flex;
@@ -38,6 +43,7 @@ const ActiveButton = styled(Link)`
 	padding-left: 29px;
 	border-radius: 7px;
 	background-color: var(--color-gray-100);
+	border: none;
 
 	& p {
 		font-weight: var(--font-weight-bold-700);

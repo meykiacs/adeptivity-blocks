@@ -15,12 +15,12 @@ const flexVariantHeader = css`
 	justify-content: flex-start;
 	align-items: center;
 
-  @media ${QUERIES.tabletAndSmaller} {
-    flex-wrap: wrap;
-    & > * {
-      margin-bottom: 20px;
-    }
-  }
+	@media ${QUERIES.tabletAndSmaller} {
+		flex-wrap: wrap;
+		& > * {
+			margin-bottom: 20px;
+		}
+	}
 `
 
 const flexVariantTitle = css`
@@ -33,12 +33,8 @@ const Header = styled.header`
 	${(props) => props.hasRow && flexVariantHeader}
 `
 const Title = styled.h2`
-  font-size: clamp(
-    1.5rem,
-    calc(4vw + 1rem),
-    3.1rem
-  );
-  min-height: 0vh;
+	font-size: clamp(1.5rem, calc(4vw + 1rem), 3.1rem);
+	min-height: 0vh;
 
 	/* font-size: 3.1rem; */
 	font-weight: var(--font-weight-bold-600);

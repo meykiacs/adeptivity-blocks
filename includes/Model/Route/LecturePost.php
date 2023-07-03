@@ -6,18 +6,6 @@ use Adeptivity\Model\Field\NonEmptyTextField;
 
 class LecturePost extends Route
 {
-  private array $uploadedFile;
-  const ALLOWED_SIZE = 10000000;
-  const MIME_TYPES = [
-    'video/mp4',
-    'video/mpeg',
-    'video/ogg',
-    'video/mp2t',
-    'video/3gpp',
-    'video/3gpp2',
-    'video/x-msvideo
-  '
-  ];
 
   public function __construct(string $namespace, string $route)
   {
@@ -31,6 +19,7 @@ class LecturePost extends Route
 
   public function getCallback(): callable
   {
+    return '__return_true';
   }
 
 }

@@ -3,7 +3,7 @@ import { menuBottons } from "../data"
 import MenuButton from "./MenuButton"
 import SiteLogo from "./SiteLogo"
 
-export default function PageMenu() {
+export default function PageMenu({ page, setPage }) {
 	return (
 		<Wrapper>
 			<ul>
@@ -12,7 +12,7 @@ export default function PageMenu() {
 				</li>
 				{menuBottons.map((menuButton) => (
 					<li key={menuButton.id}>
-						<MenuButton {...menuButton} />
+						<MenuButton {...menuButton} page={page} setPage={setPage} />
 					</li>
 				))}
 			</ul>

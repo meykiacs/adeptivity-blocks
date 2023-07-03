@@ -1,21 +1,21 @@
 import styled from "styled-components"
 import MyClassRow from "./MyClassRow"
 import { QUERIES } from "../constants"
-import usePhp from '../../usePhp'
+import usePhp from "../../usePhp"
 
 export default function AnalyzeTable() {
-	const {analyzedClasses} = usePhp()
+	const { analyzedClasses } = usePhp()
 	return (
 		<Section>
-      <Header>
-        <LessImportantDiv>Uploaded At</LessImportantDiv>
-        <LeastImportantDiv>Grade</LeastImportantDiv>
-        <LeastImportantDiv>Course</LeastImportantDiv>
-        <div>Subject</div>
-        <LessImportantDiv>Attendees</LessImportantDiv>
-        <YetLeastImportantDiv>Date</YetLeastImportantDiv>
-        <div>Analyzed Score</div>
-      </Header>
+			<Header>
+				<LessImportantDiv>Uploaded At</LessImportantDiv>
+				<LeastImportantDiv>Grade</LeastImportantDiv>
+				<LeastImportantDiv>Course</LeastImportantDiv>
+				<div>Subject</div>
+				<LessImportantDiv>Attendees</LessImportantDiv>
+				<YetLeastImportantDiv>Date</YetLeastImportantDiv>
+				<div>Analyzed Score</div>
+			</Header>
 			{analyzedClasses.map((myClass, index) => (
 				<Row key={myClass.id} row={index}>
 					<MyClassRow myClass={myClass} />
@@ -72,18 +72,18 @@ const Row = styled.div`
 `
 
 const LessImportantDiv = styled.div`
-  @media ${QUERIES.laptopAndSmaller} {
-    display: none !important;
-  }
+	@media ${QUERIES.laptopAndSmaller} {
+		display: none !important;
+	}
 `
 
 const YetLeastImportantDiv = styled.div`
-  @media ${QUERIES.tabletAndSmaller} {
-    display: none !important;
-  }
+	@media ${QUERIES.tabletAndSmaller} {
+		display: none !important;
+	}
 `
 const LeastImportantDiv = styled.div`
-  @media ${QUERIES.phoneAndSmaller} {
-    display: none !important;
-  }
+	@media ${QUERIES.phoneAndSmaller} {
+		display: none !important;
+	}
 `

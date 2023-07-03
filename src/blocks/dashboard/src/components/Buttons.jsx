@@ -1,16 +1,25 @@
-import { Link } from "react-router-dom"
 import styled, { css } from "styled-components"
 
-export default function Button({ content, color, variant, className, to }) {
+export default function Button({
+	content,
+	color,
+	variant,
+	className,
+	onClick,
+}) {
 	color = color ? color : "primary"
 	if (variant === "label") {
-		return <Label className={className}>{content}</Label>
+		return (
+			<Label className={className} onClick={onClick}>
+				{content}
+			</Label>
+		)
 	}
-	if (variant === "Link") {
-		return <StyledLink color={color} className={className} to={to}>{content}</StyledLink>
-	}
+	// if (variant === "Link") {
+	// 	return <StyledLink color={color} className={className} to={to}>{content}</StyledLink>
+	// }
 	return (
-		<Btn href="#" color={color} className={className}>
+		<Btn color={color} className={className} onClick={onClick}>
 			{content}
 		</Btn>
 	)
@@ -31,7 +40,6 @@ const buttonCss = css`
 	cursor: pointer;
 
 	min-height: var(--min-tap-height, 32px);
-	
 `
 
 const Btn = styled.button`
@@ -70,8 +78,4 @@ export const UnstyledButton = styled.button`
 	&:focus:not(:focus-visible) {
 		outline: none;
 	}
-`
-
-const StyledLink = styled(Link)`
-	${buttonCss}
 `

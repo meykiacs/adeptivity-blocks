@@ -3,11 +3,11 @@ import MyLatestClasses from "./MyLatestClasses"
 import Progress from "./Progress"
 import ToolsInMyArsenal from "./ToolsInMyArsenal"
 
-export default function Home() {
+export default function Home({ setPage }) {
 	return (
 		<>
 			<Progress />
-			<MyCourses />
+			<MyCourses setPage={setPage} />
 			<MyLatestClasses />
 			<ToolsInMyArsenal />
 		</>

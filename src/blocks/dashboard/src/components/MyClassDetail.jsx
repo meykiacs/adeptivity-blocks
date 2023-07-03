@@ -61,7 +61,7 @@ const ImageWrapper = styled.div`
 	width: 180px;
 	position: relative;
 	box-shadow: 0px 0px 7px rgba(32, 34, 36, 0.25);
-	cursor: ${props => props.pointer ? 'pointer' : 'default'}
+	cursor: ${(props) => (props.pointer ? "pointer" : "default")};
 `
 
 const Image = styled.img`

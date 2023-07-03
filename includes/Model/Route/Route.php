@@ -10,10 +10,22 @@ abstract class Route
   private string $route;
   private string $method;
 
+	/**
+   * @var Field[]
+   */
+  public array $fields = [];
+
+
   public function __construct(string $namespace, string $route, string $method) {
     $this->namespace = $namespace;
     $this->route = $route;
     $this->method = $method;
+  }
+
+	
+  public function addField(Field $field) : self {
+    $this->fields[] = $field;
+    return $this;
   }
 
   public function asArgs() : array {
@@ -25,15 +37,6 @@ abstract class Route
     return $args;
   }
 
-  /**
-   * @var Field[]
-   */
-  public array $fields;
-
-  public function addField(Field $field) : self {
-    $this->fields[] = $field;
-    return $this;
-  }
 
   abstract public function getPermissionCallback() : callable;
 

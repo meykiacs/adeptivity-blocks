@@ -2,35 +2,41 @@ import styled from "styled-components"
 
 import PageMenu from "./components/PageMenu"
 import TopMenu from "./components/TopMenu"
-import { Route, Routes } from "react-router-dom"
 import Home from "./components/Home"
 import Classes from "./components/Classes"
 import Journey from "./components/Journey"
 import Toolshed from "./components/Toolshed"
 import { QUERIES } from "./constants"
+import { PhpProvider } from "../PhpContext"
+import { useState, useEffect } from "@wordpress/element"
 
-function App() {
+function App({ providerValues }) {
+	const [page, setPage] = useState("Home")
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [page])
+
 	return (
-		<Wrapper>
-			<SideWrapper>
-				<PageMenu />
-			</SideWrapper>
-			<MidWrapper>
-				<TopWrapper>
-					<TopMenu />
-				</TopWrapper>
-				<MainWrapper>
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="classes" element={<Classes />} />
-						<Route path='journey' element={<Journey />} />
-						<Route path='toolshed' element={<Toolshed />} />
-						<Route path='*' element={<Home />} />
-					</Routes>
-				</MainWrapper>
-			</MidWrapper>
-			<Side />
-		</Wrapper>
+		<PhpProvider providerValues={providerValues}>
+			{/* <GlobalStyles /> */}
+			<Wrapper>
+				<SideWrapper>
+					<PageMenu setPage={setPage} page={page} />
+				</SideWrapper>
+				<MidWrapper>
+					<TopWrapper>
+						<TopMenu />
+					</TopWrapper>
+					<MainWrapper>
+						{page === "Home" && <Home setPage={setPage} />}
+						{page === "Classes" && <Classes />}
+						{page === "Journey" && <Journey />}
+						{page === "Toolshed" && <Toolshed />}
+					</MainWrapper>
+				</MidWrapper>
+				<Side />
+			</Wrapper>
+		</PhpProvider>
 	)
 }
 
@@ -53,22 +59,21 @@ const SideWrapper = styled.header`
 	flex-direction: row-reverse;
 
 	@media ${QUERIES.tabletAndSmaller} {
-    display: none;
-  }
+		display: none;
+	}
 `
 const Side = styled.div`
 	flex: 1;
 `
 
 const MainWrapper = styled.main`
-
 	padding-left: 50px;
 	padding-right: 50px;
 
-  @media ${QUERIES.tabletAndSmaller} {
-    padding-right: 30px;
-    padding-left: 30px;
-  }
+	@media ${QUERIES.tabletAndSmaller} {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
 `
 
 const TopWrapper = styled.header`

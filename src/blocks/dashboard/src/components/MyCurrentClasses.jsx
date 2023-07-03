@@ -29,7 +29,7 @@ const Main = styled.div`
 	justify-content: flex-start;
 	margin-bottom: 40px;
 
-  & > * {
-    margin-bottom: 50px;
-  }
+	& > * {
+		margin-bottom: 50px;
+	}
 `

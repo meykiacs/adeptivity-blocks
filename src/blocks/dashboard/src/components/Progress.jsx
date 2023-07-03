@@ -16,7 +16,7 @@ export default function Progress() {
 	const growthPath = assetDir + "img/growth" + postfix + ".png"
 
 	let newBars = bars.map((item, index) => {
-		return {...item, score: scoreSummary.filter((item, i) => index === i)}
+		return { ...item, score: scoreSummary.filter((item, i) => index === i) }
 	})
 	return (
 		<Section>

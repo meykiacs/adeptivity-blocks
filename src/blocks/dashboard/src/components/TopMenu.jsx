@@ -13,20 +13,20 @@ import MobileMenu from "./MobileMenu"
 import usePhp from "../../usePhp"
 
 export default function TopMenu() {
-	const {logoutUrl} = usePhp();
+	const { logoutUrl } = usePhp()
 	return (
 		<Wrapper>
-      <MobileActions>
-        <Root>
-          <Trigger asChild>
-            <UnstyledButton>
-              <Icon src={menu} />
-              <VisuallyHidden>Open Menu</VisuallyHidden>
-            </UnstyledButton>
-          </Trigger>
-          <MobileMenu />
-        </Root>
-      </MobileActions>
+			<MobileActions>
+				<Root>
+					<Trigger asChild>
+						<UnstyledButton>
+							<Icon src={menu} />
+							<VisuallyHidden>Open Menu</VisuallyHidden>
+						</UnstyledButton>
+					</Trigger>
+					<MobileMenu />
+				</Root>
+			</MobileActions>
 			<ul>
 				<li>
 					<A href="/">
@@ -39,7 +39,7 @@ export default function TopMenu() {
 					</A>
 				</li>
 				<li>
-					<A href={`${logoutUrl}`} >
+					<A href={`${logoutUrl}`}>
 						<Icon src={profile} />
 					</A>
 				</li>
@@ -56,11 +56,11 @@ const Wrapper = styled.nav`
 	padding-right: 56px;
 	background-color: var(--color-gray-900);
 	height: 90px;
-	
-  @media ${QUERIES.tabletAndSmaller} {
-    padding-right: 30px;
-    padding-left: 30px;
-  }
+
+	@media ${QUERIES.tabletAndSmaller} {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
 
 	& ul {
 		display: flex;
@@ -71,8 +71,8 @@ const Wrapper = styled.nav`
 		height: 100%;
 
 		@media ${QUERIES.phoneAndSmaller} {
-      gap: 35px;
-    }
+			gap: 35px;
+		}
 	}
 `
 
@@ -97,5 +97,5 @@ const A = styled.a`
 	display: block;
 	&:focus {
 		outline: revert;
-	} 
+	}
 `

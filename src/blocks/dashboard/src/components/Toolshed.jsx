@@ -1,11 +1,11 @@
-import TIMASection from "./TIMASection";
-import ToolsSection from "./ToolsSection";
+import TIMASection from "./TIMASection"
+import ToolsSection from "./ToolsSection"
 
 export default function Toolshed() {
-  return (
-    <>
-      <TIMASection />
-      <ToolsSection />
-    </>
-  )
+	return (
+		<>
+			<TIMASection />
+			<ToolsSection />
+		</>
+	)
 }
