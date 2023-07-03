@@ -1,9 +1,6 @@
 <?php
-
-namespace Adeptivity\Model\Field;
-
-use Adeptivity\Service\Sanitize;
-use Adeptivity\Service\Validate;
+declare(strict_types=1);
+namespace Adeptivity\Model\Rest;
 
 abstract class Field
 {

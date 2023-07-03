@@ -15,9 +15,10 @@
 declare(strict_types=1);
 
 use Pimple\Container;
-use Adeptivity\Model\Field\NonEmptyTextField;
-use Adeptivity\Model\Route\LecturePost;
-use Adeptivity\Model\Route\VideoPost;
+use Adeptivity\Model\Rest\LecturePost;
+use Adeptivity\Model\Rest\VideoPost;
+use Adeptivity\Model\Rest\VideoDelete;
+use Adeptivity\Model\Rest\Route;
 
 defined('ABSPATH') or exit('Not allowed');
 
@@ -54,8 +55,16 @@ $regBlock = $container['register_blocks']
 $loginCustomizer = $container['login_page_customizer']->customize();
 $auth = $container['auth']->redirectNonAdminFromAdminPanel()->removeAdminBarForNonAdmins();
 
-$className = new NonEmptyTextField('class_name', true);
-$lecture = new LecturePost('adeptivity/v1', 'lecture');
-$videoPost = new VideoPost('adeptivity/v1', 'video');
+$lecturePost = new LecturePost();
+$videoPost = new VideoPost();
+$videoDelete = new VideoDelete();
 
-$rest = $container['rest']->addRoute($lecture)->addRoute($videoPost)->register();
+$videoRoute = new Route('adeptivity/v1', 'video');
+$videoRoute->addEndpoint($videoPost)->addEndpoint($videoDelete);
+$lectureRoute = new Route('adeptivity/v1', 'lecture');
+$lectureRoute->addEndpoint($lecturePost);
+
+$rest = $container['rest']
+	->addRoute($lectureRoute)
+	->addRoute($videoRoute)
+	->register();

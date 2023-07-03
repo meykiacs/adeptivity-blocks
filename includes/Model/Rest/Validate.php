@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Adeptivity\Model\Field;
+namespace Adeptivity\Model\Rest;
 
 class Validate
 {

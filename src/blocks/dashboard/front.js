@@ -9,6 +9,10 @@ window.addEventListener("DOMContentLoaded", () => {
 	const providerValues = {
 		assetDir: root.dataset.assetdir,
 		logoutUrl: root.dataset.logouturl,
+		videoEndpoint: root.dataset.videoEndpoint,
+		lectureEndpoint: root.dataset.lectureEndpoint,
+    nonce: root.dataset.nonce,
+
 		scoreSummary: JSON.parse(
 			document.getElementById("score-summary").innerHTML
 		),

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace Adeptivity\Service;
 
-use Adeptivity\Model\Route\Route;
+use Adeptivity\Model\Rest\Route;
 
 class Rest
 {
@@ -24,22 +24,23 @@ class Rest
     add_action(
       'rest_api_init',
       function () {
-        
+
         foreach ($this->routes as $route) {
-          // var_dump($route->getMethod()); wp_die();
+          $args = [];
+          foreach ($route->getEndpoints() as $endpoint) {
+            $args[] = [
+              'methods' => $endpoint->getMethod(),
+              'callback' => $endpoint->getCallback(),
+              'permission_callback' => $endpoint->getPermissionCallback(),
+              'args' => $endpoint->asArgs()
+            ];
+          }
+          // var_dump($args);wp_die();
+
           register_rest_route(
             $route->getNamespace(),
-            '/' . $route->getRoute(),
-            [
-              'callback' => $route->getCallback(),
-              // function (\WP_REST_Request $request) {
-                // var_dump($request->get_json_params());wp_die();
-                // return new \WP_REST_Response($request->get_json_params(), 200);
-              // },
-              'permission_callback' => $route->getPermissionCallback(),
-              'methods' => $route->getMethod(),
-              'args' => $route->asArgs()
-            ]
+            '/' . $route->getName(),
+            $args
           );
         }
       }

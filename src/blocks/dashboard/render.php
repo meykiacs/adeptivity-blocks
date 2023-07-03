@@ -104,7 +104,8 @@ $latestClasses = array_slice(
 
 $basename = parse_url(home_url())['path'] ?? '';
 $logouturl = wp_logout_url();
-
+$videoEndpoint = get_rest_url(null, 'adeptivity/v1/video');
+$lectureEndpoint = get_rest_url(null, 'adeptivity/v1/lecture');
 ?>
 <div 
   id="root" 
@@ -112,6 +113,9 @@ $logouturl = wp_logout_url();
   data-assetdir="<?php echo esc_attr(ASSETDIR) ?>"
   data-basename="<?php echo esc_url($basename) ?>"
   data-logouturl="<?php echo esc_url($logouturl) ?>"
+  data-video-endpoint="<?php echo esc_url($videoEndpoint) ?>"
+  data-lecture-endpoint="<?php echo esc_url($lectureEndpoint) ?>"
+  data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>"
 >
 
 </div>

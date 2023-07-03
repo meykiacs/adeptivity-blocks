@@ -1,6 +1,6 @@
 <?php
-
-namespace Adeptivity\Model\Field;
+declare(strict_types=1);
+namespace Adeptivity\Model\Rest;
 
 class TextField extends Field
 {

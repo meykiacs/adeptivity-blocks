@@ -10,7 +10,7 @@ export default function UploadModal() {
 				<DialogTitle>Import New Class</DialogTitle>
 				<UploadForm>
 					<Buttons>
-						<StyledClose type="submit">Upload</StyledClose>
+						<Submit type="submit">Upload</Submit>
 						<StyledCloseCancel>Cancel</StyledCloseCancel>
 					</Buttons>
 				</UploadForm>
@@ -68,7 +68,7 @@ const Buttons = styled.div`
 	gap: 13px;
 `
 
-const StyledClose = styled(Close)`
+const Submit = styled.button`
 	cursor: pointer;
 	border: none;
 	display: block;
@@ -85,7 +85,19 @@ const StyledClose = styled(Close)`
 	height: 31px;
 `
 
-const StyledCloseCancel = styled(StyledClose)`
-	background-color: var(--color-gray-500);
-	width: 67px;
+const StyledCloseCancel = styled(Close)`
+	cursor: pointer;
+	border: none;
+	display: block;
+	border-radius: 7px;
+	background-color: var(--color-error);
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+	/* padding: 8.5px 10px; */
+	text-decoration: none;
+	color: var(--color-white);
+	font-weight: var(--font-weight-bold-600);
+	font-size: 1.5rem;
+	line-height: 1;
+	width: 123px;
+	height: 31px;
 `
