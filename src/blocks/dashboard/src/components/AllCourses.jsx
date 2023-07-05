@@ -9,7 +9,7 @@ import usePhp from "../../usePhp"
 
 export default function AllCourses() {
 	const { sortCoursesBy, setSortCoursesBy, coursesInfo } = usePhp()
-	const [filter, setFilter] = useState("in-progress")
+	const [filter, setFilter] = useState("available")
 
 	const [courses, setCourses] = useState(useMemo(() => coursesInfo, [coursesInfo]))
 
