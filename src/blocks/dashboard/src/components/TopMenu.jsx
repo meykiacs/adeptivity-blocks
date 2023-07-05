@@ -10,10 +10,9 @@ import { UnstyledButton } from "./Buttons"
 import VisuallyHidden from "./VisuallyHidden"
 import { Root, Trigger } from "@radix-ui/react-dialog"
 import MobileMenu from "./MobileMenu"
-import usePhp from "../../usePhp"
+import DropDownMenu from "./DropDownMenu"
 
 export default function TopMenu() {
-	const { logoutUrl } = usePhp()
 	return (
 		<Wrapper>
 			<MobileActions>
@@ -39,9 +38,11 @@ export default function TopMenu() {
 					</A>
 				</li>
 				<li>
-					<A href={`${logoutUrl}`}>
-						<Icon src={profile} />
-					</A>
+					<DropDownMenu>
+						<div style={{cursor: 'pointer'}}>
+							<Icon src={profile} />
+						</div>
+					</DropDownMenu>
 				</li>
 			</ul>
 		</Wrapper>

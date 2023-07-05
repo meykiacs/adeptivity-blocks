@@ -4,6 +4,72 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+function courseInfo()
+{
+
+  $user_id = get_current_user_id();
+  $enrolled_courses = learndash_user_get_enrolled_courses($user_id);
+
+  $course_info = array();
+
+  foreach ($enrolled_courses as $course_id) {
+    $id = $course_id;
+    $course_title = get_the_title($course_id);
+    $course_url = get_permalink($course_id);
+    $course_categories = wp_get_object_terms($course_id, 'ld_course_category');
+    $course_tags = wp_get_object_terms($course_id, 'ld_course_tag');
+    $course_image = get_the_post_thumbnail_url($course_id, 'medium');
+
+    $course_progress = learndash_course_progress(array('user_id' => $user_id, 'course_id' => $course_id));
+
+    $course_status = 'not-started';
+
+
+
+    if (is_array($course_progress) && isset($course_progress['total_steps'])) {
+      if ($course_progress['total_steps'] > 0) {
+        if ($course_progress['completed_steps'] === $course_progress['total_steps']) {
+          $course_status = 'completed';
+        } elseif ($course_progress['completed_steps'] > 0) {
+          $course_status = 'in-progress';
+        }
+      }
+    }
+
+    $course_categories_names = array();
+    $course_tags_names = array();
+
+    // Get category names
+    if (!empty($course_categories) && !is_wp_error($course_categories)) {
+      foreach ($course_categories as $category) {
+        $course_categories_names[] = $category->slug;
+      }
+    }
+
+    // Get tag names
+    if (!empty($course_tags) && !is_wp_error($course_tags)) {
+      foreach ($course_tags as $tag) {
+        $course_tags_names[] = $tag->slug;
+      }
+    }
+
+    // Build course information array
+    $course_info[] = array(
+      'id'  => $id,
+      'title' => $course_title,
+      'url' => $course_url,
+      'categories' => array_values($course_categories_names),
+      'tags' => array_values($course_tags_names),
+      'image' => $course_image,
+      'status' => $course_status
+    );
+  }
+
+  return ($course_info);
+}
+
+// var_dump(courseInfo()[0]); wp_die();
+
 add_filter(
   'auth_redirect_scheme',
   function () {
@@ -107,16 +173,11 @@ $logouturl = wp_logout_url();
 $videoEndpoint = get_rest_url(null, 'adeptivity/v1/video');
 $lectureEndpoint = get_rest_url(null, 'adeptivity/v1/lecture');
 ?>
-<div 
-  id="root" 
-  <?php echo get_block_wrapper_attributes(); ?>
-  data-assetdir="<?php echo esc_attr(ASSETDIR) ?>"
-  data-basename="<?php echo esc_url($basename) ?>"
-  data-logouturl="<?php echo esc_url($logouturl) ?>"
+<div id="root" <?php echo get_block_wrapper_attributes(); ?> data-assetdir="<?php echo esc_attr(ASSETDIR) ?>"
+  data-basename="<?php echo esc_url($basename) ?>" data-logouturl="<?php echo esc_url($logouturl) ?>"
   data-video-endpoint="<?php echo esc_url($videoEndpoint) ?>"
   data-lecture-endpoint="<?php echo esc_url($lectureEndpoint) ?>"
-  data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>"
->
+  data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>">
 
 </div>
 <pre style="display: none !important" id="score-summary">
@@ -133,4 +194,7 @@ $lectureEndpoint = get_rest_url(null, 'adeptivity/v1/lecture');
 </pre>
 <pre style="display: none !important" id="analyzed-classes">
   <?php echo wp_json_encode($analyzedClasses); ?>
+</pre>
+<pre style="display: none !important" id="courses-info">
+  <?php echo wp_json_encode(array_values(courseInfo())); ?>
 </pre>

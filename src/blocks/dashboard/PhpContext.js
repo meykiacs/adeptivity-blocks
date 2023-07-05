@@ -1,29 +1,57 @@
-import { createContext } from "@wordpress/element"
+import { createContext, useState, useEffect } from "@wordpress/element"
 
 const PhpContext = createContext()
 
+// function arrayEqual(a1, a2) {
+// 	if (a1.length !== a2.length) return false
+// 	return true
+// }
+
+
 export const PhpProvider = ({ children, providerValues }) => {
-	// const root = document.getElementById("root")
-	// const assetDir = root.dataset.assetdir
-	// const logoutUrl = root.dataset.logouturl
-	// const scoreSummary = JSON.parse(
-	// 	document.getElementById("score-summary").innerHTML
-	// )
-	// const latestClasses = JSON.parse(
-	// 	document.getElementById("latest-classes").innerHTML
-	// )
-	// const allClasses = JSON.parse(
-	// 	document.getElementById("all-classes").innerHTML
-	// )
-	// const analyzedClasses = JSON.parse(
-	// 	document.getElementById("analyzed-classes").innerHTML
-	// )
-	// const scoreByCat = JSON.parse(
-	// 	document.getElementById("score-by-cat").innerHTML
-	// )
+
+
+
+	const courses = providerValues.courses
+
+	// const coursesRef = useRef(courses)
+	// if (!arrayEqual(courses, coursesRef.current)) {
+	// 	coursesRef.current = courses
+	// }
+	
+
+	const [coursesInfo, setCoursesInfo] = useState(courses)
+
+	const [sortCoursesBy, setSortCoursesBy] = useState("newest")
+
+	useEffect(() => {
+		let newCourses
+		switch (sortCoursesBy) {
+			case "newest":
+				newCourses = [...coursesInfo.sort((a, b) => a.i - b.i)]
+				break
+			case "oldest":
+				newCourses = [...coursesInfo.sort((a, b) => b.i - a.i)]
+				break
+			case "title":
+				newCourses = [...coursesInfo.sort((a, b) => a.title.localeCompare(b.title))]
+				break
+			default:
+				newCourses = [...coursesInfo.sort((a, b) => a.i - b.i)]
+				break
+		}
+
+
+
+		setCoursesInfo(newCourses)
+
+		// eslint-disable-next-line
+	}, [sortCoursesBy, setCoursesInfo ])
 
 	return (
-		<PhpContext.Provider value={{ ...providerValues }}>
+		<PhpContext.Provider
+			value={{ ...providerValues, setSortCoursesBy, sortCoursesBy, coursesInfo }}
+		>
 			{children}
 		</PhpContext.Provider>
 	)

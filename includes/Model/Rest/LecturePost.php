@@ -45,7 +45,7 @@ class LecturePost extends Endpoint
       $entry['19'] = get_user_by('id', get_current_user_id())->user_login;
       $entry['21'] = get_user_by('id', get_current_user_id())->display_name;
       $updated = \GFAPI::update_entry($entry);
-      return new \WP_REST_Response($this->gravEntry);
+      return new \WP_REST_Response(['entry' => $this->gravEntry['id']], 201);
     };
   }
 

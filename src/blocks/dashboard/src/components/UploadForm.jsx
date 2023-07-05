@@ -7,20 +7,25 @@ import { QUERIES } from "../constants"
 import { grades } from "../data"
 import usePhp from "../../usePhp"
 
-// const MAX_FILES = 1
 
-export default function UploadForm({ children }) {
+export default function UploadForm({ children, setOpen }) {
+	console.log(setOpen)
 	const { nonce, videoEndpoint, lectureEndpoint } = usePhp()
 	const [entry, setEntry] = useState("")
 	const [files, setFiles] = useState([])
+	const [pleaseUpload, setPleaseUpload] = useState(false)
 	const [uploading, setUploading] = useState(false)
+	const [submitted, setSubmitted] = useState(false)
 	const form = useRef(null)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
+		if (files.length < 1) {
+			setPleaseUpload(true)
+			return
+		}
 		const data = new FormData(form.current)
 		data.append('entry', entry)
-		console.log(data)
 		const res = await fetch(
 			lectureEndpoint,
 			{
@@ -34,10 +39,16 @@ export default function UploadForm({ children }) {
 			}
 		)
 
-		console.log(res)
-		const result = await res.json()
 
-		console.log(result)
+		console.log(res)
+		const jsonData = await res.json()
+		console.log(jsonData)
+
+		if (res.status === 201 && "entry" in jsonData) {
+			setSubmitted(true)
+		} 
+		
+		setTimeout(() => {setOpen(false)}, 3000)
 	}
 
 	const deleteVideo = async () => {
@@ -70,6 +81,7 @@ export default function UploadForm({ children }) {
 
 			data.append("file", files[0])
 
+			setPleaseUpload(false)
 			setUploading(true)
 			const res = await fetch(
 				videoEndpoint,
@@ -91,6 +103,8 @@ export default function UploadForm({ children }) {
 
 			if (res.status === 201 && "entry" in jsonData) {
 				setEntry(jsonData.entry)
+			} else {
+				setFiles([])
 			}
 		}
 
@@ -125,6 +139,8 @@ export default function UploadForm({ children }) {
 		<Div>
 			<Div>
 				{uploading && <H2>Uploading Your Video... </H2>}
+				{pleaseUpload && <H2>Please upload a file first! </H2>}
+				{submitted && <H2>Your class has been submitted successfully! </H2>}
 				<VideoDiv {...getRootProps()}>
 					<input {...getInputProps({ name: "video" })} />
 					{isDragActive ? (
@@ -140,7 +156,7 @@ export default function UploadForm({ children }) {
 								<div style={{ width: "70px", height: "50px" }}>
 									<VideoThumbnail
 										videoUrl={file.preview}
-										thumbnailHandler={(thumbnail) => console.log(thumbnail)}
+										// thumbnailHandler={(thumbnail) => console.log(thumbnail)}
 										// width={70}
 										// height={50}
 									/>

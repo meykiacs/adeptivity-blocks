@@ -36,6 +36,13 @@ class VideoDelete extends Endpoint
   {
     return function (\WP_REST_Request $request): \WP_REST_Response|\WP_Error {
       $entryId = $request->get_param('entry');
+      $url = $this->gravEntry['1'];
+      $filename = explode("/", $url);
+      $filename = end($filename);
+      $path = ABSPATH . 'wp-content/uploads/lectures/' . $filename;
+      $success = unlink($path);
+      if (! $success) return new \WP_REST_Response(['error' => 'Server Error'], 500);
+
       $result = \GFAPI::delete_entry($entryId);
       if ($result === true) {
         return new \WP_REST_Response(['entry' => $entryId]);

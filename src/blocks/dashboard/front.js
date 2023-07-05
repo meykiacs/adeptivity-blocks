@@ -5,8 +5,12 @@ import { createGlobalStyle } from "styled-components"
 window.addEventListener("DOMContentLoaded", () => {
 	const root = document.getElementById("root")
 	const assetPath = root.dataset.assetdir
+  
+  
+  let courses = JSON.parse(document.getElementById("courses-info").innerHTML)
 
-	const providerValues = {
+	courses= courses.map((c, i) => ({...c, i}))
+  const providerValues = {
 		assetDir: root.dataset.assetdir,
 		logoutUrl: root.dataset.logouturl,
 		videoEndpoint: root.dataset.videoEndpoint,
@@ -24,6 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			document.getElementById("analyzed-classes").innerHTML
 		),
 		scoreByCat: JSON.parse(document.getElementById("score-by-cat").innerHTML),
+		courses
 	}
 
 	const GlobalStyles = createGlobalStyle`

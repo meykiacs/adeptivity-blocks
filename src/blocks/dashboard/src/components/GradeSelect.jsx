@@ -11,9 +11,9 @@ import {
 } from "@radix-ui/react-icons"
 import styled from "styled-components"
 
-export default function GradeSelect({ id, name, s, height, width }) {
+export default function GradeSelect({ id, name, s, height, width, onValueChange, value }) {
 	return (
-		<Select.Root id={id} name={name}>
+		<Select.Root id={id} name={name} onValueChange={onValueChange} value={value}>
 			<SelectTrigger aria-label={name} height={height} width={width}>
 				<Select.Value />
 				<SelectIcon className="SelectIcon" width={width} height={height}>
@@ -28,7 +28,7 @@ export default function GradeSelect({ id, name, s, height, width }) {
 					<SelectViewport className="SelectViewport">
 						<Select.Group>
 							{s.map((i) => (
-								<StyledSelectItem value={i.value} key={i.value}>
+								<StyledSelectItem value={i.value} key={i.value} disabled={i.disabled}>
 									{i.display}
 								</StyledSelectItem>
 							))}
@@ -125,6 +125,11 @@ const StyledSelectItem = styled(SelectItem)`
 		outline: none;
 		background-color: var(--color-primary);
 		color: var(--color-white);
+	}
+
+	&[data-disabled] {
+		color: var(--color-gray-500);
+		/* background-color: black; */
 	}
 `
 

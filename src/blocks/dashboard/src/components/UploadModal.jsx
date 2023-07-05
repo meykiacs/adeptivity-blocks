@@ -2,13 +2,13 @@ import styled from "styled-components"
 import { Portal, Overlay, Close, Content, Title } from "@radix-ui/react-dialog"
 import UploadForm from "./UploadForm"
 
-export default function UploadModal() {
+export default function UploadModal({ setOpen }) {
 	return (
 		<Portal>
 			<DialogOverlay />
 			<DialogContent>
 				<DialogTitle>Import New Class</DialogTitle>
-				<UploadForm>
+				<UploadForm setOpen={setOpen}>
 					<Buttons>
 						<Submit type="submit">Upload</Submit>
 						<StyledCloseCancel>Cancel</StyledCloseCancel>

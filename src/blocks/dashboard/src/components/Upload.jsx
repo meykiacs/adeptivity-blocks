@@ -2,18 +2,22 @@ import styled from "styled-components"
 import { Root, Trigger } from "@radix-ui/react-dialog"
 import UploadModal from "./UploadModal"
 import { StyledTrigger } from "./TriggerButtons"
+import { useState } from "@wordpress/element"
+
 
 export default function Upload() {
+	const [open, setOpen] = useState(false);
+
 	return (
 		<Wrapper>
-			<Root>
+			<Root open={open} onOpenChange={setOpen}>
 				<Header>
 					<Trigger asChild>
 						<TriggerButton>
 							Click to browse or drag and drop your files
 						</TriggerButton>
 					</Trigger>
-					<UploadModal />
+					<UploadModal setOpen={setOpen} />
 				</Header>
 				<Footer>
 					<StyledTrigger>Upload</StyledTrigger>

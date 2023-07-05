@@ -42,7 +42,7 @@ class VideoPost extends Endpoint
           return $validate;
         };
         $move = $this->moveFile();
-        if (! $move) {
+        if ($move !== true) {
           return $move;
         }
         $grav = $this->submitToGrav();

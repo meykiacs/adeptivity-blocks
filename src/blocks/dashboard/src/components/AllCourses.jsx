@@ -4,10 +4,26 @@ import SectionHeader from "./SectionHeader"
 import GradeSelect from "./GradeSelect"
 import CourseCardList from "./CourseCardList"
 import { QUERIES } from "../constants"
-
-import { courses2 } from "../data"
+import { useState, useEffect, useMemo } from "@wordpress/element"
+import usePhp from "../../usePhp"
 
 export default function AllCourses() {
+	const { sortCoursesBy, setSortCoursesBy, coursesInfo } = usePhp()
+	const [filter, setFilter] = useState("in-progress")
+
+	const [courses, setCourses] = useState(useMemo(() => coursesInfo, [coursesInfo]))
+
+	useEffect(() => {
+	if (filter === 'in-progress') setCourses(coursesInfo.filter(c => c.status === 'in-progress'))
+	if (filter === 'available') setCourses(coursesInfo.filter(c => c.status === 'not-started'))
+	if (filter === 'passed') setCourses(coursesInfo.filter(c => c.status === 'completed'))
+	}, [coursesInfo, filter])
+	
+
+	const handleChange = (event) => {
+		setFilter(event.target.value)
+	}
+
 	return (
 		<Section id="all-courses">
 			<SectionHeader hasRow title="All Courses">
@@ -18,15 +34,27 @@ export default function AllCourses() {
 							name="filter"
 							value="in-progress"
 							id="in-progress"
+							checked={filter === "in-progress"}
+							onChange={handleChange}
+
 						/>
 						<Label htmlFor="in-progress">In Progress</Label>
-						<input type="radio" name="filter" value="passed" id="passed" />
+						<input
+							type="radio"
+							name="filter"
+							value="passed"
+							id="passed"
+							checked={filter === "passed"}
+							onChange={handleChange}
+						/>
 						<Label htmlFor="passed">Already Passed</Label>
 						<input
 							type="radio"
 							name="filter"
 							value="available"
 							id="available"
+							checked={filter === "available"}
+							onChange={handleChange}
 						/>
 						<Label htmlFor="available">Available</Label>
 					</fieldset>
@@ -35,23 +63,31 @@ export default function AllCourses() {
 					<Fieldset>
 						<Label htmlFor="order">Sorted by:</Label>
 						<GradeSelect
+							value={sortCoursesBy}
 							name="order"
 							id="order"
 							s={[
-								{ value: "last-viewed", display: "Last Viewed" },
+								{
+									value: "last-viewed",
+									display: "Last Viewed",
+									disabled: true,
+								},
 								{ value: "newest", display: "Newest" },
 								{ value: "oldest", display: "Oldest" },
-								{ value: "subject", display: "Subject" },
-								{ value: "duration", display: "Duration" },
+								{ value: "title", display: "Title" },
+								{ value: "duration", display: "Duration", disabled: true },
 							]}
 							height="25px"
 							width="110px"
+							onValueChange={(v) => {
+								setSortCoursesBy(v)
+							}}
 						/>
 					</Fieldset>
 				</SortedBy>
 			</SectionHeader>
 			<CourseCardWrapper>
-				<CourseCardList courses={courses2} withDuration />
+				<CourseCardList withDuration sortCoursesBy={sortCoursesBy} coursesInfo={courses} />
 			</CourseCardWrapper>
 		</Section>
 	)

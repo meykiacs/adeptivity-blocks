@@ -1,21 +1,24 @@
 import SVG from "react-inlinesvg"
 import styled from "styled-components"
 import usePhp from "../../usePhp"
+import {categories as cats} from '../data'
 
 export default function CourseCard({
-	img,
+	image,
 	title,
-	icon,
-	color,
-	duration,
+	categories,
 	withDuration,
+	url,
 }) {
+	const category = categories[0] ?? categories[0]
+	const color = category ? category : 'white'
+	const icon =  category ? cats.find(c => c.name === category).icon : null
 	const { assetDir } = usePhp()
-	const image = img === "" ? assetDir + "img/course-placeholder.png" : img
+	const img = image === false ? assetDir + "img/course-placeholder.png" : image
 	return (
 		<Wrapper>
-			<ImageWrapper color={color}>
-				<Image src={image} alt="course image" />
+			<ImageWrapper color={color} href={url}>
+				<Image src={img} alt={`${title} image`} />
 			</ImageWrapper>
 			<Footer>
 				{withDuration ? (
@@ -28,7 +31,7 @@ export default function CourseCard({
 					>
 						<Title>{title}</Title>
 						<p style={{ fontSize: "12px", marginTop: "auto" }}>
-							Duration: {duration} hours
+							Duration: 4 hours
 						</p>
 					</div>
 				) : (
@@ -47,16 +50,20 @@ const Wrapper = styled.article`
 	overflow: hidden;
 `
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.a`
 	border: 1px solid var(${(props) => "--color-" + props.color});
 	border-radius: 7px;
 	overflow: hidden;
 	line-height: 0;
+	display: block;
+	height: 150px;
+
 `
 
 const Image = styled.img`
 	filter: grayscale(1);
 	width: 100%;
+	height: 100%;
 `
 
 const Footer = styled.footer`
