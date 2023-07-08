@@ -1,7 +1,9 @@
 import styled from "styled-components"
 import SVG from "react-inlinesvg"
+import usePhp from "../../usePhp"
 // import { Link, useLocation } from "react-router-dom"
-export default function MenuButton({ text, icon, page, setPage }) {
+export default function MenuButton({ text, icon }) {
+	const {page, setPage} = usePhp()
 	// const location = useLocation()
 	let temp = text === "Home" ? "" : text
 	if (temp.length > 0) {

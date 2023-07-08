@@ -9,8 +9,8 @@ import { useState } from "@wordpress/element"
 import GradeSelect from "./GradeSelect"
 import usePhp from "../../usePhp"
 
-export default function MyCourses({ setPage }) {
-	const { sortCoursesBy, setSortCoursesBy, coursesInfo } = usePhp()
+export default function MyCourses() {
+	const { sortCoursesBy, setSortCoursesBy, coursesInfo, setPage } = usePhp()
 	const courses = coursesInfo.slice(0, 4)
 	const [changeSort, setChangeSort] = useState(false)
 	return (
@@ -22,28 +22,28 @@ export default function MyCourses({ setPage }) {
 						<Change onClick={() => setChangeSort(true)}>Change</Change>
 					</>
 				) : (
-					<div style={{marginRight:'20px'}}>
-					<GradeSelect
-						value={sortCoursesBy}
-						name="order"
-						id="order"
-						s={[
-							{
-								value: "last-viewed",
-								display: "Last Viewed",
-								disabled: true,
-							},
-							{ value: "newest", display: "Newest" },
-							{ value: "oldest", display: "Oldest" },
-							{ value: "title", display: "Title" },
-							{ value: "duration", display: "Duration", disabled: true },
-						]}
-						height="25px"
-						width="110px"
-						onValueChange={(v) => {
-							setSortCoursesBy(v)
-						}}
-					/>
+					<div style={{ marginRight: "20px" }}>
+						<GradeSelect
+							value={sortCoursesBy}
+							name="order"
+							id="order"
+							s={[
+								{
+									value: "last-viewed",
+									display: "Last Viewed",
+									disabled: true,
+								},
+								{ value: "newest", display: "Newest" },
+								{ value: "oldest", display: "Oldest" },
+								{ value: "title", display: "Title" },
+								{ value: "duration", display: "Duration", disabled: true },
+							]}
+							height="25px"
+							width="110px"
+							onValueChange={(v) => {
+								setSortCoursesBy(v)
+							}}
+						/>
 					</div>
 				)}
 				<Button

@@ -5,14 +5,17 @@ import styled from "styled-components"
 import { Root } from "@radix-ui/react-dialog"
 import UploadModal from "./UploadModal"
 import { StyledTrigger } from "./TriggerButtons"
+import { useState } from '@wordpress/element'
 
 export default function MyCurrentClasses() {
+	const [open, setOpen] = useState(false)
+
 	return (
 		<Section>
 			<SectionHeader title="My Current Classes" hasRow>
-				<Root>
+				<Root open={open} onOpenChange={setOpen}>
 					<StyledTrigger>Upload New</StyledTrigger>
-					<UploadModal />
+					<UploadModal setOpen={setOpen} />
 				</Root>
 			</SectionHeader>
 			<Main>

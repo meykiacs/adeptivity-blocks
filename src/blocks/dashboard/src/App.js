@@ -2,37 +2,23 @@ import styled from "styled-components"
 
 import PageMenu from "./components/PageMenu"
 import TopMenu from "./components/TopMenu"
-import Home from "./components/Home"
-import Classes from "./components/Classes"
-import Journey from "./components/Journey"
-import Toolshed from "./components/Toolshed"
+
 import { QUERIES } from "./constants"
 import { PhpProvider } from "../PhpContext"
-import { useState, useEffect } from "@wordpress/element"
+import MainWrapper from "./components/MainWrapper"
 
 function App({ providerValues }) {
-	const [page, setPage] = useState("Home")
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [page])
-
 	return (
 		<PhpProvider providerValues={providerValues}>
-			{/* <GlobalStyles /> */}
 			<Wrapper>
 				<SideWrapper>
-					<PageMenu setPage={setPage} page={page} />
+					<PageMenu />
 				</SideWrapper>
 				<MidWrapper>
 					<TopWrapper>
 						<TopMenu />
 					</TopWrapper>
-					<MainWrapper>
-						{page === "Home" && <Home setPage={setPage} />}
-						{page === "Classes" && <Classes />}
-						{page === "Journey" && <Journey />}
-						{page === "Toolshed" && <Toolshed />}
-					</MainWrapper>
+					<MainWrapper />
 				</MidWrapper>
 				<Side />
 			</Wrapper>
@@ -64,16 +50,6 @@ const SideWrapper = styled.header`
 `
 const Side = styled.div`
 	flex: 1;
-`
-
-const MainWrapper = styled.main`
-	padding-left: 50px;
-	padding-right: 50px;
-
-	@media ${QUERIES.tabletAndSmaller} {
-		padding-right: 30px;
-		padding-left: 30px;
-	}
 `
 
 const TopWrapper = styled.header`

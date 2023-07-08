@@ -7,22 +7,24 @@ const PhpContext = createContext()
 // 	return true
 // }
 
-
 export const PhpProvider = ({ children, providerValues }) => {
-
-
-
 	const courses = providerValues.courses
+	const classes = providerValues.allClasses
+	const latest = providerValues.latestClasses
 
-	// const coursesRef = useRef(courses)
-	// if (!arrayEqual(courses, coursesRef.current)) {
-	// 	coursesRef.current = courses
-	// }
-	
+	const [page, setPage] = useState("Home")
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [page])
 
 	const [coursesInfo, setCoursesInfo] = useState(courses)
+	const [allClasses, setAllClasses] = useState(classes)
+	const [latestClasses, setLatestClasses] = useState(latest)
 
 	const [sortCoursesBy, setSortCoursesBy] = useState("newest")
+
+	// console.log(allClasses)
+
 
 	useEffect(() => {
 		let newCourses
@@ -34,23 +36,34 @@ export const PhpProvider = ({ children, providerValues }) => {
 				newCourses = [...coursesInfo.sort((a, b) => b.i - a.i)]
 				break
 			case "title":
-				newCourses = [...coursesInfo.sort((a, b) => a.title.localeCompare(b.title))]
+				newCourses = [
+					...coursesInfo.sort((a, b) => a.title.localeCompare(b.title)),
+				]
 				break
 			default:
 				newCourses = [...coursesInfo.sort((a, b) => a.i - b.i)]
 				break
 		}
 
-
-
 		setCoursesInfo(newCourses)
 
 		// eslint-disable-next-line
-	}, [sortCoursesBy, setCoursesInfo ])
+	}, [sortCoursesBy, setCoursesInfo])
 
 	return (
 		<PhpContext.Provider
-			value={{ ...providerValues, setSortCoursesBy, sortCoursesBy, coursesInfo }}
+			value={{
+				...providerValues,
+				setSortCoursesBy,
+				sortCoursesBy,
+				coursesInfo,
+				setAllClasses,
+				setLatestClasses,
+				page,
+				setPage,
+				allClasses,
+				latestClasses,
+			}}
 		>
 			{children}
 		</PhpContext.Provider>

@@ -45,8 +45,30 @@ class LecturePost extends Endpoint
       $entry['19'] = get_user_by('id', get_current_user_id())->user_login;
       $entry['21'] = get_user_by('id', get_current_user_id())->display_name;
       $updated = \GFAPI::update_entry($entry);
-      return new \WP_REST_Response(['entry' => $this->gravEntry['id']], 201);
+      $e = \GFAPI::get_entry($entry['id']);
+      return new \WP_REST_Response(
+        [
+          'id' => $e['id'],
+          'attendees' => $e['5'],
+          'video' => $e['1'],
+          'createdAt' => $e['date_created'],
+          'title' => $e['3'],
+          'course' => $e['4'],
+          'divergent' => intval($e['10']),
+          'lateral' => intval($e['14']),
+          'aesthetic' => intval($e['13']),
+          'system' => intval($e['11']),
+          'inspirational' => intval($e['12']),
+          'analyzed' => (!empty($e['10'])) &&
+          (!empty($e['14'])) &&
+          (!empty($e['13'])) &&
+          (!empty($e['11'])) &&
+          (!empty($e['12']))
+        ],
+        201
+      );
     };
   }
+
 
 }

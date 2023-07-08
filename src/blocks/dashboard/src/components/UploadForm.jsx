@@ -7,10 +7,14 @@ import { QUERIES } from "../constants"
 import { grades } from "../data"
 import usePhp from "../../usePhp"
 
-
-export default function UploadForm({ children, setOpen }) {
-	console.log(setOpen)
-	const { nonce, videoEndpoint, lectureEndpoint } = usePhp()
+export default function UploadForm({ setOpen, children }) {
+	const {
+		nonce,
+		videoEndpoint,
+		lectureEndpoint,
+		setAllClasses,
+		setLatestClasses,
+	} = usePhp()
 	const [entry, setEntry] = useState("")
 	const [files, setFiles] = useState([])
 	const [pleaseUpload, setPleaseUpload] = useState(false)
@@ -25,30 +29,33 @@ export default function UploadForm({ children, setOpen }) {
 			return
 		}
 		const data = new FormData(form.current)
-		data.append('entry', entry)
-		const res = await fetch(
-			lectureEndpoint,
-			{
-				method: "POST",
-				body: data,
-		
-				credentials: "same-origin",
-				headers: {
-					"X-WP-Nonce": nonce,
-				},
-			}
-		)
+		data.append("entry", entry)
+		const res = await fetch(lectureEndpoint, {
+			method: "POST",
+			body: data,
 
+			credentials: "same-origin",
+			headers: {
+				"X-WP-Nonce": nonce,
+			},
+		})
 
-		console.log(res)
+		// console.log(res)
 		const jsonData = await res.json()
-		console.log(jsonData)
+		// console.log(jsonData)
 
-		if (res.status === 201 && "entry" in jsonData) {
+		if (res.status === 201 && "id" in jsonData) {
 			setSubmitted(true)
-		} 
-		
-		setTimeout(() => {setOpen(false)}, 3000)
+			setAllClasses((prev) => [jsonData, ...prev])
+			setLatestClasses((prev) => {
+				prev.pop()
+				return [jsonData, ...prev]
+			})
+		}
+
+		setTimeout(() => {
+			setOpen(false)
+		}, 3000)
 	}
 
 	const deleteVideo = async () => {
@@ -63,9 +70,9 @@ export default function UploadForm({ children, setOpen }) {
 				},
 			})
 
-			console.log(res)
+			// console.log(res)
 			const jsonData = await res.json()
-			console.log(jsonData)
+			// console.log(jsonData)
 
 			if (res.status === 200 && "entry" in jsonData) {
 				setFiles([])
@@ -96,9 +103,9 @@ export default function UploadForm({ children, setOpen }) {
 				}
 			)
 
-			console.log(res)
+			// console.log(res)
 			const jsonData = await res.json()
-			console.log(jsonData)
+			// console.log(jsonData)
 			setUploading(false)
 
 			if (res.status === 201 && "entry" in jsonData) {
@@ -173,7 +180,7 @@ export default function UploadForm({ children, setOpen }) {
 					""
 				)}
 			</Div>
-			<Form ref={form} onSubmit={e => handleSubmit(e)}>
+			<Form ref={form} onSubmit={(e) => handleSubmit(e)}>
 				<Control>
 					<Label htmlFor="grade">Grade:</Label>
 					<GradeSelect name="grade" id="grade" s={grades} />
