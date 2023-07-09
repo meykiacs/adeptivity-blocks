@@ -184,45 +184,45 @@ const bars = [
 	},
 ]
 
-const courses = [
-	{
-		id: 1,
-		title: "Brainstorming Techniques",
-		icon: oxygen,
-		img: "",
-		color: "divergent",
-		duration: "4",
-	},
-	{
-		id: 2,
-		title: "Creating Harmony in Classroom",
-		icon: water,
-		img: "",
-		color: "aesthetic",
-		duration: "4",
-	},
-	{
-		id: 3,
-		title: "Wisdom of not Following the Crowd",
-		icon: sun,
-		img: "",
-		color: "lateral",
-		duration: "4",
-	},
-	{
-		id: 4,
-		title: "Coloring Outside the Lines",
-		icon: sun,
-		img: "",
-		color: "lateral",
-		duration: "4",
-	},
-]
+// const courses = [
+// 	{
+// 		id: 1,
+// 		title: "Brainstorming Techniques",
+// 		icon: oxygen,
+// 		img: "",
+// 		color: "divergent",
+// 		duration: "4",
+// 	},
+// 	{
+// 		id: 2,
+// 		title: "Creating Harmony in Classroom",
+// 		icon: water,
+// 		img: "",
+// 		color: "aesthetic",
+// 		duration: "4",
+// 	},
+// 	{
+// 		id: 3,
+// 		title: "Wisdom of not Following the Crowd",
+// 		icon: sun,
+// 		img: "",
+// 		color: "lateral",
+// 		duration: "4",
+// 	},
+// 	{
+// 		id: 4,
+// 		title: "Coloring Outside the Lines",
+// 		icon: sun,
+// 		img: "",
+// 		color: "lateral",
+// 		duration: "4",
+// 	},
+// ]
 
-const uploadedClasses = [
-	{ id: 1, title: "4th Grade Mathematics Prime Numbers", thumbnail: null },
-	{ id: 2, title: "7th Grade Mathematics Algebra", thumbnail: null },
-]
+// const uploadedClasses = [
+// 	{ id: 1, title: "4th Grade Mathematics Prime Numbers", thumbnail: null },
+// 	{ id: 2, title: "7th Grade Mathematics Algebra", thumbnail: null },
+// ]
 
 const tools = [
 	{
@@ -290,86 +290,86 @@ const menuBottons = [
 	},
 ]
 
-const myClasses = [
-	{
-		id: 1,
-		grade: "7th",
-		course: "Mathematics",
-		subject: "Geometry and spatial sense",
-		attendees: 21,
-		date: "2023-03-01",
-		uploadedAt: "2023-03-01 - 2:05 pm",
-		analyzed: false,
-	},
-	{
-		id: 2,
-		grade: "5th",
-		course: "Mathematics",
-		subject: "Geometry and spatial sense",
-		attendees: 21,
-		date: "2023-03-01",
-		uploadedAt: "2023-03-01 - 2:05 pm",
-		analyzed: true,
-	},
-	{
-		id: 3,
-		grade: "6th",
-		course: "Mathematics",
-		subject: "Geometry and spatial sense",
-		attendees: 21,
-		date: "2023-03-01",
-		uploadedAt: "2023-03-01 - 2:05 pm",
-		analyzed: true,
-	},
-	{
-		id: 4,
-		grade: "4th",
-		course: "Mathematics",
-		subject: "Geometry and spatial sense",
-		attendees: 21,
-		date: "2023-03-01",
-		uploadedAt: "2023-03-01 - 2:05 pm",
-		analyzed: true,
-	},
-]
+// const myClasses = [
+// 	{
+// 		id: 1,
+// 		grade: "7th",
+// 		course: "Mathematics",
+// 		subject: "Geometry and spatial sense",
+// 		attendees: 21,
+// 		date: "2023-03-01",
+// 		uploadedAt: "2023-03-01 - 2:05 pm",
+// 		analyzed: false,
+// 	},
+// 	{
+// 		id: 2,
+// 		grade: "5th",
+// 		course: "Mathematics",
+// 		subject: "Geometry and spatial sense",
+// 		attendees: 21,
+// 		date: "2023-03-01",
+// 		uploadedAt: "2023-03-01 - 2:05 pm",
+// 		analyzed: true,
+// 	},
+// 	{
+// 		id: 3,
+// 		grade: "6th",
+// 		course: "Mathematics",
+// 		subject: "Geometry and spatial sense",
+// 		attendees: 21,
+// 		date: "2023-03-01",
+// 		uploadedAt: "2023-03-01 - 2:05 pm",
+// 		analyzed: true,
+// 	},
+// 	{
+// 		id: 4,
+// 		grade: "4th",
+// 		course: "Mathematics",
+// 		subject: "Geometry and spatial sense",
+// 		attendees: 21,
+// 		date: "2023-03-01",
+// 		uploadedAt: "2023-03-01 - 2:05 pm",
+// 		analyzed: true,
+// 	},
+// ]
 
-const courseOfGroups = [
-	{
-		id: "1",
-		name: "Brainstorming Techniques",
-		duration: "4",
-		thumbnail: "",
-		group: bars[0],
-	},
-	{
-		id: "2",
-		name: "Wisdom of not Following the Crowd",
-		duration: "4",
-		thumbnail: "",
-		group: bars[1],
-	},
-	{
-		id: "3",
-		name: "Seeing through the Looking Glass",
-		duration: "4",
-		thumbnail: "",
-		group: bars[2],
-	},
-	{
-		id: "4",
-		name: "",
-		duration: "",
-		thumbnail: "",
-		group: bars[3],
-	},
-	{
-		id: "5",
-		name: "Failures or Stepping Stones",
-		duration: "4",
-		thumbnail: "",
-		group: bars[4],
-	},
-]
+// const courseOfGroups = [
+// 	{
+// 		id: "1",
+// 		name: "Brainstorming Techniques",
+// 		duration: "4",
+// 		thumbnail: "",
+// 		group: bars[0],
+// 	},
+// 	{
+// 		id: "2",
+// 		name: "Wisdom of not Following the Crowd",
+// 		duration: "4",
+// 		thumbnail: "",
+// 		group: bars[1],
+// 	},
+// 	{
+// 		id: "3",
+// 		name: "Seeing through the Looking Glass",
+// 		duration: "4",
+// 		thumbnail: "",
+// 		group: bars[2],
+// 	},
+// 	{
+// 		id: "4",
+// 		name: "",
+// 		duration: "",
+// 		thumbnail: "",
+// 		group: bars[3],
+// 	},
+// 	{
+// 		id: "5",
+// 		name: "Failures or Stepping Stones",
+// 		duration: "4",
+// 		thumbnail: "",
+// 		group: bars[4],
+// 	},
+// ]
 
 const grades = [
 	{ value: "pre-kindergarten", display: "Pre-Kindergarten" },
@@ -388,7 +388,7 @@ const grades = [
 	{ value: "12th-grade", display: "12th Grade" },
 ]
 
-const courses2 = [...courses]
+// const courses2 = [...courses]
 
 const obtainedTokens = [
 	{
@@ -428,14 +428,14 @@ const tools2 = [...tools]
 export {
 	categories,
 	bars,
-	courses,
-	uploadedClasses,
+	// courses,
+	// uploadedClasses,
 	tools,
 	menuBottons,
-	myClasses,
-	courseOfGroups,
+	// myClasses,
+	// courseOfGroups,
 	grades,
-	courses2,
+	// courses2,
 	obtainedTokens,
 	tools2,
 }

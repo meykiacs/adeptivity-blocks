@@ -8,17 +8,34 @@ import { useState, useEffect, useMemo } from "@wordpress/element"
 import usePhp from "../../usePhp"
 
 export default function AllCourses() {
-	const { sortCoursesBy, setSortCoursesBy, coursesInfo } = usePhp()
+	const { sortCoursesBy, setSortCoursesBy, coursesInfo, show, setShow } =
+		usePhp()
 	const [filter, setFilter] = useState("available")
 
-	const [courses, setCourses] = useState(useMemo(() => coursesInfo, [coursesInfo]))
+	const [courses, setCourses] = useState(
+		useMemo(() => coursesInfo, [coursesInfo])
+	)
 
 	useEffect(() => {
-	if (filter === 'in-progress') setCourses(coursesInfo.filter(c => c.status === 'in-progress'))
-	if (filter === 'available') setCourses(coursesInfo.filter(c => c.status === 'not-started'))
-	if (filter === 'passed') setCourses(coursesInfo.filter(c => c.status === 'completed'))
+		if (filter === "in-progress")
+			setCourses(coursesInfo.filter((c) => c.status === "in-progress"))
+		if (filter === "available")
+			setCourses(coursesInfo.filter((c) => c.status === "not-started"))
+		if (filter === "passed")
+			setCourses(coursesInfo.filter((c) => c.status === "completed"))
 	}, [coursesInfo, filter])
-	
+
+	console.log(show)
+	useEffect(() => {
+		if (show === "all-courses") {
+			const ref = document.getElementById("all-courses")
+			console.log(ref)
+			setTimeout(() => {
+				ref.scrollIntoView({ behavior: "smooth" })
+				setShow("default")
+			}, 200)
+		}
+	}, [])
 
 	const handleChange = (event) => {
 		setFilter(event.target.value)
@@ -36,7 +53,6 @@ export default function AllCourses() {
 							id="in-progress"
 							checked={filter === "in-progress"}
 							onChange={handleChange}
-
 						/>
 						<Label htmlFor="in-progress">In Progress</Label>
 						<input
@@ -87,7 +103,11 @@ export default function AllCourses() {
 				</SortedBy>
 			</SectionHeader>
 			<CourseCardWrapper>
-				<CourseCardList withDuration sortCoursesBy={sortCoursesBy} coursesInfo={courses} />
+				<CourseCardList
+					withDuration
+					sortCoursesBy={sortCoursesBy}
+					coursesInfo={courses}
+				/>
 			</CourseCardWrapper>
 		</Section>
 	)

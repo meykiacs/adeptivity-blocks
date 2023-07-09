@@ -23,8 +23,8 @@ export const PhpProvider = ({ children, providerValues }) => {
 
 	const [sortCoursesBy, setSortCoursesBy] = useState("newest")
 
-	// console.log(allClasses)
-
+	// for scrolling to all courses in the journey page
+	const [show, setShow] = useState('default')
 
 	useEffect(() => {
 		let newCourses
@@ -63,6 +63,8 @@ export const PhpProvider = ({ children, providerValues }) => {
 				setPage,
 				allClasses,
 				latestClasses,
+				show,
+				setShow
 			}}
 		>
 			{children}

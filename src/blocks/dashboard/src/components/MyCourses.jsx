@@ -10,7 +10,7 @@ import GradeSelect from "./GradeSelect"
 import usePhp from "../../usePhp"
 
 export default function MyCourses() {
-	const { sortCoursesBy, setSortCoursesBy, coursesInfo, setPage } = usePhp()
+	const { sortCoursesBy, setSortCoursesBy, coursesInfo, setPage, setShow } = usePhp()
 	const courses = coursesInfo.slice(0, 4)
 	const [changeSort, setChangeSort] = useState(false)
 	return (
@@ -49,7 +49,10 @@ export default function MyCourses() {
 				<Button
 					content="See All..."
 					color="primary"
-					onClick={() => setPage("Classes")}
+					onClick={() => {
+						setPage("Journey")
+						setShow('all-courses')
+					}}
 				/>
 			</SectionHeader>
 			<CourseCardWrapper>

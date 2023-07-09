@@ -17,7 +17,7 @@ export default function CourseCard({
 	const img = image === false ? assetDir + "img/course-placeholder.png" : image
 	return (
 		<Wrapper>
-			<ImageWrapper color={color} href={url}>
+			<ImageWrapper color={color} href={url} target="_blank">
 				<Image src={img} alt={`${title} image`} />
 			</ImageWrapper>
 			<Footer>

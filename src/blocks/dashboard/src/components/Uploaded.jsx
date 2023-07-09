@@ -5,7 +5,7 @@ import play from "../svgs/play.svg"
 import { Root, Trigger } from "@radix-ui/react-dialog"
 import VideoModal from "./VideoModal"
 
-export default function Uploaded({ title, video }) {
+export default function Uploaded({ title, video, course }) {
 	return (
 		<Wrapper>
 			{video ? (
@@ -17,7 +17,10 @@ export default function Uploaded({ title, video }) {
 						</Header>
 					</Trigger>
 					<Footer>
-						<Text>{title}</Text>
+						<div>
+							<Text>{course}</Text>
+							<Text>{title}</Text>
+						</div>
 						<Trigger asChild>
 							<Icon src={play} alt="play" />
 						</Trigger>
