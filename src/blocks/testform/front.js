@@ -1,4 +1,4 @@
-import { render } from "@wordpress/element"
+import { render } from "react-dom"
 import TestForm from "./TestForm"
 
 window.addEventListener("DOMContentLoaded", () => {
