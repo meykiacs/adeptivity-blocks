@@ -18,7 +18,7 @@ export default function ClassTable({ myClass }) {
 			<Dt>Date:</Dt>
 			<Dd>Not Specified</Dd>
 			<Dt>Uploaded at:</Dt>
-			<Dd>{date.toLocaleString()}</Dd>
+			<Dd><time dateTime={date.toISOString()}>{date.toLocaleString()}</time></Dd>
 		</Dl>
 	)
 }

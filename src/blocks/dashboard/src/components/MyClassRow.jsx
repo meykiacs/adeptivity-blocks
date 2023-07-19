@@ -9,7 +9,7 @@ export default function MyClassRow({ myClass }) {
 	// const newDate =  new Date(date.getTime() - date.getTimezoneOffset()*60*1000);
 	return (
 		<>
-			<LessImportantTd>{date.toLocaleString()}</LessImportantTd>
+			<LessImportantTd><time dateTime={date.toISOString()}>{date.toLocaleString()}</time></LessImportantTd>
 			<LeastImportantTd>Not Specified</LeastImportantTd>
 			<LeastImportantTd>{course}</LeastImportantTd>
 			<Td>{title}</Td>
