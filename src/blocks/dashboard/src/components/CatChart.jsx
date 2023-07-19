@@ -8,6 +8,7 @@ import {
 } from "recharts"
 
 export default function CatChart({ data, color }) {
+	data.reverse()
 	return (
 		<ResponsiveContainer width="100%" height="100%">
 			<LineChart
