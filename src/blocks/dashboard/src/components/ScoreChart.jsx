@@ -1,4 +1,4 @@
-import { Bar, Cell, BarChart } from "recharts"
+import { Bar, Cell, BarChart, YAxis } from "recharts"
 import { categories } from "../data"
 import styled from "styled-components"
 
@@ -7,6 +7,7 @@ export default function ScoreChart({ myClass }) {
 
 	return (
 		<StyledBarChart data={data} width={40} height={30} style={{ padding: "0" }}>
+			<YAxis hide domain={[0, 10]} />
 			<Bar dataKey="score">
 				{data.map((entry) => (
 					<Cell key={entry.name} fill={`var(--color-${entry.name})`} />
