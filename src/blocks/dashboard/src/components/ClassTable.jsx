@@ -3,6 +3,8 @@ import styled from "styled-components"
 export default function ClassTable({ myClass }) {
 	// const { grade, course, subject, attendees, date, uploadedAt } = myClass
 	const { course, title, createdAt, attendees } = myClass
+	const date = new Date(createdAt + ' UTC')
+
 	return (
 		<Dl>
 			<Dt>Grade:</Dt>
@@ -16,7 +18,7 @@ export default function ClassTable({ myClass }) {
 			<Dt>Date:</Dt>
 			<Dd>Not Specified</Dd>
 			<Dt>Uploaded at:</Dt>
-			<Dd>{createdAt}</Dd>
+			<Dd>{date.toLocaleString()}</Dd>
 		</Dl>
 	)
 }
