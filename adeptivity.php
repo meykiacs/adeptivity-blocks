@@ -49,9 +49,9 @@ require __DIR__ . '/includes/app/services.php';
 
 $regBlock = $container['register_blocks']
 	->add('dashboard')
-	// ->add('loginform')
-	// ->add('testform')
+	->add('auth')
 	->register();
+
 $loginCustomizer = $container['login_page_customizer']->customize();
 $auth = $container['auth']->redirectNonAdminFromAdminPanel()->removeAdminBarForNonAdmins();
 
