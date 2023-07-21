@@ -1,1 +1,1 @@
-<div id="adeptivity-auth"?></div>
+<div id="adeptivity-auth"></div>
