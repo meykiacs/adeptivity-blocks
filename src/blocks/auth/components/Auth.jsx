@@ -1,6 +1,11 @@
+import styled from "styled-components"
 
 export default function Auth() {
 	return (
-		<div>Auth</div>
+		<P>Auth</P>
 	)
 }
+
+const P = styled.p`
+	color: var(--color-primary);
+`

@@ -26,7 +26,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 
 
-define('ASSETDIR', plugin_dir_url(__FILE__));
+define('ASSETURL', plugin_dir_url(__FILE__));
 
 $container = new Container();
 
