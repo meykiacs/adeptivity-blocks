@@ -233,7 +233,7 @@ const tools = [
 			["divergent", oxygen, 3],
 			["lateral", sun, 1],
 		],
-		img: null,
+		img: 'img/connect-dots.png',
 	},
 	{
 		id: 2,
@@ -243,7 +243,7 @@ const tools = [
 			["divergent", oxygen, 1],
 			["aesthetic", water, 0],
 		],
-		img: null,
+		img: 'img/creative-anec.png',
 	},
 	{
 		id: 3,
@@ -253,7 +253,7 @@ const tools = [
 			["system", soil, 2],
 			["aesthetic", water, 1],
 		],
-		img: null,
+		img: 'img/cut-fold.png',
 	},
 	{
 		id: 4,

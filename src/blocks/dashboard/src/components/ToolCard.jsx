@@ -5,7 +5,7 @@ import usePhp from "../../usePhp"
 
 export default function ToolCard({ title, img, category, scores }) {
 	const { assetDir } = usePhp()
-	const image = img ? img : assetDir + "img/course-placeholder.png"
+	const image = img ? assetDir + img : assetDir + "img/course-placeholder.png"
 	return (
 		<Wrapper>
 			<Header>
