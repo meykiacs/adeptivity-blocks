@@ -5,7 +5,7 @@ A plugin for Adeptivity
 
 # Installation
 
-Be sure to intall [Adeptivity](https://github.com/meykiacs/adeptivity) theme first.
+Be sure to intall [Adeptivity theme](https://github.com/meykiacs/adeptivity) first.
 
 - Run `composer install`
 - Run `npm install`
