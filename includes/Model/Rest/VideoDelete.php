@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 namespace Adeptivity\Model\Rest;
+
 use Adeptivity\Model\Rest\Endpoint;
 
 class VideoDelete extends Endpoint
@@ -34,14 +35,19 @@ class VideoDelete extends Endpoint
 
   public function getCallback(): callable
   {
-    return function (\WP_REST_Request $request): \WP_REST_Response|\WP_Error {
+    /**
+     * @return \WP_REST_Response|\WP_Error
+     */
+
+    return function (\WP_REST_Request $request) {
       $entryId = $request->get_param('entry');
       $url = $this->gravEntry['1'];
       $filename = explode("/", $url);
       $filename = end($filename);
       $path = ABSPATH . 'wp-content/uploads/lectures/' . $filename;
       $success = unlink($path);
-      if (! $success) return new \WP_REST_Response(['error' => 'Server Error'], 500);
+      if (!$success)
+        return new \WP_REST_Response(['error' => 'Server Error'], 500);
 
       $result = \GFAPI::delete_entry($entryId);
       if ($result === true) {

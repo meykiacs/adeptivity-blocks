@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 namespace Adeptivity\Model\Rest;
+
 use Adeptivity\Model\Rest\Endpoint;
 
 class VideoPost extends Endpoint
@@ -25,7 +26,7 @@ class VideoPost extends Endpoint
   {
     parent::__construct('POST');
   }
-  
+
   public function getPermissionCallback(): callable
   {
     // return fn() => is_user_logged_in();
@@ -34,11 +35,14 @@ class VideoPost extends Endpoint
 
   public function getCallback(): callable
   {
-    return function (\WP_REST_Request $request) : \WP_REST_Response|\WP_Error {
+    /**
+     * @return \WP_REST_Response|\WP_Error
+     */
+    return function (\WP_REST_Request $request) {
       if (!empty($_FILES['file'])) {
         $this->uploadedFile = $_FILES['file'];
         $validate = $this->validateFile();
-        if ( ! $validate) {
+        if (!$validate) {
           return $validate;
         };
         $move = $this->moveFile();
@@ -60,7 +64,10 @@ class VideoPost extends Endpoint
     };
   }
 
-  private function validateFile(): bool|\WP_Error
+  /**
+   * @return bool|\WP_Error
+   */
+  private function validateFile()
   {
     switch ($this->uploadedFile['error']) {
       case UPLOAD_ERR_OK:
@@ -86,7 +93,11 @@ class VideoPost extends Endpoint
     return true;
   }
 
-  private function moveFile() : bool|\WP_Error {
+  /**
+   * @return bool:\WP_Error
+   */
+  private function moveFile()
+  {
     $pathinfo = pathinfo($this->uploadedFile['name']);
     $base = $pathinfo['filename'];
     $base = preg_replace('/[^a-zA-Z0-9_-]/', '_', $base);
@@ -98,7 +109,7 @@ class VideoPost extends Endpoint
     $i = 1;
     while (file_exists($this->destination)) {
       $this->filename = $base . "-$i." . $pathinfo['extension'];
-    $this->destination = ABSPATH . 'wp-content/uploads/lectures/' . $this->filename;
+      $this->destination = ABSPATH . 'wp-content/uploads/lectures/' . $this->filename;
       $i++;
     }
 
@@ -109,7 +120,11 @@ class VideoPost extends Endpoint
     return true;
   }
 
-  private function submitToGrav() : array|\WP_Error {
+  /**
+   * @return array|\WP_Error
+   */
+  private function submitToGrav()
+  {
     return \GFAPI::submit_form(1, ['input_3' => 'New Class']);
   }
 }

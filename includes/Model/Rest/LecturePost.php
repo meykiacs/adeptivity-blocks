@@ -35,7 +35,10 @@ class LecturePost extends Endpoint
 
   public function getCallback(): callable
   {
-    return function (\WP_REST_Request $request): \WP_REST_Response|\WP_Error {
+    /**
+     * @return \WP_REST_Response|\WP_Error
+     */
+    return function (\WP_REST_Request $request) {
       $params = $request->get_params();
       // there sure exists an entry because we checked and saved itit in get_permission
       $entry = $this->gravEntry;
