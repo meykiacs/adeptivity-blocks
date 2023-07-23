@@ -5,6 +5,9 @@ import { createGlobalStyle } from "styled-components"
 window.addEventListener("DOMContentLoaded", () => {
 	const root = document.getElementById("adeptivity-auth")
 	const fontUrl = root.dataset.fontUrl
+	const providedValues = {
+		homeUrl : root.dataset.homeUrl
+	}
 
 	const GlobalStyles = createGlobalStyle`
 
@@ -306,7 +309,7 @@ strong {
 `
 	render(
 		<>
-			<Auth />
+			<Auth providedValues={providedValues} />
 			<GlobalStyles />
 		</>,
 		root

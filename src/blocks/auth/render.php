@@ -34,4 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   }
 }
 ?>
-<div id="adeptivity-auth" data-font-url=<?php echo esc_attr(ASSETURL) ?>></div>
+<div 
+id="adeptivity-auth"
+data-font-url="<?php echo esc_attr(ASSETURL); ?>"
+data-home-url="<?php echo esc_attr(home_url()); ?>"
+>
+</div>
