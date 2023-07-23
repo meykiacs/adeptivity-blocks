@@ -5,43 +5,40 @@ import SiteLogo from "../components/SiteLogo"
 import Button from "../components/Button"
 import useWPContext from "../useWPContext"
 
-export default function Login({ setMode }) {
-	const { homeUrl, loginNonce, authErrors } = useWPContext()
-	const setToLostPassword = (e) => {
+export default function RP({ setMode }) {
+	const { homeUrl, rpNonce } = useWPContext()
+	const setToLogin = (e) => {
 		e.preventDefault()
-		setMode("lostpassword")
+    setMode('login')
 	}
+
 	return (
 		<Main>
 			<MaxWidthWrapper>
 				<LogoWrapper href={homeUrl}>
 					<SiteLogo />
 				</LogoWrapper>
-				<Heading>Already have an account?</Heading>
-				<H3>Login</H3>
-				{authErrors.length > 0 && authErrors.map(er => <ErrorMessage key={er}>{er}</ErrorMessage>)}
+				<Heading>Welcome Back!</Heading>
+				<H3>Set Your New Password</H3>
 				<Form method="post">
 					<Input
-						placeholder="Username/Email"
-						label="Username/Email"
+						placeholder="New Password"
+						label="new_password"
 						type="text"
-						name="user"
+						name="new_password"
 						required
 					/>
-					<Input
-						placeholder="Password"
-						label="Password"
-						type="password"
-						name="password"
-						required
+					<input
+						type="hidden"
+						name="rp_nonce"
+						value={rpNonce}
 					/>
-					<input type="hidden" name="login_nonce" value={loginNonce} />
-					<input type="hidden" name="action" value="login" />
-					<LinkToLostPassword onClick={(e) => setToLostPassword(e)}>
-						Forgot your password?
-					</LinkToLostPassword>
+					<input type="hidden" name="action" value="rp" />
+					<LinkToLogin onClick={(e) => setToLogin(e)}>
+						Back to login?
+					</LinkToLogin>
 					<Button variant="base" size="large" type="submit">
-						Login
+						Update
 					</Button>
 				</Form>
 			</MaxWidthWrapper>
@@ -88,7 +85,7 @@ const Form = styled.form`
 	height: 285px;
 `
 
-const LinkToLostPassword = styled.a`
+const LinkToLogin = styled.a`
 	margin-top: auto;
 	margin-bottom: 61px;
 	text-decoration: underline;
@@ -96,12 +93,4 @@ const LinkToLostPassword = styled.a`
 	font-weight: var(--font-weight-normal);
 	font-size: 1.3rem;
 	cursor: pointer;
-`
-
-const ErrorMessage = styled.p`
-	color: var(--color-white);
-	margin-top: 20px;
-	font-size: 1.5rem;
-	text-align: center;
-	margin-bottom: -10px;
 `
