@@ -12,6 +12,7 @@ Be sure to intall [Adeptivity theme](https://github.com/meykiacs/adeptivity) fir
 - Run `npm run build`
 - Create a directory named `lectures` in the `wp-content/uploads` directory
 - Copy the following files and directories to your plugin directory
+  - `build/`
   - `fonts/`
   - `img/`
   - `includes/`
