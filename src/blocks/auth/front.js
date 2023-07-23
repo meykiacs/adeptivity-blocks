@@ -1,5 +1,5 @@
 import { render } from "react-dom"
-import Auth from "./components/Auth"
+import Auth from "./Auth"
 import { createGlobalStyle } from "styled-components"
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -173,6 +173,7 @@ body {
 	line-height: 1;
 	height: 100%;
 	font-family: 'Open Sans', serif;
+	color: var(--color-text);
 }
 
 ol,
@@ -221,9 +222,16 @@ table {
 }
 
 html {
-	--color-white: hsl(0deg 0% 100%);
+	--color-white: hsl(0deg 0% 95%);
+	--color-black: black;
+	
 	--color-primary: hsl(152deg 100% 56%);
 	--color-secondary: hsl(215deg 65% 47%);
+	--color-secondary-dark: hsl(218deg 80% 23%);
+	
+	--color-accent: hsl(13deg 95% 57%);
+	--color-text: hsl(240deg 6% 13%);
+	
 	--color-gray-100: hsl(185deg 5% 95%);
 	--color-gray-300: hsl(190deg 5% 80%);
 	--color-gray-500: hsl(196deg 4% 60%);
@@ -232,12 +240,14 @@ html {
 
 	--color-backdrop: hsl(var(--color-gray-700) / 0.8);
 
+	--font-weight-bold: 700;
+	--font-weight-normal: 400;
+
 	font-size: 62.5%;
 }
 
 a {
 	text-decoration: none;
-	color: var(--color-text);
 }
 
 a:focus {
@@ -293,7 +303,6 @@ strong {
 		--min-tap-height: 44px;
 	}
 }
-
 `
 	render(
 		<>

@@ -11,6 +11,6 @@ export default function Edit() {
 }
 
 const Wrapper = styled.div`
-	color: white;
+	color: green;
 	width: 230px;
 `

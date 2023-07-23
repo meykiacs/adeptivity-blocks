@@ -53,7 +53,10 @@ $regBlock = $container['register_blocks']
 	->register();
 
 $loginCustomizer = $container['login_page_customizer']->customize();
-$auth = $container['auth']->redirectNonAdminFromAdminPanel()->removeAdminBarForNonAdmins();
+$auth = $container['auth']
+	->redirectNonAdminFromAdminPanel()
+	->removeAdminBarForNonAdmins()
+	->changeLoginUrl();
 
 $lecturePost = new LecturePost();
 $videoPost = new VideoPost();

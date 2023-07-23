@@ -4,6 +4,11 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+if (!is_user_logged_in()) {
+	wp_safe_redirect(home_url('/login'));
+	exit;
+}
+
 function courseInfo()
 {
 
@@ -70,14 +75,14 @@ function courseInfo()
 
 // var_dump(courseInfo()[0]); wp_die();
 
-add_filter(
-	'auth_redirect_scheme',
-	function () {
-		return 'logged_in';
-	}
-);
+// add_filter(
+// 	'auth_redirect_scheme',
+// 	function () {
+// 		return 'logged_in';
+// 	}
+// );
 
-auth_redirect();
+// auth_redirect();
 
 function adeptivity_entries_by_user()
 {
@@ -178,6 +183,7 @@ $latestClasses = array_slice(
 
 $basename = parse_url(home_url())['path'] ?? '';
 $logouturl = wp_logout_url();
+// $logouturl = wp_logout_url(home_url('/login?') . $_SERVER['QUERY_STRING']);
 $videoEndpoint = get_rest_url(null, 'adeptivity/v1/video');
 $lectureEndpoint = get_rest_url(null, 'adeptivity/v1/lecture');
 ?>
