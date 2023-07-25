@@ -55,7 +55,7 @@ export default function UploadForm({ setOpen, children }) {
 
 		setTimeout(() => {
 			setOpen(false)
-		}, 3000)
+		}, 2000)
 	}
 
 	const deleteVideo = async () => {
@@ -92,7 +92,6 @@ export default function UploadForm({ setOpen, children }) {
 			setUploading(true)
 			const res = await fetch(
 				videoEndpoint,
-				// "http://127.0.0.1:8000/?rest_route=/adeptivity/v1/video",
 				{
 					method: "POST",
 					body: data,
@@ -183,7 +182,7 @@ export default function UploadForm({ setOpen, children }) {
 			<Form ref={form} onSubmit={(e) => handleSubmit(e)}>
 				<Control>
 					<Label htmlFor="grade">Grade:</Label>
-					<GradeSelect name="grade" id="grade" s={grades} />
+					<GradeSelect name="grade" id="grade" s={grades} required/>
 				</Control>
 				<Control>
 					<Label htmlFor="course">Course:</Label>
@@ -199,7 +198,7 @@ export default function UploadForm({ setOpen, children }) {
 				</Control>
 				<Control>
 					<Label htmlFor="date">Date:</Label>
-					<TextInput type="date" id="date" name="date" />
+					<TextInput type="date" id="date" name="date" required />
 				</Control>
 				{children}
 			</Form>

@@ -115,6 +115,8 @@ function adeptivity_entries_for_dashboard()
 			'createdAt' => $e['date_created'],
 			'title' => $e['3'],
 			'course' => $e['4'],
+			'grade' => $e['23'],
+			'date' => $e['24'],
 			'divergent' => intval($e['10']),
 			'lateral' => intval($e['14']),
 			'aesthetic' => intval($e['13']),

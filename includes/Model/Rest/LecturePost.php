@@ -12,7 +12,7 @@ class LecturePost extends Endpoint
   public function __construct()
   {
     parent::__construct('POST');
-    $this->addField(new NonEmptyTextField('class_name', true))->addField(new NonEmptyTextField('course_name', true))->addField(new NonEmptyTextField('num_of_stu', true))->addField(new NonEmptyTextField('entry', true));
+    $this->addField(new NonEmptyTextField('class_name', true))->addField(new NonEmptyTextField('course_name', true))->addField(new NonEmptyTextField('num_of_stu', true))->addField(new NonEmptyTextField('entry', true))->addField(new NonEmptyTextField('date', true));
   }
 
   public function getPermissionCallback(): callable
@@ -45,6 +45,8 @@ class LecturePost extends Endpoint
       $entry['5'] = $params['num_of_stu'];
       $entry['3'] = $params['class_name'];
       $entry['4'] = $params['course_name'];
+      $entry['23'] = $params['grade'];
+      $entry['24'] = $params['date'];
       $entry['19'] = get_user_by('id', get_current_user_id())->user_login;
       $entry['21'] = get_user_by('id', get_current_user_id())->display_name;
       $updated = \GFAPI::update_entry($entry);
@@ -57,6 +59,8 @@ class LecturePost extends Endpoint
           'createdAt' => $e['date_created'],
           'title' => $e['3'],
           'course' => $e['4'],
+          'grade' => $e['23'],
+          'date' => $e['24'],
           'divergent' => intval($e['10']),
           'lateral' => intval($e['14']),
           'aesthetic' => intval($e['13']),

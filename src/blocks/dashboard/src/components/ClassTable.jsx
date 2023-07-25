@@ -1,14 +1,16 @@
 import styled from "styled-components"
+import { getLocalDateTime } from "../utils"
 
 export default function ClassTable({ myClass }) {
 	// const { grade, course, subject, attendees, date, uploadedAt } = myClass
-	const { course, title, createdAt, attendees } = myClass
-	const date = new Date(createdAt + ' UTC')
+	const { course, title, createdAt, attendees, date, grade } = myClass
+	const createdAtDate = getLocalDateTime(createdAt)
+	const classDate = getLocalDateTime(date)
 
 	return (
 		<Dl>
 			<Dt>Grade:</Dt>
-			<Dd>Not specified</Dd>
+			<Dd>{grade}</Dd>
 			<Dt>Course:</Dt>
 			<Dd>{course}</Dd>
 			<Dt>Subject:</Dt>
@@ -16,9 +18,17 @@ export default function ClassTable({ myClass }) {
 			<Dt>Attendees:</Dt>
 			<Dd>{attendees}</Dd>
 			<Dt>Date:</Dt>
-			<Dd>Not Specified</Dd>
+			<Dd>
+				<time dateTime={classDate.dateTime}>
+					{classDate.localDateTime}
+				</time>
+			</Dd>
 			<Dt>Uploaded at:</Dt>
-			<Dd><time dateTime={date.toISOString()}>{date.toLocaleString()}</time></Dd>
+			<Dd>
+				<time dateTime={createdAtDate.datetime}>
+					{createdAtDate.localDateTime}
+				</time>
+			</Dd>
 		</Dl>
 	)
 }
