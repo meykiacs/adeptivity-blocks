@@ -3,8 +3,6 @@ import SVG from "react-inlinesvg"
 import CatChart from "./CatChart"
 
 export default function StatCard({ name, icon, title, score, history }) {
-	// const image = courseThumbnail === "" ? assetDir + "img/course-placeholder.png" : courseThumbnail
-
 	return (
 		<Article>
 			<Header>
