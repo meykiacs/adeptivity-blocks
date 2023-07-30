@@ -24,12 +24,6 @@ defined('ABSPATH') or exit('Not allowed');
 
 require __DIR__ . '/vendor/autoload.php';
 
-
-
-define('ASSETURL', plugin_dir_url(__FILE__));
-
-$container = new Container();
-
 if (!defined('ADEPTIVITY_PLUGIN_NAME')) {
 	define('ADEPTIVITY_PLUGIN_NAME', plugin_basename(__FILE__));
 }
@@ -42,6 +36,11 @@ if (!defined('ADEPTIVITY_PLUGIN_URL')) {
 if (!defined('ADEPTIVITY_TEXTDOMAIN')) {
 	define('ADEPTIVITY_TEXTDOMAIN', 'adeptivity');
 }
+if (!defined('ADEPTIVITY_ASSETURL')) {
+	define('ADEPTIVITY_ASSETURL', plugin_dir_url(__FILE__));
+}
+
+$container = new Container();
 
 require __DIR__ . '/includes/app/config.php';
 require __DIR__ . '/includes/app/services.php';

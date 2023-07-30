@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   }
 }
 ?>
-<div id="adeptivity-auth" data-font-url="<?php echo esc_attr(ASSETURL); ?>"
+<div id="adeptivity-auth" data-font-url="<?php echo esc_attr(ADEPTIVITY_ASSETURL); ?>"
   data-home-url="<?php echo esc_attr(home_url()); ?>"
   data-lostpassword-nonce="<?php echo esc_attr(wp_create_nonce('adeptivity_lostpassword_action')); ?>"
   data-login-nonce="<?php echo esc_attr(wp_create_nonce('adeptivity_login_action')); ?>"
