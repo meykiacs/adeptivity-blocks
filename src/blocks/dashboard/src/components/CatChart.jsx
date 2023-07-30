@@ -8,11 +8,11 @@ import {
 } from "recharts"
 
 export default function CatChart({ data, color }) {
-	data.reverse()
+	const history = [...data].reverse()
 	return (
 		<ResponsiveContainer width="100%" height="100%">
 			<LineChart
-				data={data}
+				data={history}
 				width={400}
 				height={200}
 				margin={{
