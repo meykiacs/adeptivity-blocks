@@ -1,15 +1,22 @@
 import styled from "styled-components"
 import { QUERIES } from "../constants"
 import ScoreChart from "./ScoreChart"
+import { getLocalDateTime } from "../utils"
 
 export default function MyClassRow({ myClass }) {
 	// const { uploadedAt, grade, course, subject, attendees, date } = myClass
 	const { createdAt, course, title, attendees } = myClass
-	const date = new Date(createdAt + ' UTC')
+	const createdAtDate = getLocalDateTime(createdAt)
+	// const classDate = getLocalDateTime(date)
+	// const date = new Date(createdAt + ' UTC')
 	// const newDate =  new Date(date.getTime() - date.getTimezoneOffset()*60*1000);
 	return (
 		<>
-			<LessImportantTd><time dateTime={date.toISOString()}>{date.toLocaleString()}</time></LessImportantTd>
+			<LessImportantTd>
+				<time dateTime={createdAtDate.dateTime}>
+					{createdAtDate.localDateTime}
+				</time>
+			</LessImportantTd>
 			<LeastImportantTd>Not Specified</LeastImportantTd>
 			<LeastImportantTd>{course}</LeastImportantTd>
 			<Td>{title}</Td>
