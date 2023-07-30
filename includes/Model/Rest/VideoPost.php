@@ -29,8 +29,7 @@ class VideoPost extends Endpoint
 
   public function getPermissionCallback(): callable
   {
-    // return fn() => is_user_logged_in();
-    return '__return_true';
+    return fn() => is_user_logged_in();
   }
 
   public function getCallback(): callable
