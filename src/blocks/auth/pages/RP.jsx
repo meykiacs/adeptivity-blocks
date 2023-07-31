@@ -34,7 +34,7 @@ export default function RP({ setMode }) {
 						value={rpNonce}
 					/>
 					<input type="hidden" name="action" value="rp" />
-					<LinkToLogin onClick={(e) => setToLogin(e)}>
+					<LinkToLogin role="button" href="#" onClick={(e) => setToLogin(e)}>
 						Back to login?
 					</LinkToLogin>
 					<Button variant="base" size="large" type="submit">

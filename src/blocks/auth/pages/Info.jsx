@@ -17,7 +17,7 @@ export default function Info({ setMode }) {
 					<SiteLogo />
 				</LogoWrapper>
 				<Heading>{info}</Heading>
-				<LinkToLogin onClick={(e) => setToLogin(e)}>Back to login?</LinkToLogin>
+				<LinkToLogin href="#" role="button" onClick={(e) => setToLogin(e)}>Back to login?</LinkToLogin>
 			</MaxWidthWrapper>
 		</Main>
 	)

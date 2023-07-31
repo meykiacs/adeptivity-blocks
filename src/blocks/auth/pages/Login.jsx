@@ -11,6 +11,10 @@ export default function Login({ setMode }) {
 		e.preventDefault()
 		setMode("lostpassword")
 	}
+	const setToRegister = (e) => {
+		e.preventDefault()
+		setMode("register")
+	}
 	return (
 		<Main>
 			<MaxWidthWrapper>
@@ -40,9 +44,12 @@ export default function Login({ setMode }) {
 					/>
 					<input type="hidden" name="login_nonce" value={loginNonce} />
 					<input type="hidden" name="action" value="login" />
-					<LinkToLostPassword onClick={(e) => setToLostPassword(e)}>
+					<LinkToLostPassword role="button" href="#" onClick={(e) => setToLostPassword(e)}>
 						Forgot your password?
 					</LinkToLostPassword>
+					<LinkToRegister role="button" href="#" onClick={(e) => setToRegister(e)}>
+						Register
+					</LinkToRegister>
 					<Button variant="base" size="large" type="submit">
 						Login
 					</Button>
@@ -100,6 +107,8 @@ const LinkToLostPassword = styled.a`
 	font-size: 1.3rem;
 	cursor: pointer;
 `
+
+const LinkToRegister = LinkToLostPassword
 
 const ErrorMessage = styled.p`
 	color: var(--color-white);

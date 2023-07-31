@@ -127,6 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   data-home-url="<?php echo esc_attr(home_url()); ?>"
   data-lostpassword-nonce="<?php echo esc_attr(wp_create_nonce('adeptivity_lostpassword_action')); ?>"
   data-login-nonce="<?php echo esc_attr(wp_create_nonce('adeptivity_login_action')); ?>"
+  data-register-nonce="<?php echo esc_attr(wp_create_nonce('adeptivity_register_action')); ?>"
   data-rpnonce="<?php echo esc_attr(wp_create_nonce('adeptivity_rp_action')); ?>"
   data-mode="<?php echo esc_attr($adeptivity_auth_mode); ?>" data-info="<?php echo esc_attr($adeptivity_info); ?>">
 </div>

@@ -34,7 +34,7 @@ export default function LostPassword({ setMode }) {
 						value={lostPasswordNonce}
 					/>
 					<input type="hidden" name="action" value="lostpassword" />
-					<LinkToLogin onClick={(e) => setToLogin(e)}>
+					<LinkToLogin href="#" role="button" onClick={(e) => setToLogin(e)}>
 						Back to login?
 					</LinkToLogin>
 					<Button variant="base" size="large" type="submit">

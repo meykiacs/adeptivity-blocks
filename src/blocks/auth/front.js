@@ -246,6 +246,7 @@ html {
 	--color-text: hsl(240deg 6% 13%);
 	
 	--color-gray-100: hsl(185deg 5% 95%);
+	--color-gray-200: hsl(0deg 0% 95%);
 	--color-gray-300: hsl(190deg 5% 80%);
 	--color-gray-500: hsl(196deg 4% 60%);
 	--color-gray-700: hsl(220deg 5% 40%);

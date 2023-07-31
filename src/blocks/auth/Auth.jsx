@@ -23,7 +23,7 @@ export default function Auth({ providedValues }) {
 				) : mode === "info" ? (
 					<Info setMode={setMode} />
 				) : (
-					<Register />
+					<Register setMode={setMode} />
 				)}
 				<Footer />
 			</Wrapper>
