@@ -19,7 +19,8 @@ export default function Login({ setMode }) {
 				</LogoWrapper>
 				<Heading>Already have an account?</Heading>
 				<H3>Login</H3>
-				{authErrors.length > 0 && authErrors.map(er => <ErrorMessage key={er}>{er}</ErrorMessage>)}
+				{authErrors.length > 0 &&
+					authErrors.map((er) => <ErrorMessage key={er}>{er}</ErrorMessage>)}
 				<Form method="post">
 					<Input
 						placeholder="Username/Email"
@@ -27,6 +28,8 @@ export default function Login({ setMode }) {
 						type="text"
 						name="user"
 						required
+						// eslint-disable-next-line
+						autoFocus
 					/>
 					<Input
 						placeholder="Password"
