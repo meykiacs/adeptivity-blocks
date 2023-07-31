@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "adeptivity/principal",
+	"version": "1.0.0",
+	"title": "principal",
+	"category": "theme",
+	"icon": "menu",
+	"description": "Principal Dashboard",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "adeptivity",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"viewScript": "file:./front.js"
+}

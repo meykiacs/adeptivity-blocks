@@ -49,6 +49,7 @@ require __DIR__ . '/includes/app/services.php';
 $regBlock = $container['register_blocks']
 	->add('dashboard')
 	->add('auth')
+	->add('principal')
 	->register();
 
 $loginCustomizer = $container['login_page_customizer']->customize();
