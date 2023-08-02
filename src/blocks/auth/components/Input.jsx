@@ -40,7 +40,7 @@ const BaseInput = styled.input`
   border: none;
   padding-left: 16px;
   color: inherit;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   outline-offset: 2px;
   border-radius: 7px;
 

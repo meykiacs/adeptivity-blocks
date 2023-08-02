@@ -4,12 +4,12 @@ const SIZES = {
 	small: {
 		fontWeight: "bold",
 		fontSize: "1.5rem",
-		padding: "10px 10px",
+		padding: "3.75px 10px",
 	},
 	large: {
 		fontWeight: "normal",
 		fontSize: "1.7rem",
-		padding: "15px 15px",
+		padding: "10px 10px",
 	},
 }
 
@@ -42,7 +42,6 @@ const BaseButton = styled.button`
 	font-size: ${(p) => p.fontSize};
 	padding: ${(p) => p.padding};
 	width: ${(p) => p.width + "px"};
-	padding: 10px;
 	border-radius: 7px;
 	background-color: var(--color-accent);
 	color: var(--color-white);
