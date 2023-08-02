@@ -45,7 +45,7 @@ const BaseInput = styled.input`
 
 	&::placeholder {
 		font-weight: 400;
-		color: var(--color-text);
+		color: var(--color-gray-700);
 	}
 
 	&[disabled] {
@@ -85,7 +85,7 @@ const BaseTextArea = styled.textarea`
 
 	&::placeholder {
 		font-weight: 400;
-		color: var(--color-text);
+		color: var(--color-gray-700);
 	}
 
 	&[disabled] {
