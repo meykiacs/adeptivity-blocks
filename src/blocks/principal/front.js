@@ -268,6 +268,7 @@ html {
 
 a {
 	text-decoration: none;
+  color: var(--color-text);
 }
 
 a:focus {
