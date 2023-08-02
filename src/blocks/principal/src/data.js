@@ -5,7 +5,7 @@ import soil from "./svgs/soil.svg"
 import kick from "./svgs/kick.svg"
 import teachers from "./svgs/teachers.svg"
 import manage from "./svgs/manage.svg"
-import avatar01 from './svgs/teacher-avatar/01.svg'
+import avatar01 from './svgs/teacher/01.svg'
 
 
 const menuBottons = [
