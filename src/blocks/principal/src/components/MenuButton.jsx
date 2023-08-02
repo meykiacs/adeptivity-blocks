@@ -37,14 +37,14 @@ const ActiveButton = styled.button`
 	padding-top: 24px;
 	padding-left: 29px;
 	border-radius: 7px;
-	background-color: var(--color-gray-100);
+	background-color: var(--color-gray-200);
 	border: none;
 
 	& p {
-		font-weight: var(--font-weight-bold-700);
+		font-weight: var(--font-weight-bold);
 		font-size: 1.9rem;
 		margin-top: 7px;
-		color: var(--color-gray-black);
+		color: var(--color-black);
 	}
 `
 
@@ -60,7 +60,7 @@ const ListedButton = styled(ActiveButton)`
 	}
 
 	&:hover {
-		background-color: var(--color-gray-800);
+		background-color: var(--color-gray-200);
 		cursor: pointer;
 	}
 

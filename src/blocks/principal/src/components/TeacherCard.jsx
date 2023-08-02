@@ -18,7 +18,7 @@ export default function TeacherCard({
 					<Avatar src={avatar} />
 				</AvatarContainer>
 				<TextWrapper flex="start">
-					<P style={{ "--weight": "var(--font-weight-bold-700" }}>
+					<P style={{ "--weight": "var(--font-weight-bold" }}>
 						{family + ", " + name}
 					</P>
 					<P style={{ "--weight": "var(--font-weight-medium" }}>
@@ -33,11 +33,11 @@ export default function TeacherCard({
 					<P>
 						<br />
 					</P>
-					<P style={{ "--weight": "var(--font-weight-bold-700" }}>
+					<P style={{ "--weight": "var(--font-weight-bold" }}>
 						{dep + ", " + qualification}
 					</P>
-					<P style={{ "--weight": "var(--font-weight-bold-700" }}>{id}</P>
-					<P style={{ "--weight": "var(--font-weight-bold-700" }}>
+					<P style={{ "--weight": "var(--font-weight-bold" }}>{id}</P>
+					<P style={{ "--weight": "var(--font-weight-bold" }}>
 						{getDateAsMonthYear(new Date(timeEmployed))}
 					</P>
 				</TextWrapper>
@@ -49,7 +49,7 @@ export default function TeacherCard({
 
 const Wrapper = styled.article`
 	position: relative;
-	background-color: var(--color-gray-100);
+	background-color: var(--color-gray-200);
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 24px;

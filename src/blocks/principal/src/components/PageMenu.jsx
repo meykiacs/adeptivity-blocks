@@ -21,8 +21,7 @@ export default function PageMenu() {
 }
 
 const Wrapper = styled.nav`
-	background-color: var(--color-gray-1000);
-	/* background-color: var('--color-gray-1000'); */
+	background-color: var(--color-gray-100);
 	width: 230px;
 	padding-top: 15px;
 	padding-bottom: 300px;

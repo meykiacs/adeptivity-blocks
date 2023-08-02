@@ -159,10 +159,10 @@ const Icon = styled(SVG)`
 `
 
 const StyledTooltip = styled(Tooltip)`
-	background-color: var(--color-gray-1000);
+	background-color: var(--color-gray-100);
 	color: var(--color-black);
 	font-size: 1.1rem;
-	font-weight: var(--font-weight-light);
+	font-weight: var(--font-weight-medium);
 	max-width: 200px;
 	padding: 10px;
 	border-radius: 5px;

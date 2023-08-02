@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components"
 import { QUERIES } from "../constants"
 
-export default function SectionHeader({ title, hasRow, children }) {
+export default function SectionHeader({ title, hasRow, children, ...delegated }) {
 	return (
-		<Header hasRow={hasRow}>
+		<Header hasRow={hasRow} {...delegated}>
 			<Title hasRow={hasRow}>{title}</Title>
 			{hasRow && children}
 		</Header>
@@ -37,6 +37,6 @@ const Title = styled.h2`
 	min-height: 0vh;
 
 	/* font-size: 3.1rem; */
-	font-weight: var(--font-weight-bold-600);
+	font-weight: var(--font-weight-bold);
 	${(props) => props.hasRow && flexVariantTitle}
 `

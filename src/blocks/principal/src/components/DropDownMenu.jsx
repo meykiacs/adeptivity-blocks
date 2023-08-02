@@ -24,7 +24,7 @@ const StyledItem = styled(DropdownMenu.Item)`
 	display: block;
 	width: 152px;
 	height: 50px;
-	background-color: var(--color-gray-100);
+	background-color: var(--color-gray-200);
 	font-size: 2rem;
 	text-align: center;
 	cursor: pointer;

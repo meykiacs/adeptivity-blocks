@@ -5,7 +5,8 @@
  */
 
 if (!is_user_logged_in()) {
-	wp_safe_redirect(home_url('/login'));
+	$current_page = $_SERVER['REQUEST_URI'];
+	wp_safe_redirect(home_url('/login?' . 'redirect_to=' . $current_page));
 	exit;
 }
 
@@ -80,7 +81,9 @@ function adeptivity_score_history()
 $logouturl = wp_logout_url();
 ?>
 <div id="principal" data-assetdir="<?php echo esc_attr(ADEPTIVITY_ASSETURL) ?>"
-	data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>">
+	data-nonce="<?php echo wp_create_nonce('wp_rest'); ?>"
+	data-logouturl="<?php echo esc_attr(esc_url(wp_logout_url())); ?>"
+	>
 </div>
 
 <pre style="display: none !important" id="score-history">

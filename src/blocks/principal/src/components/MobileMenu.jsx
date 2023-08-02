@@ -4,7 +4,7 @@ import { Cross1Icon } from "@radix-ui/react-icons"
 // import SiteLogo from "./SiteLogo"
 import { menuBottons } from "../data"
 import MenuButton from "./MenuButton"
-import { UnstyledButton } from "./Buttons"
+import { UnstyledButton } from "./Button"
 
 export default function MobileMenu() {
 	return (

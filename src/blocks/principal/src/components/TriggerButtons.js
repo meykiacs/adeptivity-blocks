@@ -6,12 +6,12 @@ export const StyledTrigger = styled(Trigger)`
 	border: none;
 	display: block;
 	border-radius: 7px;
-	background-color: var(--color-error);
+	background-color: var(--color-accent);
 	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
 	padding: 8.5px 10px;
 	text-decoration: none;
 	color: var(--color-white);
-	font-weight: var(--font-weight-bold-600);
+	font-weight: var(--font-weight-bold);
 	font-size: 1.5rem;
 	line-height: 1;
 

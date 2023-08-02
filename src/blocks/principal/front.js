@@ -68,202 +68,260 @@ window.addEventListener("DOMContentLoaded", () => {
 }
 
 
-:root {
-  --font-weight-bold-700: 700;
-  --font-weight-bold-600: 600;
-  --font-weight-medium: 400;
-  --font-weight-light: 350;
-  --font-weight-lighter: 200;
 
-  --font-family: "Open Sans", sans-serif;
-  --font-family-mono: "Open Sans", sans-serif;
-  --font-family-spicy: "Open Sans", sans-serif;
-  --font-family-calligraphic: "Open Sans", sans-serif;
 
-  --color-text: #202224;
-  --color-background: #FFF;
-  --color-blurred-background: rgba(0,0,0,0.8);
-  --color-primary: #03BA6D;
-  --color-secondary: #0A4029;
-  --color-tertiary: rgba(122, 199, 152,0.9);
-  --color-decorative: rgba(143, 216, 181, 0.9);
-  --color-muted: #FFF;
-  --color-info: #FFF;
-  --color-error: #f95428;
-  --color-error-background: #FFF;
-  --color-success: #FFF;
-  --color-success-background: #FFF;
-  --color-warning: #FFF;
-  --color-warning-background: #FFF;
-  --color-gray-100: #f5f5f5;
-  --color-gray-200: #f2f2f2;
-  --color-gray-300: #e2e6ea;
-  --color-gray-500: #a6a6a6;
-  --color-gray-600: rgba(36, 38, 52, 0.5);
-  --color-gray-700: #202224;
-  --color-gray-800: rgba(245, 245, 245, 0.25);
-  --color-gray-900: #5a5a5a;
-  --color-gray-1000: #e2e2e2;
-  
-  --color-white: #fff;
-  --color-black: #000;
-  
+/* http://meyerweb.com/eric/tools/css/reset/
+  v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+	height: 100%;
+	font-family: 'Open Sans', serif;
+	color: var(--color-text);
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+	content: "";
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* GLOBAL STYLES */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	line-height: 1.5;
+	font-family: "Open Sans", serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: auto;
+}
+
+#adeptivity-auth {
+
+	/*
+    Create a stacking context, without a z-index.
+    This ensures that all portal content (modals and tooltips) will
+    float above the app.
+  */
+	isolation: isolate;
+}
+
+html {
+	--color-white: hsl(0deg 0% 95%);
+	--color-black: black;
+	
+	--color-primary: hsl(152deg 100% 56%);
+	--color-primary-dark: hsl(155deg 97% 37%);
+	--color-secondary: hsl(215deg 65% 47%);
+	--color-secondary-dark: hsl(218deg 80% 23%);
+	
+	--color-accent: hsl(13deg 95% 57%);
+	--color-text: hsl(240deg 6% 13%);
+	
+	--color-gray-100: hsl(185deg 5% 95%);
+	--color-gray-200: hsl(0deg 0% 95%);
+	--color-gray-300: hsl(190deg 5% 80%);
+	--color-gray-500: hsl(196deg 4% 65%);
+	--color-gray-700: hsl(220deg 5% 40%);
+	--color-gray-900: hsl(0,0%,35.3%);
+
+	--color-backdrop: hsl(var(--color-gray-700) / 0.8);
+
   --color-divergent: #8F96EB;
   --color-lateral: #FFCC00;
   --color-aesthetic: #44c7f3;
   --color-system: #e9964a;
   --color-inspirational: #c83737;
-  ;
-
-
-
-  --syntax-bool: #FFF;
-  --syntax-val: #FFF;
-  --syntax-str: #FFF;
-  --syntax-name: #FFF;
-  --syntax-del: #FFF;
-  --syntax-regex: #FFF;
-  --syntax-fn: #FFF;
   
-  --gradient-golden: #FFF;
-}
+	--color-blurred-background: rgba(0,0,0,0.8);
 
+	--font-weight-bold: 700;
+	--font-weight-medium: 400;
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-  v2.0 | 20110126
-  License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-  height: 100%;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	font-size: 62.5%;
 }
 
 a {
-  text-decoration: none;
-  color: var(--color-text);
-}
-
-/* GLOBAL STYLES */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  line-height: 1.45;	
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  color: var(--color-text);
-  background-color: var(--color-background);
+	text-decoration: none;
 }
 
 a:focus {
-  outline: 5px auto var(--color-primary);
+	outline: 5px auto var(--color-primary);
 }
 
-
-body, input, button, select, option {
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-medium);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	text-rendering: optimizelegibility;
 }
-
-/* 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--font-weight-bold-600);
-} */
-
-h1, h2, h3, h4, h5, h6, p {
-  text-rendering: optimizeLegibility;
-}
-
-/* p {
-  margin-bottom: 1.5em;
-  font-size: 1.8rem;
-} 
-*/
 
 em {
-  font-style: italic;
+	font-style: italic;
 }
 
 strong {
-  font-weight: var(--font-weight-bold-600);
+	font-weight: 700;
 }
 
-
 ::selection {
-  background-color: var(--color-primary);
-  color: #FFF;
+	background-color: var(--color-primary);
+	color: #fff;
 }
 
 @media (orientation: landscape) {
-  ::-webkit-scrollbar {
-    width: 9px;
-    height: 11px;
-    background-color: transparent;
-  }
 
-  ::-webkit-scrollbar-track {
-    border-radius: 3px;
-    background-color: transparent;
-  }
+	::-webkit-scrollbar {
+		width: 9px;
+		height: 11px;
+		background-color: transparent;
+	}
 
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: var(--color-gray-300);
-    background-color: 2px solid var(--color-background);
-  }
+	::-webkit-scrollbar-track {
+		border-radius: 3px;
+		background-color: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: var(--color-gray-300);
+		background-color: 2px solid var(--color-background);
+	}
 }
 
 @media (pointer: coarse) {
-html {
-  --min-tap-height: 44px;
-}
+
+	html {
+		--min-tap-height: 44px;
+	}
 }
 
 `
