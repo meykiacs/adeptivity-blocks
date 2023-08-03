@@ -25,11 +25,9 @@ export default function AllCourses() {
 			setCourses(coursesInfo.filter((c) => c.status === "completed"))
 	}, [coursesInfo, filter])
 
-	console.log(show)
 	useEffect(() => {
 		if (show === "all-courses") {
 			const ref = document.getElementById("all-courses")
-			console.log(ref)
 			setTimeout(() => {
 				ref.scrollIntoView({ behavior: "smooth" })
 				setShow("default")
