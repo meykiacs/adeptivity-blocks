@@ -2,7 +2,7 @@
 
 $adeptivity_user_mode = 'teacher';
 $adeptivity_info = '';
-$adeptivity_auth_error = [];
+$adeptivity_create_profile_error = [];
 
 function getUser($user_login)
 {
@@ -123,15 +123,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   }
 }
 ?>
-<div id="adeptivity-auth" data-font-url="<?php echo esc_attr(ADEPTIVITY_ASSETURL); ?>"
+<div id="adeptivity-createprofile" data-font-url="<?php echo esc_attr(ADEPTIVITY_ASSETURL); ?>"
   data-home-url="<?php echo esc_attr(home_url()); ?>"
-  data-lostpassword-nonce="<?php echo esc_attr(wp_create_nonce('adeptivity_lostpassword_action')); ?>"
-  data-login-nonce="<?php echo esc_attr(wp_create_nonce('adeptivity_login_action')); ?>"
-  data-register-nonce="<?php echo esc_attr(wp_create_nonce('adeptivity_register_action')); ?>"
-  data-rpnonce="<?php echo esc_attr(wp_create_nonce('adeptivity_rp_action')); ?>"
-  data-mode="<?php echo esc_attr($adeptivity_auth_mode); ?>" data-info="<?php echo esc_attr($adeptivity_info); ?>">
+  data-create-profile-nonce="<?php echo esc_attr(wp_create_nonce('adeptivity_create_profile_action')); ?>"
+  data-mode="<?php echo esc_attr($adeptivity_user_mode); ?>" data-info="<?php echo esc_attr($adeptivity_info); ?>">
 </div>
 
-<pre style="display: none !important" id="auth_errors">
-	<?php echo wp_json_encode(array_values($adeptivity_auth_error)); ?>
+<pre style="display: none !important" id="create_profile_errors">
+	<?php echo wp_json_encode(array_values($adeptivity_create_profile_error)); ?>
 </pre>

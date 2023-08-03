@@ -1,21 +1,18 @@
 import { render } from "react-dom"
-import Auth from "./Auth"
+import CreateProfile from "./CreateProfile"
 import { createGlobalStyle } from "styled-components"
 
 window.addEventListener("DOMContentLoaded", () => {
-	const root = document.getElementById("adeptivity-auth")
+	const root = document.getElementById("adeptivity-createprofile")
 	const fontUrl = root.dataset.fontUrl
 	const providedValues = {
 		homeUrl : root.dataset.homeUrl,
-		lostPasswordNonce : root.dataset.lostpasswordNonce,
-		loginNonce : root.dataset.loginNonce,
-		rpNonce : root.dataset.rpnonce,
+		createProfileNonce : root.dataset.loginNonce,
 		info : root.dataset.info,
 		mode : root.dataset.mode,
-		authErrors: JSON.parse(
-			document.getElementById("auth_errors").innerHTML
+		createProfileErrors: JSON.parse(
+			document.getElementById("create_profile_errors").innerHTML
 		),
-
 
 	}
 
@@ -320,7 +317,7 @@ strong {
 `
 	render(
 		<>
-			<Auth providedValues={providedValues} />
+			<CreateProfile providedValues={providedValues} />
 			<GlobalStyles />
 		</>,
 		root

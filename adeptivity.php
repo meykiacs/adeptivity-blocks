@@ -50,6 +50,7 @@ $regBlock = $container['register_blocks']
 	->add('dashboard')
 	->add('auth')
 	->add('principal')
+	->add('createprofile')
 	->register();
 
 $loginCustomizer = $container['login_page_customizer']->customize();
