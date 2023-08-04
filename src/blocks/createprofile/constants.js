@@ -1,6 +1,6 @@
 export const BREAKPOINTS = {
 	phone: 600,
-	tablet: 950,
+	tablet: 1000,
 	laptop: 1300,
 }
 
@@ -18,7 +18,7 @@ export const PAGEINFO = {
 			{ type: "number", name: "stucount", label: "Student Count" },
 			{ type: "date", name: "dateofbirth", label: "Date of Birth" },
 			{ type: "tel", name: "phone", label: "Phone / Fax" },
-			{ type: "text", name: "address", label: "address" },
+			{ type: "text", name: "address", label: "Address" },
 			{ type: "text", name: "city", label: "City" },
 			{ type: "text", name: "state", label: "State" },
 			{ type: "text", name: "country", label: "Country" },
@@ -33,12 +33,12 @@ export const PAGEINFO = {
 			{ type: "text", name: "family", label: "Last Name" },
 			{ type: "date", name: "estdate", label: "Establishment Date" },
 			{ type: "tel", name: "phone", label: "Phone / Fax" },
-      { type: "text", name: "address", label: "address" },
+      { type: "text", name: "address", label: "Address" },
 			{ type: "text", name: "city", label: "City" },
 			{ type: "text", name: "state", label: "State" },
 			{ type: "text", name: "country", label: "Country" },
 			{ type: "text", name: "principal", label: "Principal Name" },
-			{ type: "text", name: "principalphone", label: "Principal Phone no" },
+			{ type: "tel", name: "principalphone", label: "Principal Phone no." },
 		],
 	},
 }

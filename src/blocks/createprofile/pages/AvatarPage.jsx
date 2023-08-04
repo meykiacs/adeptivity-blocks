@@ -31,6 +31,7 @@ const AvatarPageWrapper = styled.div`
 		var(--color-primary),
 		var(--color-secondary)
 	);
+	padding-bottom: 75px;
 `
 
 const LogoWrapper = styled.a`

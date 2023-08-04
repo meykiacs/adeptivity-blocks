@@ -6,6 +6,7 @@ import Footer from "./components/Footer"
 import AvatarPage from "./pages/AvatarPage"
 import InfoPage from "./pages/InfoPage"
 
+import { QUERIES } from "./constants"
 export default function CreateProfile({ providedValues }) {
 	const [file, setFile] = useState(null)
 	const [avatarSvg, setAvatarSvg] = useState(null)
@@ -37,9 +38,19 @@ const MainContentWrapper = styled.div`
 
 	& > *:first-child {
 		flex: 1;
+		@media ${QUERIES.tabletAndSmaller} {
+			flex: revert;
+		}
 	}
 
 	& > *:last-child {
 		flex: 1.25;
+		@media ${QUERIES.tabletAndSmaller} {
+			flex: revert;
+		}
+	}
+
+	@media ${QUERIES.tabletAndSmaller} {
+		flex-direction: column;
 	}
 `

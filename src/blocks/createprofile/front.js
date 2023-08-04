@@ -232,7 +232,7 @@ table {
 }
 
 html {
-	--color-white: hsl(0deg 0% 95%);
+	--color-white: hsl(0deg 0% 100%);
 	--color-black: black;
 	
 	--color-primary: hsl(152deg 100% 56%);
