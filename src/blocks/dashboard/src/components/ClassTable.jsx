@@ -6,7 +6,6 @@ export default function ClassTable({ myClass }) {
 	const { course, title, createdAt, attendees, date, grade } = myClass
 	const createdAtDate = getLocalDateTime(createdAt)
 	const classDate = getLocalDateTime(date)
-
 	return (
 		<Dl>
 			<Dt>Grade:</Dt>

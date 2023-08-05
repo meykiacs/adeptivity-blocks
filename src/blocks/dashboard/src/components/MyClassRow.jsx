@@ -4,12 +4,11 @@ import ScoreChart from "./ScoreChart"
 import { getLocalDateTime } from "../utils"
 
 export default function MyClassRow({ myClass }) {
+	console.log(myClass)
 	// const { uploadedAt, grade, course, subject, attendees, date } = myClass
-	const { createdAt, course, title, attendees } = myClass
+	const { createdAt, course, title, attendees, grade, date } = myClass
 	const createdAtDate = getLocalDateTime(createdAt)
-	// const classDate = getLocalDateTime(date)
-	// const date = new Date(createdAt + ' UTC')
-	// const newDate =  new Date(date.getTime() - date.getTimezoneOffset()*60*1000);
+	const classDate = getLocalDateTime(date)
 	return (
 		<>
 			<LessImportantTd>
@@ -17,11 +16,11 @@ export default function MyClassRow({ myClass }) {
 					{createdAtDate.localDateTime}
 				</time>
 			</LessImportantTd>
-			<LeastImportantTd>Not Specified</LeastImportantTd>
+			<LeastImportantTd>{grade}</LeastImportantTd>
 			<LeastImportantTd>{course}</LeastImportantTd>
 			<Td>{title}</Td>
 			<LessImportantTd>{attendees}</LessImportantTd>
-			<YetLeesImportantTd>Not Specified</YetLeesImportantTd>
+			<YetLeesImportantTd>{classDate.localDateTime}</YetLeesImportantTd>
 			<Td>
 				<ScoreChart myClass={myClass} />
 			</Td>

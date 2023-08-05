@@ -1,9 +1,9 @@
 export function getLocalDateTime(dateString) {
-	const date = new Date(dateString)
+	const date = new Date(dateString + 'Z')
 	if (isNaN(date.getTime())) {
 		return {
-			datetime: "",
-			localDateTime: "",
+			datetime: dateString,
+			localDateTime: dateString,
 		}
 	}
 	return {
