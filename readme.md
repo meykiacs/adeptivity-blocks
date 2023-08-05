@@ -16,7 +16,6 @@ Be sure to intall [Adeptivity theme](https://github.com/meykiacs/adeptivity) fir
   - `fonts/`
   - `img/`
   - `includes/`
-  - `src/`
   - `styles/`
   - `vendor/`
   - `adeptivity.php`
