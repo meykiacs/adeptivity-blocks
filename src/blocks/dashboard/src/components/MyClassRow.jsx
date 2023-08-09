@@ -4,8 +4,6 @@ import ScoreChart from "./ScoreChart"
 import { getLocalDateTime } from "../utils"
 
 export default function MyClassRow({ myClass }) {
-	console.log(myClass)
-	// const { uploadedAt, grade, course, subject, attendees, date } = myClass
 	const { createdAt, course, title, attendees, grade, date } = myClass
 	const createdAtDate = getLocalDateTime(createdAt)
 	const classDate = getLocalDateTime(date)
