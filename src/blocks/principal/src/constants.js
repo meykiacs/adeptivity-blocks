@@ -1,4 +1,10 @@
-// constants.js
+import teachers from "./svgs/teachers.svg"
+import manage from "./svgs/manage.svg"
+
+export const menuBottons = [
+	{ id: 1, text: "Teachers", icon: teachers, variant: "selected" },
+	{ id: 2, text: "Manage", icon: manage, variant: "selected" },
+]
 const BREAKPOINTS = {
 	mobileMax: 600,
 	tabletMax: 900,

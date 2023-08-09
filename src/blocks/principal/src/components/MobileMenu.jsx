@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { Portal, Overlay, Close, Content } from "@radix-ui/react-dialog"
 import { Cross1Icon } from "@radix-ui/react-icons"
 // import SiteLogo from "./SiteLogo"
-import { menuBottons } from "../data"
+import { menuBottons } from "../constants"
 import MenuButton from "./MenuButton"
 import { UnstyledButton } from "./Button"
 

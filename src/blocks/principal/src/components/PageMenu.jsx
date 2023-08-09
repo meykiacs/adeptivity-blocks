@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { menuBottons } from "../data"
+import { menuBottons } from "../constants"
 import MenuButton from "./MenuButton"
 import SiteLogo from "./SiteLogo"
 
