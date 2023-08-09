@@ -1,4 +1,5 @@
 import React from "react"
+
 import {
 	LineChart,
 	Line,
@@ -9,14 +10,14 @@ import {
 	ReferenceLine,
 } from "recharts"
 
-import { scoreHistory } from "../data"
-scoreHistory.reverse()
 
 import styled from "styled-components"
 
-export default function TeacherChart() {
+export default function TeacherChart({scoreHistory}) {
 	return (
 		<Wrapper>
+			{scoreHistory.length < 1 ? <NotFoundMessage>No analyzed classes found!</NotFoundMessage>
+			:
 			<ResponsiveContainer width="100%" height="100%">
 				<LineChart
 					data={scoreHistory}
@@ -69,10 +70,18 @@ export default function TeacherChart() {
 					/>
 				</LineChart>
 			</ResponsiveContainer>
+}
 		</Wrapper>
 	)
 }
 
 const Wrapper = styled.div`
 	height: 210px;
+`
+
+const NotFoundMessage = styled.p`
+	text-align: center;
+	font-weight: var(--font-weight-medium);
+	font-size: 1.3rem;
+	color: var(--color-text);
 `

@@ -1,15 +1,15 @@
 import styled from "styled-components"
 import SVG from "react-inlinesvg"
 import TeacherChart from "./TeacherChart"
-import { getDateAsMonthYear } from "../utils"
+// import { getDateAsMonthYear } from "../utils"
+import avatar from "../svgs/teacher/01.svg"
+
 export default function TeacherCard({
-	avatar,
 	family,
 	name,
 	dep,
-	qualification,
-	id,
 	timeEmployed,
+	scoreHistory,
 }) {
 	return (
 		<Wrapper>
@@ -17,32 +17,36 @@ export default function TeacherCard({
 				<AvatarContainer>
 					<Avatar src={avatar} />
 				</AvatarContainer>
-				<TextWrapper flex="start">
-					<P style={{ "--weight": "var(--font-weight-bold" }}>
+				<div>
+					<Name style={{ "--weight": "var(--font-weight-bold" }}>
 						{family + ", " + name}
-					</P>
-					<P style={{ "--weight": "var(--font-weight-medium" }}>
-						Dep., Qualification:
-					</P>
-					<P style={{ "--weight": "var(--font-weight-medium" }}>Teacher ID:</P>
-					<P style={{ "--weight": "var(--font-weight-medium" }}>
-						Employed Since:
-					</P>
-				</TextWrapper>
-				<TextWrapper flex="end">
-					<P>
-						<br />
-					</P>
-					<P style={{ "--weight": "var(--font-weight-bold" }}>
-						{dep + ", " + qualification}
-					</P>
-					<P style={{ "--weight": "var(--font-weight-bold" }}>{id}</P>
-					<P style={{ "--weight": "var(--font-weight-bold" }}>
-						{getDateAsMonthYear(new Date(timeEmployed))}
-					</P>
-				</TextWrapper>
+					</Name>
+					<TextWrapper>
+						<div>
+							<P style={{ "--weight": "var(--font-weight-medium" }}>
+								Expert in:
+							</P>
+							{/* <P style={{ "--weight": "var(--font-weight-medium" }}>
+								Teacher ID:
+							</P> */}
+							<P style={{ "--weight": "var(--font-weight-medium" }}>
+								Years Experience:
+							</P>
+						</div>
+						<div>
+							<P style={{ "--weight": "var(--font-weight-bold" }}>
+								{dep}
+							</P>
+							{/* <P style={{ "--weight": "var(--font-weight-bold" }}>{id}</P> */}
+							<P style={{ "--weight": "var(--font-weight-bold" }}>
+								{/* {getDateAsMonthYear(new Date(timeEmployed))} */}
+								{timeEmployed}
+							</P>
+						</div>
+					</TextWrapper>
+				</div>
 			</Row>
-			<TeacherChart />
+			<TeacherChart scoreHistory={scoreHistory} />
 		</Wrapper>
 	)
 }
@@ -60,7 +64,6 @@ const Row = styled.div`
 	display: flex;
 	border-radius: 7px;
 	gap: 14px;
-	justify-content: space-between;
 	margin-bottom: 30px;
 	justify-content: flex-start;
 `
@@ -83,9 +86,18 @@ const Avatar = styled(SVG)`
 	left: 50%;
 	transform: translate(-50%, -50%);
 `
-const TextWrapper = styled.div``
+const TextWrapper = styled.div`
+	display: flex;
+	gap: 0 20px;
+`
 
 const P = styled.p`
+	font-weight: var(--weight);
+	font-size: 1.3rem;
+	line-height: 1.45;
+`
+
+const Name = styled.p`
 	font-weight: var(--weight);
 	font-size: 1.3rem;
 	line-height: 1.45;

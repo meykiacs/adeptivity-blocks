@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		logoutUrl: root.dataset.logouturl,
     nonce: root.dataset.nonce,
 
-		scoreHostory: JSON.parse(document.getElementById("score-history").innerHTML),
+		teachers: JSON.parse(document.getElementById("teachers").innerHTML),
 	}
 
 	const GlobalStyles = createGlobalStyle`

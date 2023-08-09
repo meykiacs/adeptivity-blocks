@@ -1,10 +1,12 @@
-import { teachersList } from "../data"
+import usePhp from "../../usePhp"
 import TeacherCard from "./TeacherCard"
 
 export default function TeacherGrid() {
+	const {teachers} = usePhp()
+	console.log(teachers)
 	return (
 		<>
-			{teachersList.map((t) => (
+			{teachers.map((t) => (
 				<TeacherCard key={t.id} {...t} />
 			))}
 		</>

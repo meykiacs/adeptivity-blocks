@@ -73,21 +73,9 @@ function courseInfo()
 	return ($course_info);
 }
 
-// var_dump(courseInfo()[0]); wp_die();
-
-// add_filter(
-// 	'auth_redirect_scheme',
-// 	function () {
-// 		return 'logged_in';
-// 	}
-// );
-
-// auth_redirect();
-
 function adeptivity_entries_by_user()
 {
 	$table_id = '1';
-	// $cu_user_id = wp_get_current_user()->ID;
 	$entries = GFAPI::get_entries($table_id, [
 		'status' => 'active',
 		'field_filters' => [
