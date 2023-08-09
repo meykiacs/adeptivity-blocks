@@ -11,7 +11,8 @@ export const PhpProvider = ({ children, providerValues }) => {
 	const courses = providerValues.courses
 	const classes = providerValues.allClasses
 	const latest = providerValues.latestClasses
-
+	providerValues.analyzedClasses.sort((a, b) => parseInt(a.id) - parseInt(b.id))
+	// console.log(analyzed);
 	const [page, setPage] = useState("Home")
 	useEffect(() => {
 		window.scrollTo(0, 0)
