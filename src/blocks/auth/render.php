@@ -46,7 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($redirect) {
           wp_safe_redirect($redirect);
         } else {
-          wp_safe_redirect(home_url());
+          global $container;
+          if ($container['memberpress']->isUserSchool()) {
+            wp_safe_redirect($container['auth.school_home_url']);
+            exit;
+          }
+          wp_safe_redirect($container['auth.teacher_home_url']);
+          exit;
         }
         exit;
       }
@@ -87,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         reset_password($user, $_POST['new_password']);
         $adeptivity_auth_mode = 'info';
         $adeptivity_info = 'Your Password Has Been Changed Successfuly';
-        
+
       } else {
         $adeptivity_auth_mode = 'info';
         $adeptivity_info = 'Error Happened';
@@ -104,11 +110,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   $action = $_GET['action'] ?? '';
   $login = $_GET['login'] ?? '';
   $key = $_GET['key'] ?? '';
+  global $container;
 
   if ($action === 'logout') {
+    var_dump($container['auth.login_url']);
 
     wp_logout();
-    wp_safe_redirect(home_url('/login'));
+    wp_safe_redirect($container['auth.login_url']);
+
+    exit;
+  }
+
+  if (is_user_logged_in()) {
+    if ($container['memberpress']->isUserSchool()) {
+      wp_safe_redirect($container['auth.school_home_url']);
+      exit;
+    }
+    wp_safe_redirect($container['auth.teacher_home_url']);
     exit;
   }
 
@@ -133,5 +151,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </div>
 
 <pre style="display: none !important" id="auth_errors">
-	<?php echo wp_json_encode(array_values($adeptivity_auth_error)); ?>
+  <?php echo wp_json_encode(array_values($adeptivity_auth_error)); ?>
 </pre>

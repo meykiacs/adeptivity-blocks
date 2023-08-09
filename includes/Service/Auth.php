@@ -33,13 +33,14 @@ class Auth
 
   public function changeLoginUrl()
   {
-    add_action( 'init', function() {
+    add_action('init', function () {
       global $pagenow;
-      if ( $pagenow === 'wp-login.php' ) {
-        wp_redirect( home_url( '/login?' ) . $_SERVER['QUERY_STRING'] );
+      if ($pagenow === 'wp-login.php') {
+        wp_redirect(home_url('/login?') . $_SERVER['QUERY_STRING']);
         exit;
       }
     });
     return $this;
   }
+
 }

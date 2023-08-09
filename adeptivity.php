@@ -39,6 +39,15 @@ if (!defined('ADEPTIVITY_TEXTDOMAIN')) {
 if (!defined('ADEPTIVITY_ASSETURL')) {
 	define('ADEPTIVITY_ASSETURL', plugin_dir_url(__FILE__));
 }
+if (!defined('ADEPTIVITY_TEACHER_DASH_SLUG')) {
+	define('ADEPTIVITY_TEACHER_DASH_SLUG', 'dashboard');
+}
+if (!defined('ADEPTIVITY_SCHOOL_DASH_SLUG')) {
+	define('ADEPTIVITY_SCHOOL_DASH_SLUG', 'principal');
+}
+if (!defined('ADEPTIVITY_LOGIN_SLUG')) {
+	define('ADEPTIVITY_LOGIN_SLUG', 'login');
+}
 
 $container = new Container();
 
