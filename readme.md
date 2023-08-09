@@ -24,4 +24,8 @@ Be sure to intall [Adeptivity theme](https://github.com/meykiacs/adeptivity) fir
 - In Your Wordpress installation:
   - Go to *Settings>Permalinks* and set the *permalink structure* to **Post name**
   - Go to *Settings>Reading* and set *Your homepage displays* to **A static page**. Set Homepage to `Dashboard`. Set *Post page* to any other page.
+- In your *memberpress* plugin:
+  - create a field with the name `Expert in` and another with the name `Teaching experience` in *setting>fields*.
+- In your *learndash* plugin:
+  - The course categories should be one of these values: `lateral`, `divergent`, `aesthetic`, `system`, and `inspirational`, all lower case.
   
