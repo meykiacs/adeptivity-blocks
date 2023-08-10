@@ -21,7 +21,7 @@ Be sure to intall [Adeptivity theme](https://github.com/meykiacs/adeptivity) fir
   - `adeptivity.php`
 - Create a *Page* called *Dashboard* and put a `dashboard` block in its content area.
 - Create a *Page* called *Login* and put an `auth` block in its content area.
-- Create a *Page* called *Principal* and put an `principal` block in its content area.
+- Create a *Page* called *Principal* and put a `principal` block in its content area.
 - In Your Wordpress installation:
   - Go to *Settings>Permalinks* and set the *permalink structure* to **Post name**
   - Go to *Settings>Reading* and set *Your homepage displays* to **A static page**. Set Homepage to `Dashboard`. Set *Post page* to any other page.
