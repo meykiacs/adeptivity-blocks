@@ -46,7 +46,7 @@ if (!defined('ADEPTIVITY_SCHOOL_DASH_SLUG')) {
 	define('ADEPTIVITY_SCHOOL_DASH_SLUG', 'principal');
 }
 if (!defined('ADEPTIVITY_LOGIN_SLUG')) {
-	define('ADEPTIVITY_LOGIN_SLUG', 'login');
+	define('ADEPTIVITY_LOGIN_SLUG', 'auth');
 }
 
 $container = new Container();

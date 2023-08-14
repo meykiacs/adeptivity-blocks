@@ -20,7 +20,7 @@ Be sure to intall [Adeptivity theme](https://github.com/meykiacs/adeptivity) fir
   - `vendor/`
   - `adeptivity.php`
 - Create a *Page* called *Dashboard* and put a `dashboard` block in its content area.
-- Create a *Page* called *Login* and put an `auth` block in its content area.
+- Create a *Page* called *Auth* and put an `auth` block in its content area.
 - Create a *Page* called *Principal* and put a `principal` block in its content area.
 - In Your Wordpress installation:
   - Go to *Settings>Permalinks* and set the *permalink structure* to **Post name**
