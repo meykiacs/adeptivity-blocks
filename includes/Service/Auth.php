@@ -36,7 +36,8 @@ class Auth
     add_action('init', function () {
       global $pagenow;
       if ($pagenow === 'wp-login.php') {
-        wp_redirect(home_url('/login?') . $_SERVER['QUERY_STRING']);
+        global $container;
+        wp_redirect($container['auth.login_url'] . '?' . $_SERVER['QUERY_STRING']);
         exit;
       }
     });
