@@ -1,4 +1,8 @@
 <?php
+if (is_admin() && !wp_doing_ajax()) {
+  // Return early without rendering the block in the editor
+  return '';
+}
 
 $adeptivity_user_mode = 'teacher';
 $adeptivity_info = '';
@@ -87,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         reset_password($user, $_POST['new_password']);
         $adeptivity_auth_mode = 'info';
         $adeptivity_info = 'Your Password Has Been Changed Successfuly';
-        
+
       } else {
         $adeptivity_auth_mode = 'info';
         $adeptivity_info = 'Error Happened';
@@ -130,5 +134,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </div>
 
 <pre style="display: none !important" id="create_profile_errors">
-	<?php echo wp_json_encode(array_values($adeptivity_create_profile_error)); ?>
+  <?php echo wp_json_encode(array_values($adeptivity_create_profile_error)); ?>
 </pre>

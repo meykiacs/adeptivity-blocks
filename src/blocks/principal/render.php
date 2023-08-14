@@ -1,4 +1,8 @@
 <?php
+if (is_admin() && !wp_doing_ajax()) {
+	// Return early without rendering the block in the editor
+	return '';
+}
 
 global $container;
 

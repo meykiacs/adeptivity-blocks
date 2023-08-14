@@ -1,9 +1,8 @@
 <?php
-
-/**
- * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
- */
-
+if (is_admin() && !wp_doing_ajax()) {
+	// Return early without rendering the block in the editor
+	return '';
+}
 if (!is_user_logged_in()) {
 	wp_safe_redirect(home_url('/login'));
 	exit;
