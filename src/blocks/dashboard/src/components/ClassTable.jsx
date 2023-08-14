@@ -19,7 +19,7 @@ export default function ClassTable({ myClass }) {
 			<Dt>Date:</Dt>
 			<Dd>
 				<time dateTime={classDate.dateTime}>
-					{classDate.localDateTime}
+					{date}
 				</time>
 			</Dd>
 			<Dt>Uploaded at:</Dt>

@@ -6,7 +6,6 @@ import { getLocalDateTime } from "../utils"
 export default function MyClassRow({ myClass }) {
 	const { createdAt, course, title, attendees, grade, date } = myClass
 	const createdAtDate = getLocalDateTime(createdAt)
-	const classDate = getLocalDateTime(date)
 	return (
 		<>
 			<LessImportantTd>
@@ -18,7 +17,7 @@ export default function MyClassRow({ myClass }) {
 			<LeastImportantTd>{course}</LeastImportantTd>
 			<Td>{title}</Td>
 			<LessImportantTd>{attendees}</LessImportantTd>
-			<YetLeesImportantTd>{classDate.localDateTime}</YetLeesImportantTd>
+			<YetLeesImportantTd><time>{date}</time></YetLeesImportantTd>
 			<Td>
 				<ScoreChart myClass={myClass} />
 			</Td>
