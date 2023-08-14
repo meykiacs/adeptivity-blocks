@@ -109,7 +109,7 @@ const Main = styled.div`
 `
 
 const Aside = styled.aside`
-	flex: 1;
+	flex: 1.25;
 	font-weight: var(--font-weight-medium);
 	font-size: 1.4rem;
 	padding-left: 20px;

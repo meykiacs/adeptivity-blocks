@@ -4,6 +4,12 @@ import TeacherChart from "./TeacherChart"
 // import { getDateAsMonthYear } from "../utils"
 import avatar from "../svgs/teacher/01.svg"
 
+const compareDateTimeStrings = (dateTimeString1, dateTimeString2) => {
+  const date1 = new Date(dateTimeString1);
+  const date2 = new Date(dateTimeString2);
+  return date1 - date2;
+}
+
 export default function TeacherCard({
 	family,
 	name,
@@ -11,6 +17,7 @@ export default function TeacherCard({
 	timeEmployed,
 	scoreHistory,
 }) {
+	scoreHistory.sort((a, b) => compareDateTimeStrings(a.date, b.date))
 	return (
 		<Wrapper>
 			<Row>
