@@ -25,12 +25,12 @@ import styled from "styled-components"
 export default function Edit() {
 	return (
 		<header {...useBlockProps()}>
-			<Wrapper>hi</Wrapper>
+			<Wrapper>Dashboard</Wrapper>
 		</header>
 	)
 }
 
 const Wrapper = styled.div`
-	color: white;
+	color: green;
 	width: 230px;
 `
