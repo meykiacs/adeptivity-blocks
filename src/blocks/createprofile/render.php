@@ -112,7 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   if ($action === 'logout') {
 
     wp_logout();
-    wp_safe_redirect(home_url('/login'));
+    global $container;
+    wp_safe_redirect($container['auth.login_url']);
     exit;
   }
 

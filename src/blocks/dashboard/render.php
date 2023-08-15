@@ -4,7 +4,8 @@ if (is_admin() && !wp_doing_ajax()) {
 	return '';
 }
 if (!is_user_logged_in()) {
-	wp_safe_redirect(home_url('/login'));
+	global $container;
+	wp_safe_redirect($container['auth.login_url']);
 	exit;
 }
 
@@ -172,7 +173,6 @@ $latestClasses = array_slice(
 
 $basename = parse_url(home_url())['path'] ?? '';
 $logouturl = wp_logout_url();
-// $logouturl = wp_logout_url(home_url('/login?') . $_SERVER['QUERY_STRING']);
 $videoEndpoint = get_rest_url(null, 'adeptivity/v1/video');
 $lectureEndpoint = get_rest_url(null, 'adeptivity/v1/lecture');
 ?>

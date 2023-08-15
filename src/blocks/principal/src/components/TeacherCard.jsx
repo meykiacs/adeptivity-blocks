@@ -18,6 +18,7 @@ export default function TeacherCard({
 	scoreHistory,
 }) {
 	scoreHistory.sort((a, b) => compareDateTimeStrings(a.date, b.date))
+	console.log(scoreHistory)
 	return (
 		<Wrapper>
 			<Row>
